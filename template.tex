@@ -1,0 +1,40 @@
+% SETUP
+\documentclass	[a4paper, 12pt]{article}
+\usepackage		[a4paper, inner=3cm, outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage		[utf8]{inputenc}
+\usepackage		{lipsum}
+\usepackage		{setspace}
+\usepackage		{tocloft}
+\usepackage		{titletoc}
+\usepackage		[hidelinks]{hyperref}
+\usepackage		{amssymb}
+
+% ToC SETUP
+\cftsetindents	{section}{0em}{4em}
+\cftsetindents	{subsection}{0em}{4em}
+\cftsetindents	{subsubsection}{0em}{4em}
+\renewcommand	{\contentsname}{Inhaltsverzeichnis}
+\setcounter		{tocdepth}{3}
+\setcounter		{secnumdepth}{3}
+
+% DOCUMENT SETUP
+\doublespacing
+
+%opening
+\title{\large	{THEMA}}
+\author			{}
+\date			{}
+
+\begin{document}
+\pagenumbering	{gobble}
+\input			{deckblatt.tex}
+
+% INHALTSVERZEICHNIS
+\tableofcontents \pagenumbering{Roman} \setcounter{page}{1}
+\clearpage
+
+\pagenumbering	{arabic}
+\input			{main.tex}
+
+
+\end{document}
