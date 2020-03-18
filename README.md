@@ -4,3 +4,4 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 ## TODO
 * Zitationsstil und Literaturverzeichnis entsprechen noch nicht den Spezifikationen
 * Blocksatz ist zwar gegeben, aber Worttrennungen am Zeilenende funktionieren eventuell noch nicht richtig
+* Dokumentation
