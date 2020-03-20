@@ -126,11 +126,11 @@
 \cleardoublepage
 
 % ABKÜRZUNGSVERZEICHNIS
-\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \section*{Abkürzungsverzeichnis}
-\begin{acronym}[JSONP]\itemsep0pt
+\begin{acronym}[VISBHO]\itemsep0pt
 	\input{acro.tex}
 \end{acronym}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \cleardoublepage
 
 \setcounter{savepage}{\arabic{page}}
@@ -143,19 +143,19 @@
 % LITERATURVERZEICHNIS
 % TODO Formatierung
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
-\addcontentsline{toc}{section}{Literaturverzeichnis}
 \printbibliography[title=Literaturverzeichnis]
+\addcontentsline{toc}{section}{Literaturverzeichnis}
 \cleardoublepage
 
 %TODO %ANLAGENVERZEICHNIS UND ANLAGEN
 \section*{Anlagenverzeichnis}
-% INPUT YOUR ANLAGEN HERE
 \addcontentsline{toc}{section}{Anlagen}
+\input{anlagen.tex}
 \cleardoublepage
 % EHRENWÖRTLICHE ERKLÄRUNG
 \pagenumbering	{gobble}
-\addcontentsline{toc}{section}{Ehrenwörtliche Erklärung}
 \section*{Ehrenwörtliche Erklärung}
 \input{ehrenwort.tex}
+\addcontentsline{toc}{section}{Ehrenwörtliche Erklärung}
 
 \end{document}
