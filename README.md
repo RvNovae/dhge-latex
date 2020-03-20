@@ -15,3 +15,9 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 1. Place your acronyms in acro.tex (to preserve formatting, place your longest acronym in \begin{acronym}[DHGE], in template.tex)
 1. Place your bibliography in bib (this template uses BibLaTeX).
 1. Write your text in main.tex and or require more .tex files of your own in there 
+
+### Adding bibliography
+1. Add a bibliography entry
+2. Compile the project once
+3. Run Biber
+4. Compile once more
