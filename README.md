@@ -19,5 +19,5 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 ### Adding bibliography
 1. Add a bibliography entry
 2. Compile the project once
-3. Run Biber
+3. Run Biber (`biber.exe "template"`, if you're compiling by hand)
 4. Compile once more
