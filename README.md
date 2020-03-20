@@ -4,8 +4,8 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 ## TODO
 * Literaturverzeichnis braucht eventuell noch Anpassungen, was spezielle Arten von Werken betrifft. Entspricht aber schon größtenteils den Spezifikationen
 * Blocksatz ist zwar gegeben, aber Worttrennungen am Zeilenende funktionieren eventuell noch nicht richtig
-* Dokumentation
 * Langform von Ebenda ist massiver Workaround, sollte angepasst werden
+* Abbildungen
 
 ## Instructions
 1. Install a flavour of LaTeX, preferably with an editor (I'm using MikTeX + TeXstudio)
