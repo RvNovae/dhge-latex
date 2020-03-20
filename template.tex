@@ -1,7 +1,8 @@
 % ROOT & PACKAGE SETUP
-\documentclass		[a4paper, 12pt]{article}
+\documentclass	[a4paper, 12pt]{article}
 \usepackage		[a4paper, inner=3cm, outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage		[utf8]{inputenc}
+\usepackage		{lipsum}
 \usepackage		{setspace}
 \usepackage		{tocloft}
 \usepackage		{titletoc}
@@ -10,14 +11,18 @@
 \usepackage		{fancyhdr}
 \usepackage		{acronym}
 \usepackage		{enumitem}
-\usepackage		[backend=biber, style=alphabetic, citestyle=alphabetic, giveninits=true]{biblatex} \addbibresource	{bib.bib}
-\usepackage		{babel,csquotes,xpatch}
+\usepackage		[style=german]{csquotes}
+\usepackage		[backend=biber, style=alphabetic, citestyle=alphabetic-ibid, giveninits=true, ibidtracker=true]{biblatex} 
+				\addbibresource	{bib.bib}
+\usepackage		[ngerman]{babel}
+\usepackage		{csquotes,xpatch}
 
 % DOCUMENT SETUP
 \onehalfspacing
 \setlength		{\parindent}{0cm} % Default is 15pt.
 \setlength		{\parskip}{0.5em}
 \sloppy
+\selectlanguage	{ngerman}
 
 % HEADERS & FOOTERS
 \pagestyle		{fancyplain}
@@ -39,13 +44,41 @@
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
 
-% CITATION SETUP
+% CITATION & BIBLIOGRAPHY SETUP
+\newbibmacro*{oko-cite}{%
+	\global\boolfalse{cbx:loccit}%
+	\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}{\usebibmacro{cite:ibid}}
+	{\printtext[brackets]{%
+			\printfield{labelprefix}%
+			\printfield{labelalpha}%
+			\printfield{extraalpha}%
+			\ifbool{bbx:subentry}
+			{\printfield{entrysetcount}}
+			{}}}
+}
+
+\newbibmacro*{cite:ibid}{%
+	\printtext[bibhyperref]{\bibstring[\mkibid]{ibidem}}%
+	\ifloccit
+	{\global\booltrue{cbx:loccit}}
+	{}}
+
 \DeclareCiteCommand{\footcite}[\mkbibfootnote]
 {\usebibmacro{prenote}}
 {\usebibmacro{citeindex}%
-	\printtext[brackets]{\usebibmacro{cite}}}
+	{\usebibmacro{oko-cite}}}
 {\multicitedelim}
 {\usebibmacro{postnote}}
+
+\DeclareFieldFormat{url}{\newline\url{#1}}
+\DeclareFieldFormat
+[manual,online,article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+{title}{\mkbibquote{#1\isdot}\addcomma}
+\DeclareDelimFormat[bib]{nametitledelim}{\addcolon\space}
+\DeclareNameAlias{author}{last-first}
+\DeclareNameAlias{editor}{last-first}
+\renewcommand{\finentrypunct}{}
+
 
 % CONSTANTS
 \newcommand\CTITLE		{THEMA}
