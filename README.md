@@ -13,6 +13,6 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 1. In your TeX configuration, add the TEXMF directory from this project as a TEXMF root directory and refresh the file name database (FNDB)
 1. After having installed all required packages, you should now be able to build this project and start writing
 1. template.tex contains a bunch of constants that you can change, so you don't have to tinker with the deckblatt or Ehrenwort itself
-1. Place your acronyms in acro.tex
+1. Place your acronyms in acro.tex (to preserve formatting, place your longest acronym in \begin{acronym}[DHGE], in template.tex)
 1. Place your bibliography in bib (this template uses BibLaTeX).
 1. Write your text in main.tex and or require more .tex files of your own in there 
