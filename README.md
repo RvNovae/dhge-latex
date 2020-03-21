@@ -6,6 +6,7 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 * bei Ebenda in den Fußnoten muss noch der Punkt entfernt werden
 * Langform von Ebenda ist massiver Workaround, sollte angepasst werden
 * Abbildungen
+* Performance & Ease of use
 
 ## Instructions
 1. Install a flavour of LaTeX, preferably with an editor (I'm using MikTeX + TeXstudio)
