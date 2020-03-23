@@ -86,75 +86,72 @@
 		{\global\booltrue{cbx:loccit}}
 		{}}
 
-\DeclareCiteCommand{\cite}%[\mkbibbrackets]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\cite} 
+	{\usebibmacro{prenote}}
+	{\usebibmacro{citeindex}\usebibmacro{cite}}
+	{\multicitedelim}
+	{\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\parencite}%[\mkbibbrackets]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\parencite}
+	{\usebibmacro{prenote}}
+	{\usebibmacro{citeindex}\usebibmacro{cite}}
+  	{\multicitedelim}
+  	{\usebibmacro{postnote}}
 
-  \DeclareCiteCommand{\footcite}[\mkbibfootnote]
-{\usebibmacro{prenote}}
-{\usebibmacro{citeindex}%
-	{\usebibmacro{cite}}}
-{\multicitedelim}
-{\usebibmacro{postnote}}
+\DeclareCiteCommand{\footcite}[\mkbibfootnote]
+	{\usebibmacro{prenote}}
+	{\usebibmacro{citeindex}{\usebibmacro{cite}}}
+	{\multicitedelim}
+	{\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\footcitetext}%[\mkbibfootnotetext]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\footcitetext}
+  	{\usebibmacro{prenote}}
+  	{\usebibmacro{citeindex}\usebibmacro{cite}}
+  	{\multicitedelim}
+  	{\usebibmacro{postnote}}
 
 \DeclareCiteCommand{\smartcite}[\iffootnote\mkbibbrackets\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+  	{\usebibmacro{prenote}}
+  	{\usebibmacro{citeindex}\usebibmacro{cite}}
+  	{\multicitedelim}
+  	{\usebibmacro{postnote}}
 
 \DeclareCiteCommand{\cbx@textcite}
-  {\usebibmacro{textcite:init}}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{textcite}}
-  {}
-  {\usebibmacro{textcite:postnote}}
+  	{\usebibmacro{textcite:init}}
+  	{\usebibmacro{citeindex}\usebibmacro{textcite}}
+  	{}
+  	{\usebibmacro{textcite:postnote}}
 
 \DeclareCiteCommand{\textcite}[\cbx@textcite@init\cbx@textcite]
-  {\gdef\cbx@savedkeys{}%
-   \citetrackerfalse%
-   \pagetrackerfalse%
-   \DeferNextCitekeyHook%
-   \usebibmacro{textcite:init}}
-  {\ifthenelse{\iffirstcitekey\AND\value{multicitetotal}>0}
-     {\protected@xappto\cbx@savedcites{()(\thefield{multipostnote})}%
-      \global\clearfield{multipostnote}}
-     {}%
-   \xappto\cbx@savedkeys{\thefield{entrykey},}%
-   \iffieldequals{namehash}{\cbx@lasthash}
-     {}
-     {\stepcounter{textcitetotal}%
-      \savefield{namehash}{\cbx@lasthash}}}
-  {}
-  {\protected@xappto\cbx@savedcites{%
-     [\thefield{prenote}][\thefield{postnote}]{\cbx@savedkeys}}}
+  	{\gdef\cbx@savedkeys{}%
+   		\citetrackerfalse%
+   		\pagetrackerfalse%
+   		\DeferNextCitekeyHook%
+		\usebibmacro{textcite:init}
+	}
+  	{\ifthenelse{\iffirstcitekey\AND\value{multicitetotal}>0}
+     	{\protected@xappto\cbx@savedcites{()(\thefield{multipostnote})}%
+			\global\clearfield{multipostnote}
+		}
+    {}%
+   	\xappto\cbx@savedkeys{\thefield{entrykey},}%
+   	\iffieldequals{namehash}{\cbx@lasthash}
+    {}
+    {\stepcounter{textcitetotal}\savefield{namehash}{\cbx@lasthash}}}
+  	{}
+  	{\protected@xappto\cbx@savedcites{%
+		[\thefield{prenote}][\thefield{postnote}]{\cbx@savedkeys}}
+	}
 
 % textcite has nested \DeclareCiteCommand definitions for textcite and we want to use
 % the normal textcite context
 \DeclareDelimcontextAlias{cbx@textcite}{textcite}
 
 \newrobustcmd{\cbx@textcite@init}[2]{%
-  \setcounter{textcitetotal}{0}%
-  \setcounter{textcitecount}{0}%
-  \def\cbx@savedcites{#1}#2\cbx@savedcites\empty}
+	\setcounter{textcitetotal}{0}%
+	\setcounter{textcitecount}{0}%
+	\def\cbx@savedcites{#1}#2\cbx@savedcites\empty
+}
 
 \DeclareMultiCiteCommand{\cbx@textcites}{\cbx@textcite}{}
 \DeclareMultiCiteCommand{\textcites}[\cbx@textcites@init\cbx@textcites]{\textcite}{}
@@ -165,9 +162,9 @@
 \DeclareMultiCiteCommand{\cites}[\mkbibbrackets]{\cite}{\multicitedelim}
 \DeclareMultiCiteCommand{\parencites}[\mkbibbrackets]{\parencite}{\multicitedelim}
 \DeclareMultiCiteCommand{\smartcites}[\iffootnote\mkbibbrackets\mkbibfootnote]
-  {\smartcite}{\multicitedelim}
+  	{\smartcite}{\multicitedelim}
 
-  \DeclareFieldFormat{url}{\newline\url{#1}}
+\DeclareFieldFormat{url}{\newline\url{#1}}
 \DeclareFieldFormat
 [manual,online,article,inbook,incollection,inproceedings,patent,thesis,unpublished]
 {title}{\mkbibquote{#1\isdot}\addcomma}
