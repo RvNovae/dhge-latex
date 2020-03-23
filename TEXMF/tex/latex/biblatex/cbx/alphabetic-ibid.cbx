@@ -5,42 +5,53 @@
 
 \providecommand*{\mkibid}[1]{#1}
 \renewcommand*{\iffinalcitedelim}{%
-  \ifnumequal{\value{textcitecount}}{\value{textcitetotal}-1}}
+	\ifnumequal{\value{textcitecount}}{\value{textcitetotal}-1}
+}
 
 \providebool{bbx:subentry}
 \newbool{cbx:parens}
 \newbool{cbx:loccit}
 
 \DeclareBibliographyOption[boolean]{ibidpage}[true]{%
-  \ifstrequal{#1}{true}
-    {\ExecuteBibliographyOptions{loccittracker=constrict}}
-    {\ExecuteBibliographyOptions{loccittracker=false}}}
+	\ifstrequal{#1}{true} 
+		{\ExecuteBibliographyOptions{loccittracker=constrict}}
+		{\ExecuteBibliographyOptions{loccittracker=false}}
+}
 
 \newbibmacro*{cite}{%
-\global\boolfalse{cbx:loccit}%
-	\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}{\usebibmacro{cite:ibid}}
-	{\printtext[bibhyperref]{%
-    \printfield{labelprefix}%
-    \printfield{labelalpha}%
-    \printfield{extraalpha}%
-    \ifbool{bbx:subentry}
-      {\printfield{entrysetcount}}
-	  {}}}
+	\global\boolfalse{cbx:loccit}%
+	\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}{
+		\usebibmacro{cite:ibid}
 	}
+	{\printtext[bibhyperref]{\printtext[brackets]{%
+    	\printfield{labelprefix}%
+    	\printfield{labelalpha}%
+    	\printfield{extraalpha}%
+    	\ifbool{bbx:subentry} {
+			\printfield{entrysetcount}
+		}
+	  	{}
+	}}}
+}
 
 \newbibmacro*{textcite}{%
-  \iffieldequals{namehash}{\cbx@lasthash}
-    {\setunit{\multicitedelim}}
-    {\ifnameundef{labelname}
-       {\printfield[citetitle]{labeltitle}}
-       {\printnames{labelname}}%
-     \setunit{%
-       \global\booltrue{cbx:parens}%
-       \printdelim{namelabeldelim}\bibopenbracket}%
-     \stepcounter{textcitecount}%
-     \savefield{namehash}{\cbx@lasthash}}%
-  \ifnumequal{\value{citecount}}{1}
-    {\usebibmacro{prenote}}
+	\iffieldequals{namehash}{\cbx@lasthash} {
+		\setunit{\multicitedelim}
+	}
+    {\ifnameundef{labelname} {
+		\printfield[citetitle]{labeltitle}
+		}
+    	{\printnames{labelname}}%
+    	\setunit{%
+       		\global\booltrue{cbx:parens}%
+	   		\printdelim{namelabeldelim}\bibopenbracket
+		}%
+    	\stepcounter{textcitecount}%
+		\savefield{namehash}{\cbx@lasthash}
+	}%
+  	\ifnumequal{\value{citecount}}{1} {
+		\usebibmacro{prenote}
+	}
     {}%
   \usebibmacro{cite}%
   \setunit{%
@@ -89,12 +100,12 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\footcite}%[\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+  \DeclareCiteCommand{\footcite}[\mkbibfootnote]
+{\usebibmacro{prenote}}
+{\usebibmacro{citeindex}%
+	{\usebibmacro{cite}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
 
 \DeclareCiteCommand{\footcitetext}%[\mkbibfootnotetext]
   {\usebibmacro{prenote}}
@@ -155,5 +166,14 @@
 \DeclareMultiCiteCommand{\parencites}[\mkbibbrackets]{\parencite}{\multicitedelim}
 \DeclareMultiCiteCommand{\smartcites}[\iffootnote\mkbibbrackets\mkbibfootnote]
   {\smartcite}{\multicitedelim}
+
+  \DeclareFieldFormat{url}{\newline\url{#1}}
+\DeclareFieldFormat
+[manual,online,article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+{title}{\mkbibquote{#1\isdot}\addcomma}
+\DeclareDelimFormat[bib]{nametitledelim}{\addcolon\space}
+\DeclareNameAlias{author}{last-first}
+\DeclareNameAlias{editor}{last-first}
+\renewcommand{\finentrypunct}{}
 
 \endinput
