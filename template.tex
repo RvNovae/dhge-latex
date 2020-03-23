@@ -45,42 +45,6 @@
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
 
-% CITATION & BIBLIOGRAPHY SETUP
-\newbibmacro*{oko-cite}{%
-	\global\boolfalse{cbx:loccit}%
-	\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}{\usebibmacro{cite:ibid}}
-	{\printtext[brackets]{%
-			\printfield{labelprefix}%
-			\printfield{labelalpha}%
-			\printfield{extraalpha}%
-			\ifbool{bbx:subentry}
-			{\printfield{entrysetcount}}
-			{}}}
-}
-
-\newbibmacro*{cite:ibid}{%
-	\printtext[bibhyperref]{\biblstring[\mkibid]{ibidem}}%
-	\ifloccit
-	{\global\booltrue{cbx:loccit}}
-	{}}
-
-\DeclareCiteCommand{\footcite}[\mkbibfootnote]
-{\usebibmacro{prenote}}
-{\usebibmacro{citeindex}%
-	{\usebibmacro{oko-cite}}}
-{\multicitedelim}
-{\usebibmacro{postnote}}
-
-\DeclareFieldFormat{url}{\newline\url{#1}}
-\DeclareFieldFormat
-[manual,online,article,inbook,incollection,inproceedings,patent,thesis,unpublished]
-{title}{\mkbibquote{#1\isdot}\addcomma}
-\DeclareDelimFormat[bib]{nametitledelim}{\addcolon\space}
-\DeclareNameAlias{author}{last-first}
-\DeclareNameAlias{editor}{last-first}
-\renewcommand{\finentrypunct}{}
-
-
 % CONSTANTS
 \def\CTITLE		{THEMA}
 \def\CAUTHOR		{AUTHOR}
