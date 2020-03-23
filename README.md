@@ -3,8 +3,6 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 
 ## TODO
 * Literaturverzeichnis braucht eventuell noch Anpassungen, was spezielle Arten von Werken betrifft. Entspricht aber schon größtenteils den Spezifikationen
-* bei Ebenda in den Fußnoten muss noch der Punkt entfernt werden
-* Langform von Ebenda ist massiver Workaround, sollte angepasst werden
 * Abbildungen
 * Performance & Ease of use
 
