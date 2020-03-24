@@ -25,4 +25,4 @@ Everytime you change one or more bibliography entries, you need to perform the f
 
 ### Adding Figures
 `\dhgefigure{relative_file_path_wo_extension}{caption}{reference_id}{reference_postnote}`
-`relative_file_name_wo_extension`, according to `\graphicspath`, defined in template.tex (default is `./img/`) 
+`relative_file_name_wo_extension` according to `\graphicspath`, defined in template.tex (default is `./img/`) 
