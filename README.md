@@ -24,5 +24,11 @@ Everytime you change one or more bibliography entries, you need to perform the f
 4. Compile once more
 
 ### Figures
-`\dhgefigure{relative_file_path_wo_extension}{caption}{reference_id}{reference_postnote}`
-`relative_file_name_wo_extension` according to `\graphicspath`, defined in template.tex (default is `./img/`) 
+`\dhgefigure{#1}{#2}{#3}{#4}` takes four arguments:
+1. Relative image path w/o extension (relative to `./img`, defined in template.tex)
+1. Caption
+1. Citation identifier
+1. Citation postnote
+
+#### Example use:
+\dhgefigure{mapi_outgoing_illustration}{Absenden einer MAPI Nachricht}{mapi}{MAPI spooler overview}
