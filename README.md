@@ -36,5 +36,5 @@ takes five arguments:
 
 **Example:**
 ```latex
-\dhgefigure{mapi_outgoing_illustration}{Absenden einer MAPI Nachricht}{mapi}{S. 17ff}
+\dhgefigure{mapi_outgoing_illustration}{scale=0.75}{Absenden einer MAPI Nachricht}{mapi}{S. 17ff}
 ```
