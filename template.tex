@@ -61,15 +61,15 @@
 	justification=raggedleft
 }
 
-\newcommand{\dhgefigure}[4]{
+\newcommand{\dhgefigure}[5]{
 	\begin{figure}[h]
 		%\centering
 		\begin{center}
-			\includegraphics{#1}
+			\includegraphics[#2]{#1}
 		\end{center}
 		\begin{flushright}
-			\caption{#2}
-			{\small \protect \textbf{Quelle:} \cite[#4]{#3}}
+			\caption{#3}
+			{\small \protect \textbf{Quelle:} \cite[#5]{#4}}
 		\end{flushright}
 	\end{figure}
 }
