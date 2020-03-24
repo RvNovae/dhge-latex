@@ -25,10 +25,11 @@ Everytime you change one or more bibliography entries, you need to perform the f
 
 ### Figures
 ```latex 
-\dhgefigure{#1}{#2}{#3}{#4}
+\dhgefigure{#1}{#2}{#3}{#4}{#5}
 ```
-takes four arguments:
+takes five arguments:
 1. Relative image path w/o extension (relative to `./img`, defined in template.tex)
+1. `\includegraphics` Options
 1. Caption
 1. Citation identifier
 1. Citation postnote
