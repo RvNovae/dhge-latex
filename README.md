@@ -22,3 +22,7 @@ Everytime you change one or more bibliography entries, you need to perform the f
 2. Compile the project once (`pdflatex.exe -synctex=1 -interaction=nonstopmode "template".tex`, if compiled manually)
 3. Run Biber (`biber.exe "template"`, if compiled manually)
 4. Compile once more
+
+### Adding Figures
+\dhgefigure{relative_file_name_wo_extension}{caption}{reference_id}{reference_postnote}
+relative_file_name_wo_extension, according to \graphicspath, defined in template.tex (default is ./img/) 
