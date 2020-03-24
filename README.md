@@ -6,7 +6,8 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 * Abbildungen
 * Performance & Ease of use
 
-## Instructions
+## Documentation
+### Installation
 1. Install a flavour of LaTeX, preferably with an editor (I'm using MikTeX + TeXstudio)
 1. Download/Clone the repository or use it as a template to create your own repo
 1. In your TeX configuration, add the TEXMF directory from this project as a TEXMF root directory and refresh the file name database (FNDB)
