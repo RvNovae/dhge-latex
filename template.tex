@@ -2,6 +2,7 @@
 \documentclass	[a4paper, 12pt]{article}
 \usepackage		[a4paper, inner=3cm, outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage		[utf8]{inputenc}
+\usepackage		{lipsum}
 \usepackage		{setspace}
 \usepackage		{tocloft}
 \usepackage		{titletoc}
@@ -17,6 +18,9 @@
 \usepackage		[ngerman]{babel}
 \usepackage		{csquotes,xpatch}
 \usepackage		[perpage]{footmisc}
+\usepackage		{graphicx}
+\graphicspath		{ {./img/} }
+\usepackage		{caption}
 
 % DOCUMENT SETUP
 \onehalfspacing
@@ -44,6 +48,27 @@
 % ABBILDUNGS-& TABELLENVERZEICHNIS SETUP
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
+
+% CAPTION SETUP
+\captionsetup{%
+	font=small,
+	labelfont=bf,
+	singlelinecheck=false,
+	justification=raggedleft
+}
+
+\newcommand{\dhgefigure}[4]{
+	\begin{figure}[h]
+		%\centering
+		\begin{center}
+			\includegraphics{#1}
+		\end{center}
+		\begin{flushright}
+			\caption{#2}
+			{\small \protect \textbf{Quelle:} \cite[#4]{#3}}
+		\end{flushright}
+	\end{figure}
+}
 
 % CONSTANTS
 \def\CTITLE		{THEMA}
