@@ -16,7 +16,8 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 1. Place your bibliography in bib (this template uses BibLaTeX).
 1. Write your text in main.tex and or require more .tex files of your own in there 
 
-### Adding bibliography
+### Managing Bibliography
+Everytime you change one or more bibliography entries, you need to perform the following steps:
 1. Add a bibliography entry to bib.bib
 2. Compile the project once (`pdflatex.exe -synctex=1 -interaction=nonstopmode "template".tex`, if compiled manually)
 3. Run Biber (`biber.exe "template"`, if compiled manually)
