@@ -24,11 +24,16 @@ Everytime you change one or more bibliography entries, you need to perform the f
 4. Compile once more
 
 ### Figures
-`\dhgefigure{#1}{#2}{#3}{#4}` takes four arguments:
+```latex 
+\dhgefigure{#1}{#2}{#3}{#4}
+```
+takes four arguments:
 1. Relative image path w/o extension (relative to `./img`, defined in template.tex)
 1. Caption
 1. Citation identifier
 1. Citation postnote
 
-#### Example use:
-`\dhgefigure{mapi_outgoing_illustration}{Absenden einer MAPI Nachricht}{mapi}{MAPI spooler overview}`
+**Example:**
+```latex
+\dhgefigure{mapi_outgoing_illustration}{Absenden einer MAPI Nachricht}{mapi}{MAPI spooler overview}`
+```
