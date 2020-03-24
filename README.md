@@ -3,7 +3,6 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 
 ## TODO
 * Literaturverzeichnis braucht eventuell noch Anpassungen, was spezielle Arten von Werken betrifft. Entspricht aber schon größtenteils den Spezifikationen
-* Abbildungen
 * Performance & Ease of use
 
 ## Documentation
