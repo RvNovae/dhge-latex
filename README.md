@@ -31,4 +31,4 @@ Everytime you change one or more bibliography entries, you need to perform the f
 1. Citation postnote
 
 #### Example use:
-\dhgefigure{mapi_outgoing_illustration}{Absenden einer MAPI Nachricht}{mapi}{MAPI spooler overview}
+`\dhgefigure{mapi_outgoing_illustration}{Absenden einer MAPI Nachricht}{mapi}{MAPI spooler overview}`
