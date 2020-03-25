@@ -69,7 +69,9 @@
 		\end{center}
 		\begin{flushright}
 			\caption{#3}
-			{\small \protect \textbf{Quelle:} \cite[#5]{#4}}
+			\ifthenelse{\equal{#4}{}}{}{
+				{\small \protect \textbf{Quelle:} \cite[#5]{#4}}
+			}
 		\end{flushright}
 	\end{figure}
 }
