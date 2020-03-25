@@ -4,6 +4,8 @@ WIP: Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge
 ## TODO
 * Literaturverzeichnis braucht eventuell noch Anpassungen, was spezielle Arten von Werken betrifft. Entspricht aber schon größtenteils den Spezifikationen
 * Performance & Ease of use
+* dhgeparagraph formatting
+* dhgesubparagraph
 
 ## Documentation
 ### Installation
@@ -24,8 +26,8 @@ Everytime you change one or more bibliography entries, you need to perform the f
 4. Compile once more
 
 ### Figures
-```latex 
-\dhgefigure{#1}{#2}{#3}{#4}{#5}
+```latex
+\dhgefigure{mapi_outgoing_illustration}{scale=0.75}{Absenden einer MAPI Nachricht}{mapi}{S. 17ff}
 ```
 takes five arguments:
 1. Relative image path w/o extension (relative to `./img`, defined in template.tex)
@@ -34,7 +36,9 @@ takes five arguments:
 1. Citation identifier
 1. Citation postnote
 
-**Example:**
+### SubSubSubSection
+If need a fourth level section, you may use `\dhgeparagraph{}`
 ```latex
-\dhgefigure{mapi_outgoing_illustration}{scale=0.75}{Absenden einer MAPI Nachricht}{mapi}{S. 17ff}
+\dhgeparagraph{This is a SubSubSubSection}
 ```
+**This still requires some formatting
