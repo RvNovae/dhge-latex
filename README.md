@@ -41,4 +41,4 @@ If need a fourth level section, you may use `\dhgeparagraph{}`
 ```latex
 \dhgeparagraph{This is a SubSubSubSection}
 ```
-**This still requires some formatting
+**This still requires some formatting**
