@@ -19,33 +19,36 @@
 \usepackage		{csquotes,xpatch}
 \usepackage		[perpage]{footmisc}
 \usepackage		{graphicx}
-\graphicspath		{ {./img/} }
+\graphicspath	{ {./img/} }
 \usepackage		{caption}
+\usepackage		{ifthen}
 
 % DOCUMENT SETUP
 \onehalfspacing
 \setlength		{\parindent}{0cm} % Default is 15pt.
 \setlength		{\parskip}{0.5em}
-\sloppy
+\widowpenalty10000
+\clubpenalty10000
+
 \selectlanguage	{ngerman}
 
 % HEADERS & FOOTERS
 \pagestyle		{fancyplain}
 \fancyfoot		{}
 \fancyhf		{}
-\renewcommand		{\headrulewidth}{0pt}
-\renewcommand		{\footrulewidth}{0pt}
+\renewcommand	{\headrulewidth}{0pt}
+\renewcommand	{\footrulewidth}{0pt}
 \fancyhead		[c]{\thepage}
 
 % ToC SETUP
-\cftsetindents		{section}{0em}{4em}
-\cftsetindents		{subsection}{0em}{4em}
-\cftsetindents		{subsubsection}{0em}{4em}
-\renewcommand		{\contentsname}{Inhaltsverzeichnis}
+\cftsetindents	{section}{0em}{4em}
+\cftsetindents	{subsection}{0em}{4em}
+\cftsetindents	{subsubsection}{0em}{4em}
+\renewcommand	{\contentsname}{Inhaltsverzeichnis}
 \setcounter		{tocdepth}{3}
-\setcounter		{secnumdepth}{3}
+\setcounter		{secnumdepth}{5}
 
-% ABBILDUNGS-& TABELLENVERZEICHNIS SETUP
+% ABBILDUNGEN UND TABELLEN SETUP 
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
 \addto{\captionsngerman}{%
@@ -63,7 +66,6 @@
 
 \newcommand{\dhgefigure}[5]{
 	\begin{figure}[h]
-		%\centering
 		\begin{center}
 			\includegraphics[#2]{#1}
 		\end{center}
