@@ -60,21 +60,23 @@
 \captionsetup{%
 	font=small,
 	labelfont=bf,
-	singlelinecheck=false,
-	justification=raggedleft
+	singlelinecheck=false
 }
 
-\newcommand{\dhgefigure}[5]{
+\DeclareDocumentCommand{\dhgefigure}{m m m O{} O{}}
+{
 	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[#2]{#1}
 		\end{center}
-		\begin{flushright}
-			\caption{#3}
-			\ifthenelse{\equal{#4}{}}{}{
+		\caption{#3}
+	
+		\ifx #4\empty \else
+			\ifx #5\empty \else
 				{\small \protect \textbf{Quelle:} \cite[#5]{#4}}
-			}
-		\end{flushright}
+			\fi
+		\fi
+	
 	\end{figure}
 }
 
