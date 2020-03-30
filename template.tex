@@ -19,11 +19,12 @@
 \usepackage		{csquotes,xpatch}
 \usepackage		[perpage]{footmisc}
 \usepackage		{graphicx}
-\graphicspath		{ {./img/} }
+\graphicspath	{ {./img/} }
 \usepackage		{caption}
 \usepackage		{ifthen}
 \usepackage		{xparse}
 \usepackage		{float}
+\usepackage		{etoolbox}
 
 % DOCUMENT SETUP
 \onehalfspacing
@@ -38,16 +39,16 @@
 \pagestyle		{fancyplain}
 \fancyfoot		{}
 \fancyhf		{}
-\renewcommand		{\headrulewidth}{0pt}
-\renewcommand		{\footrulewidth}{0pt}
+\renewcommand	{\headrulewidth}{0pt}
+\renewcommand	{\footrulewidth}{0pt}
 \fancyhead		[c]{\thepage}
 \setlength		{\headheight}{15pt}
 
 % ToC SETUP
-\cftsetindents		{section}{0em}{4em}
-\cftsetindents		{subsection}{0em}{4em}
-\cftsetindents		{subsubsection}{0em}{4em}
-\renewcommand		{\contentsname}{Inhaltsverzeichnis}
+\cftsetindents	{section}{0em}{4em}
+\cftsetindents	{subsection}{0em}{4em}
+\cftsetindents	{subsubsection}{0em}{4em}
+\renewcommand	{\contentsname}{Inhaltsverzeichnis}
 \setcounter		{tocdepth}{3}
 \setcounter		{secnumdepth}{5}
 
@@ -85,6 +86,19 @@
 	\end{figure}
 }
 
+% AUTISTIC CONDITIONALS
+% This hides ToF and ToT if they are empty
+\makeatletter
+\AtEndEnvironment{figure}{\gdef\there@is@a@figure{}} 
+\AtEndEnvironment{table}{\gdef\there@is@a@table{}} 
+\AtEndDocument{\ifdefined\there@is@a@figure\label{fig:was:used:in:doc}\fi}
+\AtEndDocument{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
+\newcommand{\conditionalLoF}{\@ifundefined{r@fig:was:used:in:doc}{}
+	{\addcontentsline{toc}{section}{\listfigurename} \listoffigures \cleardoublepage}}%
+\newcommand{\conditionalLoT}{\@ifundefined{r@tab:was:used:in:doc}{}
+	{\addcontentsline{toc}{section}{\listtablename} \listoftables \cleardoublepage}}%
+\makeatother
+
 % PARAGRAPH SETUP
 \newcommand{\dhgeparagraph}[1]{\paragraph{#1}\mbox{}\\\vspace{-1.5em}}
 
@@ -111,20 +125,16 @@
 \cleardoublepage
 
 % ABBILDUNGSVERZEICHNIS
-\phantomsection
-\addcontentsline{toc}{section}{\listfigurename}
-\listoffigures
-\cleardoublepage
+%\phantomsection
+\conditionalLoF
 
 % TABELLENVERZEICHNIS
-\phantomsection
-\addcontentsline{toc}{section}{\listtablename}
-\listoftables
-\cleardoublepage
+%\phantomsection
+\conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
 \section*{Abkürzungsverzeichnis}
-\begin{acronym}[DHGE]\itemsep0pt
+\begin{acronym}[VISBHO]\itemsep0pt
 	\input{acro.tex}
 \end{acronym}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
