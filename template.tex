@@ -4,7 +4,6 @@
 \usepackage		[utf8]{inputenc}
 \usepackage		{lipsum}
 \usepackage		{setspace}
-\usepackage		{tocloft}
 \usepackage		{titletoc}
 \usepackage		[hyperfootnotes=false, hidelinks]{hyperref}
 \usepackage		{amssymb}
@@ -25,6 +24,7 @@
 \usepackage		{xparse}
 \usepackage		{float}
 \usepackage		{etoolbox}
+\usepackage		{tocloft}
 
 % DOCUMENT SETUP
 \onehalfspacing
@@ -55,18 +55,33 @@
 % ABBILDUNGEN UND TABELLEN SETUP 
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
+
 \addto{\captionsngerman}{%
 	\renewcommand*{\figurename}{Abb.}
 	\renewcommand*{\tablename}{Tab.}
 }
+
+\makeatletter
+\renewcommand{\cftfigpresnum}{Abb. }
+\renewcommand{\cfttabpresnum}{Tab. }
+
+\renewcommand{\cftfigaftersnum}{:}
+\renewcommand{\cfttabaftersnum}{:}
+
+\setlength{\cftfignumwidth}{2cm}
+\setlength{\cfttabnumwidth}{2cm}
+
+\setlength{\cftfigindent}{0cm}
+\setlength{\cfttabindent}{0cm}
+\makeatother
 
 % CAPTION SETUP
 \captionsetup{%
 	font=small,
 	labelfont=bf,
 	singlelinecheck=false,
-	skip=0pt,
-	belowskip=10pt
+	skip=10pt,
+	belowskip=0pt
 }
 
 \DeclareDocumentCommand{\dhgefigure}{O{h} m m m O{} O{}}
@@ -89,10 +104,12 @@
 % AUTISTIC CONDITIONALS
 % This hides ToF and ToT if they are empty
 \makeatletter
-\AtEndEnvironment{figure}{\gdef\there@is@a@figure{}} 
-\AtEndEnvironment{table}{\gdef\there@is@a@table{}} 
-\AtEndDocument{\ifdefined\there@is@a@figure\label{fig:was:used:in:doc}\fi}
-\AtEndDocument{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
+\AtEndEnvironment	{figure}{\gdef\there@is@a@figure{}} 
+\AtEndEnvironment	{table}{\gdef\there@is@a@table{}} 
+
+\AtEndDocument		{\ifdefined\there@is@a@figure\label{fig:was:used:in:doc}\fi}
+\AtEndDocument		{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
+
 \newcommand{\conditionalLoF}{\@ifundefined{r@fig:was:used:in:doc}{}
 	{\addcontentsline{toc}{section}{\listfigurename} \listoffigures \cleardoublepage}}%
 \newcommand{\conditionalLoT}{\@ifundefined{r@tab:was:used:in:doc}{}
