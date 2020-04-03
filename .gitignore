@@ -11,3 +11,4 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.synctex(busy)

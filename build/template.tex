@@ -1,25 +1,27 @@
 % ROOT & PACKAGE SETUP
 \documentclass	[a4paper, 12pt]{article}
 
-% management of all packages
+% management for all packages
 \input{package.config.tex}
-\selectlanguage	{ngerman}
 
+% setups and commands
 \input{com.tex}
 \input{setup.tex}
+
+% configuration of global definitions
 \input{../config.tex}
 
-\addbibresource	{literatur.bib}
-\graphicspath	{ {../img/} }
+\addbibresource	{../literatur.bib}
+\graphicspath	{../img/}
 
-%opening
+% opening
 \title{{\LARGE \textbf{\CTITLE}}}
 \author			{}
 \date			{}
 
 \begin{document}
 \pagenumbering	{gobble}
-\input			{deckblatt.tex}
+\input			{./deckblatt.tex}
 
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
@@ -34,7 +36,7 @@
 
 % ABKÜRZUNGSVERZEICHNIS
 \section*{Abkürzungsverzeichnis}
-\begin{acronym}[VISBHO]\itemsep0pt
+\begin{acronym}[DHGE]\itemsep0pt
 	\input{../abKurz.tex}
 \end{acronym}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
@@ -54,16 +56,16 @@
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 \cleardoublepage
 
-%TODO %ANLAGENVERZEICHNIS UND ANLAGEN
+% TODO %ANLAGENVERZEICHNIS UND ANLAGEN
 \section*{Anlagenverzeichnis}
 \addcontentsline{toc}{section}{Anlagen}
 \input{../anlagen.tex}
 \cleardoublepage
 
 % EHRENWÖRTLICHE ERKLÄRUNG
-\pagenumbering	{gobble}
+\pagestyle{empty}
 \section*{Ehrenwörtliche Erklärung}
 \addcontentsline{toc}{section}{Ehrenwörtliche Erklärung}
-\input{ehrenwort.tex}
+\input{./ehrenwort.tex}
 
 \end{document}
