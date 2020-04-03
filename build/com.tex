@@ -1,0 +1,39 @@
+% dhgefigure -> ...
+\DeclareDocumentCommand{\dhgefigure}{O{h} m m m O{} O{}}
+{
+	\begin{figure}[#1]
+		\begin{center}
+			\includegraphics[#3]{#2}
+		\end{center}
+		\caption{#4}
+	
+		\ifx #5\empty \else
+			\ifx #6\empty \else
+				{\small \protect \textbf{Quelle:} \cite[#6]{#5}}
+			\fi
+		\fi
+	
+	\end{figure}
+}
+
+\newcommand{\markBox}[2]
+{
+    \def\default{#2 {$\square$} #2 {$\square$} #2 {$\square$} #2 {$\square$}}
+
+    \ifnum#1 = 1
+    \def\default{#2 {$\boxtimes$} #2 {$\square$} #2 {$\square$} #2 {$\square$}}
+    \else
+        \ifnum#1 = 2
+        \def\default{#2 {$\square$} #2 {$\boxtimes$} #2 {$\square$} #2 {$\square$}}
+        \else
+            \ifnum#1 = 3
+            \def\default{#2 {$\square$} #2 {$\square$} #2 {$\boxtimes$} #2 {$\square$}}
+            \else
+                \ifnum#1 = 4
+                \def\default{#2 {$\square$} #2 {$\square$} #2 {$\square$} #2 {$\boxtimes$}}
+                \fi
+            \fi
+        \fi
+    \fi
+    \hspace*{-.5cm}\default
+}
