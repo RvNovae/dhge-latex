@@ -1,125 +1,16 @@
 % ROOT & PACKAGE SETUP
 \documentclass	[a4paper, 12pt]{article}
-\usepackage		[a4paper, inner=3cm, outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
-\usepackage		[utf8]{inputenc}
-\usepackage		{lipsum}
-\usepackage		{setspace}
-\usepackage		{titletoc}
-\usepackage		[hyperfootnotes=false, hidelinks]{hyperref}
-\usepackage		{amssymb}
-\usepackage		{fancyhdr}
-\usepackage		{acronym}
-\usepackage		{enumitem}
-\usepackage		[T1]{fontenc}
-\usepackage		[style=german]{csquotes}
-\usepackage		[backend=biber, style=alphabetic, citestyle=alphabetic-ibid, giveninits=true, ibidtracker=true]{biblatex} 
-				\addbibresource	{literatur.bib}
-\usepackage		[ngerman]{babel}
-\usepackage		{csquotes,xpatch}
-\usepackage		[perpage]{footmisc}
-\usepackage		{graphicx}
-\graphicspath	{ {../img/} }
-\usepackage		{caption}
-\usepackage		{ifthen}
-\usepackage		{xparse}
-\usepackage		{float}
-\usepackage		{etoolbox}
-\usepackage		{tocloft}
 
-% DOCUMENT SETUP
-\onehalfspacing
-\setlength		{\parindent}{0cm} % Default is 15pt.
-\setlength		{\parskip}{0.5em}
-\widowpenalty10000
-\clubpenalty10000
-
+% management of all packages
+\input{package.config.tex}
 \selectlanguage	{ngerman}
 
-% HEADERS & FOOTERS
-\pagestyle		{fancyplain}
-\fancyfoot		{}
-\fancyhf		{}
-\renewcommand	{\headrulewidth}{0pt}
-\renewcommand	{\footrulewidth}{0pt}
-\fancyhead		[c]{\thepage}
-\setlength		{\headheight}{15pt}
-
-% ToC SETUP
-\cftsetindents	{section}{0em}{4em}
-\cftsetindents	{subsection}{0em}{4em}
-\cftsetindents	{subsubsection}{0em}{4em}
-\renewcommand	{\contentsname}{Inhaltsverzeichnis}
-\setcounter		{tocdepth}{3}
-\setcounter		{secnumdepth}{5}
-
-% ABBILDUNGEN UND TABELLEN SETUP 
-\renewcommand	{\listfigurename}{Abbildungsverzeichnis}
-\renewcommand	{\listtablename}{Tabellenverzeichnis}
-
-\addto{\captionsngerman}{%
-	\renewcommand*{\figurename}{Abb.}
-	\renewcommand*{\tablename}{Tab.}
-}
-
-\makeatletter
-\renewcommand{\cftfigpresnum}{Abb. }
-\renewcommand{\cfttabpresnum}{Tab. }
-
-\setlength{\cftfignumwidth}{2cm}
-\setlength{\cfttabnumwidth}{2cm}
-
-\setlength{\cftfigindent}{0cm}
-\setlength{\cfttabindent}{0cm}
-\makeatother
-
-% CAPTION SETUP
-\captionsetup{%
-	font=small,
-	labelfont=bf,
-	singlelinecheck=false,
-	skip=10pt,
-	belowskip=0pt
-}
-
-\DeclareDocumentCommand{\dhgefigure}{O{h} m m m O{} O{}}
-{
-	\begin{figure}[#1]
-		\begin{center}
-			\includegraphics[#3]{#2}
-		\end{center}
-		\caption{#4}
-	
-		\ifx #5\empty \else
-			\ifx #6\empty \else
-				{\small \protect \textbf{Quelle:} \cite[#6]{#5}}
-			\fi
-		\fi
-	
-	\end{figure}
-}
-
-% AUTISTIC CONDITIONALS
-% This hides ToF and ToT if they are empty
-\makeatletter
-\AtEndEnvironment	{figure}{\gdef\there@is@a@figure{}} 
-\AtEndEnvironment	{table}{\gdef\there@is@a@table{}} 
-
-\AtEndDocument		{\ifdefined\there@is@a@figure\label{fig:was:used:in:doc}\fi}
-\AtEndDocument		{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
-
-\newcommand{\conditionalLoF}{\@ifundefined{r@fig:was:used:in:doc}{}
-	{\addcontentsline{toc}{section}{\listfigurename} \listoffigures \cleardoublepage}}%
-\newcommand{\conditionalLoT}{\@ifundefined{r@tab:was:used:in:doc}{}
-	{\addcontentsline{toc}{section}{\listtablename} \listoftables \cleardoublepage}}%
-\makeatother
-
-% PARAGRAPH SETUP
-\newcommand{\dhgeparagraph}[1]{\paragraph{#1}\mbox{}\\\vspace{-1.5em}}
-
-% FOOTNOTE
-\renewcommand{\footnotelayout}{\hspace{0.5em}}
-
+\input{com.tex}
+\input{setup.tex}
 \input{../config.tex}
+
+\addbibresource	{literatur.bib}
+\graphicspath	{ {../img/} }
 
 % COUNTER (So we can keep counting in Roman after switching to Arabic)
 \newcounter{savepage}
@@ -139,11 +30,9 @@
 \cleardoublepage
 
 % ABBILDUNGSVERZEICHNIS
-%\phantomsection
 \conditionalLoF
 
 % TABELLENVERZEICHNIS
-%\phantomsection
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
@@ -173,6 +62,7 @@
 \addcontentsline{toc}{section}{Anlagen}
 \input{../anlagen.tex}
 \cleardoublepage
+
 % EHRENWÖRTLICHE ERKLÄRUNG
 \pagenumbering	{gobble}
 \section*{Ehrenwörtliche Erklärung}
