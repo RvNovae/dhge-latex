@@ -70,3 +70,6 @@
 \newcommand{\conditionalLoT}{\@ifundefined{r@tab:was:used:in:doc}{}
 	{\addcontentsline{toc}{section}{\listtablename} \listoftables \cleardoublepage}}%
 \makeatother
+
+% COUNTER (So we can keep counting in Roman after switching to Arabic)
+\newcounter{savepage}
