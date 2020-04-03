@@ -4,3 +4,10 @@
 *.gz
 *.toc
 *.pdf
+*.bcf
+*.blg
+*.bbl
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz

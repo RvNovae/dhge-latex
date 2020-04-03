@@ -13,12 +13,12 @@
 \usepackage		[T1]{fontenc}
 \usepackage		[style=german]{csquotes}
 \usepackage		[backend=biber, style=alphabetic, citestyle=alphabetic-ibid, giveninits=true, ibidtracker=true]{biblatex} 
-				\addbibresource	{bib.bib}
+				\addbibresource	{literatur.bib}
 \usepackage		[ngerman]{babel}
 \usepackage		{csquotes,xpatch}
 \usepackage		[perpage]{footmisc}
 \usepackage		{graphicx}
-\graphicspath	{ {./img/} }
+\graphicspath	{ {../img/} }
 \usepackage		{caption}
 \usepackage		{ifthen}
 \usepackage		{xparse}
@@ -119,7 +119,7 @@
 % FOOTNOTE
 \renewcommand{\footnotelayout}{\hspace{0.5em}}
 
-\input{config.tex}
+\input{../config.tex}
 
 % COUNTER (So we can keep counting in Roman after switching to Arabic)
 \newcounter{savepage}
@@ -149,7 +149,7 @@
 % ABKÜRZUNGSVERZEICHNIS
 \section*{Abkürzungsverzeichnis}
 \begin{acronym}[VISBHO]\itemsep0pt
-	\input{acro.tex}
+	\input{../abKurz.tex}
 \end{acronym}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \cleardoublepage
@@ -158,7 +158,7 @@
 
 % MAIN CONTENT
 \pagenumbering	{arabic}
-\input			{main.tex}
+\input			{../main.tex}
 \cleardoublepage
 
 % LITERATURVERZEICHNIS
@@ -171,7 +171,7 @@
 %TODO %ANLAGENVERZEICHNIS UND ANLAGEN
 \section*{Anlagenverzeichnis}
 \addcontentsline{toc}{section}{Anlagen}
-\input{anlagen.tex}
+\input{../anlagen.tex}
 \cleardoublepage
 % EHRENWÖRTLICHE ERKLÄRUNG
 \pagenumbering	{gobble}
