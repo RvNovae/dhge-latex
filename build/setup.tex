@@ -73,3 +73,7 @@
 
 % COUNTER (So we can keep counting in Roman after switching to Arabic)
 \newcounter{savepage}
+
+% new section new page
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
