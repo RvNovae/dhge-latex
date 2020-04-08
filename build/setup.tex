@@ -77,3 +77,9 @@
 % new section new page
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
+
+% input path is the root-folder 
+% only after \input{setup.tex} so all new files in the root will be integrated
+\makeatletter
+	\def\input@path{{../}{path1/}}
+\makeatother

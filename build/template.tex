@@ -6,13 +6,13 @@
 
 % setups and commands
 \input{com.tex}
-\input{setup.tex}
+\input{setup.tex}  % -> default dir set to "../"
 
 % configuration of global definitions
-\input{../config.tex}
+\input{config.tex}
 
 \addbibresource	{../literatur.bib}
-\graphicspath	{../img/}
+\graphicspath	{img}
 
 % opening
 \title{{\LARGE \textbf{\CTITLE}}}
@@ -21,7 +21,7 @@
 
 \begin{document}
 \pagenumbering	{gobble}
-\input			{./deckblatt.tex}
+\input			{build/deckblatt.tex}
 
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
@@ -37,7 +37,7 @@
 % ABKÜRZUNGSVERZEICHNIS
 \section*{Abkürzungsverzeichnis}
 \begin{acronym}[DHGE]\itemsep0pt
-	\input{../abKurz.tex}
+	\input{abKurz.tex}
 \end{acronym}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \cleardoublepage
@@ -46,7 +46,7 @@
 
 % MAIN CONTENT
 \pagenumbering	{arabic}
-\input			{../main.tex}
+\input			{main.tex}
 \cleardoublepage
 
 % LITERATURVERZEICHNIS
@@ -59,13 +59,13 @@
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
 \section*{Anlagenverzeichnis}
 \addcontentsline{toc}{section}{Anlagen}
-\input{../anlagen.tex}
+\input{anlagen.tex}
 \cleardoublepage
 
 % EHRENWÖRTLICHE ERKLÄRUNG
 \pagestyle{empty}
 \section*{Ehrenwörtliche Erklärung}
 \addcontentsline{toc}{section}{Ehrenwörtliche Erklärung}
-\input{./ehrenwort.tex}
+\input{build/ehrenwort.tex}
 
 \end{document}
