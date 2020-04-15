@@ -9,7 +9,7 @@
 			"options": {
 				"cwd": "${workspaceFolder}/build"
 			},
-			"command": "pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape \"template\".tex",
+			"command": "pdflatex.exe -synctex=1 -interaction=nonstopmode \"template\".tex",
 			"problemMatcher": [],
 			"group": {
 				"kind": "build",
