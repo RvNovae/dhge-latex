@@ -1,0 +1,15 @@
+name: Github Action for LaTeX
+uses: xu-cheng/latex-action@1.2.1
+  with:
+    # The root LaTeX file to be compiled
+    root_file: /build/template.tex
+    # The working directory for the LaTeX engine
+    working_directory: # optional
+    # The LaTeX engine to be invoked
+    compiler: pdflatex # optional, default is latexmk
+    # Extra arguments to be passed to the LaTeX engine
+    args: pdflatex.exe -synctex=1 -interaction=nonstopmode "template".tex # optional, default is -pdf -file-line-error -interaction=nonstopmode
+    # [Deprecated] Install extra packages by tlmgr
+    extra_packages: # optional
+    # Install extra packages by apk
+    extra_system_packages: # optional
