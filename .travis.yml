@@ -7,7 +7,7 @@ script:
   - docker pull dxjoke/tectonic-docker
   - cp -avr ./TEXMF/. ~/texmf/
   - sudo apt-get -y install texlive-binaries
-  - sudo apt-get -y install texlive-bibtex-extra
+  - sudo apt-get -y install biber
   - texhash ~/texmf
   # Compiling only main.tex:
   - docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
