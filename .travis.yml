@@ -9,7 +9,7 @@
  - "$HOME/.texlive"
  timeout: 3600
  before_install:
- - travis_wait 45 bash ./utilities/travis_setup.sh
+ - travis_wait 45 bash ./travis_setup.sh
  - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
  script:
  - latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript.tex
