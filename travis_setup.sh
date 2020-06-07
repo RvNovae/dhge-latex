@@ -1,7 +1,7 @@
 #!/bin/bash
 
  # setup script to install texlive and add to path
- texlive_year="2018"
+ texlive_year="2020"
 
  sudo apt-get -qq update
  export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
@@ -24,4 +24,4 @@
  echo "Finished updating TexLive"
 
  echo "Download and setup texmf tree"
- git clone https://github.com/skulumani/texmf.git ~/texmf
+ cp ./TEXMF ~/texmf
