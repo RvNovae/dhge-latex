@@ -1,15 +1,15 @@
-sudo: required
-language: generic
-services: docker
-
-script:
-  # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
-  - docker pull dxjoke/tectonic-docker
-  - cp -avr TEXMF ~/texmf
-  - sudo aptitude -y install texlive
-  - export PATH=/usr/local/texlive/2011/bin/x86_64-linux:$PATH
-  - sudo apt-get update
-  - tlmgr update -all
-  # Compiling only main.tex:
-  - docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
-    /bin/sh -c "tectonic --keep-intermediates --reruns 0 template.tex; biber template; tectonic template.tex"
+sudo: false
+ language: generic
+ matrix:
+ include:
+ - os: linux
+ cache:
+ directories:
+ - "/tmp/texlive"
+ - "$HOME/.texlive"
+ timeout: 3600
+ before_install:
+ - travis_wait 45 bash ./utilities/travis_setup.sh
+ - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
+ script:
+ - latexmk -pdf -interaction=nonstopmode -halt-on-error build/template.tex
