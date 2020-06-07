@@ -1,0 +1,9 @@
+sudo: required
+language: generic
+services: docker
+
+script:
+  # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
+  - docker pull dxjoke/tectonic-docker
+  # Compiling only main.tex:
+  - docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic template.tex"
