@@ -1,10 +1,15 @@
-sudo: required
-language: generic
-services: docker
-
-script:
-  # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
-  - docker pull dxjoke/tectonic-docker
-  - sudo tlmgr conf texmf TEXMFHOME "TEXMF"
-  # Compiling only main.tex:
-  - docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic template.tex"
+ sudo: false
+ language: generic
+ matrix:
+ include:
+ - os: linux
+ cache:
+ directories:
+ - "/tmp/texlive"
+ - "$HOME/.texlive"
+ timeout: 3600
+ before_install:
+ - travis_wait 45 bash ./travis_setup.sh
+ - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
+ script:
+ - latexmk -pdf -interaction=nonstopmode -halt-on-error build/template.tex
