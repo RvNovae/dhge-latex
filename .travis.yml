@@ -5,7 +5,7 @@ services: docker
 script:
   # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
   - docker pull dxjoke/tectonic-docker
-  - cp -avr ./TEXMF ~
+  - cp -avr ./TEXMF/. ~/texmf/
   - sudo apt-get -y install texlive-binaries
   - texhash
   # Compiling only main.tex:
