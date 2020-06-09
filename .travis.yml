@@ -1,3 +1,20 @@
+# sudo: required
+# language: generic
+# os: linux
+
+# script:
+#   - sudo apt-get -y install texlive
+#   - sudo apt-get -y install biber
+#   - tlmgr init-usertree
+#   # Compiling only main.tex:
+#   #- docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
+#   #  /bin/sh -c "tectonic --keep-intermediates --reruns 3 template.tex; biber template.tex;"
+#   - cd ./build
+#   - sudo tlmgr install texliveonfly
+#   - cp -avr TEXMF/. ~/texmf/
+#   - texhash ~/texmf
+#   - texonfly -synctex=1 -interaction=nonstopmode -file-line-error -pdf --engine=pdflatex ./template.tex
+
 sudo: required
 language: generic
 services: docker
@@ -5,10 +22,8 @@ services: docker
 script:
   # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
   - docker pull dxjoke/tectonic-docker
-  - cp -avr ./TEXMF/. ~/texmf/
-  - sudo apt-get -y install texlive-binaries
-  - sudo apt-get -y install biber
-  - texhash ~/texmf
   # Compiling only main.tex:
-  - docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
-    /bin/sh -c "tectonic --keep-intermediates --reruns 0 template.tex; biber template; tectonic template.tex"
+  - cp -avr TEXMF/tex/latex/biblatex/cbx/alphabetic-ibid.cbx ./build/alphabetic-ibid.cbx
+  - docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic template.tex"
+  # Compiling multiple files as well as using biber:
+#  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic biber-mwe.tex; tectonic main.tex"
