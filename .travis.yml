@@ -24,6 +24,6 @@ script:
   - docker pull dxjoke/tectonic-docker
   # Compiling only main.tex:
   - cp -avr TEXMF/tex/latex/biblatex/cbx/alphabetic-ibid.cbx ./build/alphabetic-ibid.cbx
-  - docker run --mount src=$TRAVIS_BUILD_DIR/build,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic template.tex"
+  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic build/template.tex"
   # Compiling multiple files as well as using biber:
 #  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic biber-mwe.tex; tectonic main.tex"
