@@ -12,3 +12,5 @@
 *.fdb_latexmk
 *.synctex.gz
 *.synctex(busy)
+*.lof
+*.xdv
