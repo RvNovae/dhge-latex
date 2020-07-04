@@ -81,6 +81,9 @@
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
 
+\let\oldMathrm\mathrm
+\renewcommand{\mathrm}[1]{\,\oldMathrm{#1}}
+
 % input path is the root-folder 
 % only after \input{setup.tex} so all new files in the root will be integrated
 \makeatletter
