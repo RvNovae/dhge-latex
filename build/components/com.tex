@@ -1,14 +1,15 @@
 % dhgefigure -> ...
-\DeclareDocumentCommand{\dhgefigure}{O{h} m m m O{} O{}}
+\DeclareDocumentCommand{\dhgefigure}{O{h} m m m m O{} O{}}
 {
 	\begin{figure}[#1]
 		\begin{center}
 			\includegraphics[#3]{#2}
 		\end{center}
 		\caption{#4}
-	
-		\ifx #5\empty \else
-			\ifx #6\empty \else
+        \label{#5}
+
+		\ifx #6\empty \else
+			\ifx #7\empty \else
 				{\small \protect \textbf{Quelle:} \cite[#6]{#5}}
 			\fi
 		\fi
