@@ -81,7 +81,7 @@
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
 
-% add standard spacing -> visual improvement
+% override \mathrm{} -> add standard spacing
 \let\oldMathrm\mathrm
 \renewcommand{\mathrm}[1]{\,\oldMathrm{#1}}
 
