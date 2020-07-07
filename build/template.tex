@@ -2,17 +2,18 @@
 \documentclass	[a4paper, 12pt]{article}
 
 % management for all packages
-\input{package.config.tex}
+\input{components/package.config.tex}
 
 % setups and commands
-\input{com.tex}
-\input{setup.tex}  % -> default dir set to "../"
-\input{config.tex}
+\input{components/com.tex}
+\input{components/setup.tex}  % -> default dir set to "../"
+
+\input{../config.tex}
 
 % configuration of global definitions
 
 \addbibresource	{../literatur.bib}
-\graphicspath	{{../img/}}
+\graphicspath	{{../assets/img/}}
 
 % opening
 \title{{\LARGE \textbf{\CTITLE}}}
@@ -21,7 +22,7 @@
 
 \begin{document}
 \pagenumbering	{gobble}
-\input			{build/deckblatt.tex}
+\input			{build/components/deckblatt.tex}
 
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
@@ -37,7 +38,7 @@
 % ABKÜRZUNGSVERZEICHNIS
 \section*{Abkürzungsverzeichnis}
 \begin{acronym}[DHGE]\itemsep0pt
-	\input{abKurz.tex}
+	\input{abk.tex}
 \end{acronym}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \cleardoublepage
@@ -67,6 +68,6 @@
 \pagenumbering{gobble}
 \section*{Ehrenwörtliche Erklärung}
 \addcontentsline{toc}{section}{Ehrenwörtliche Erklärung}
-\input{build/ehrenwort.tex}
+\input{build/components/ehrenwort.tex}
 
 \end{document}
