@@ -43,3 +43,27 @@
 \newcommand{\doubleunderline}[1]{
 	\underline{\underline{#1}}
 }
+
+% definiert eine neue Liste für das Anlagenverzeichnis
+\newcommand{\listexamplename}{\vspace*{-20pt}}
+\newlistof{anlagen}{alt}{\listexamplename}
+
+% Befehl welcher ein Item dem Anlagenverzeichnis hinzufügt
+\newcommand{\addtoanlagen}[2]{%
+\def\in{#1}
+    \def\fig{fig}
+    \def\tab{tab}
+
+    \ifx\fig\in
+        \def\type{\thefigure}
+        \def\name{Abb.\hspace{8pt}}
+        \else \ifx\tab\in
+            \def\type{\thetable}
+            \def\name{Tab.\hspace{10pt}}
+        \fi
+    \fi
+
+    \setcounter{anlagen}{\type}
+    \addcontentsline{alt}{anlagen}
+    {\name\protect\numberline{\theanlagen}\quad\nameref{#1:#2}}\par
+}
