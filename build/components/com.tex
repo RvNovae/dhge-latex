@@ -43,3 +43,21 @@
 \newcommand{\doubleunderline}[1]{
 	\underline{\underline{#1}}
 }
+
+\newcommand{\onlyAddIfNotEmpty}[2]{
+    \newwrite\file
+
+    % read a placeholder to geht an var with 
+    \openin\file=./components/placeholder.tex
+    \read\file to\emptyFile
+
+    \openin\file=../#1
+    \read\file to\temp
+    \closein\file
+
+    \ifx\temp\emptyFile
+        
+    \else
+        #2
+    \fi
+}

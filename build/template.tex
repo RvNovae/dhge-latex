@@ -36,32 +36,39 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-\section*{Abkürzungsverzeichnis}
-\begin{acronym}[DHGE]\itemsep0pt
-	\input{abk.tex}
-\end{acronym}
-\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\cleardoublepage
+\onlyAddIfNotEmpty{abk.tex}{
+	\section*{Abkürzungsverzeichnis}
+	\begin{acronym}[DHGE]\itemsep0pt
+		\input{abk.tex}
+	\end{acronym}
+	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+	\cleardoublepage
+	}
 
 \setcounter{savepage}{\arabic{page}}
 
 % MAIN CONTENT
 \pagenumbering	{arabic}
-\input			{main.tex}
+\onlyAddIfNotEmpty{main.tex}{
+	\input{main.tex}
+}
 \cleardoublepage
 
 % LITERATURVERZEICHNIS
-% TODO Formatierung
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
-\printbibliography[title=Literaturverzeichnis]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\cleardoublepage
+\onlyAddIfNotEmpty{literatur.bib}{
+	\printbibliography[title=Literaturverzeichnis]
+	\addcontentsline{toc}{section}{Literaturverzeichnis}
+	\cleardoublepage
+	}
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
-\section*{Anlagenverzeichnis}
-\addcontentsline{toc}{section}{Anlagen}
-\input{anlagen.tex}
-\cleardoublepage
+\onlyAddIfNotEmpty{anlagen.tex}{
+	\section*{Anlagen}
+	\addcontentsline{toc}{section}{Anlagen}
+	\input{anlagen.tex}
+	\cleardoublepage
+	}
 
 % EHRENWÖRTLICHE ERKLÄRUNG
 \pagestyle{empty}
