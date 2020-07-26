@@ -22,7 +22,14 @@
 
 \begin{document}
 \pagenumbering	{gobble}
-\input			{build/components/deckblatt.tex}
+\ifnum\CBACHLOR=0
+	\input			{build/components/PA_deckblatt.tex}
+	\else
+	\input			{build/components/BA_deckblatt.tex}
+	\input			{build/components/BA_thesenpapier.tex}
+	\input			{build/components/BA_autorreferat.tex}
+\fi
+
 
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
