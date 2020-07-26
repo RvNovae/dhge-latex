@@ -49,7 +49,7 @@
 \newlistof{anlagen}{alt}{\listexamplename}
 
 % Befehl welcher ein Item dem Anlagenverzeichnis hinzufügt
-\newcommand{\addtoanlagen}[2]{%
+\newcommand{\ATA}[2]{%
 \def\in{#1}
     \def\fig{fig}
     \def\tab{tab}
@@ -62,8 +62,23 @@
             \def\name{Tab.\hspace{10pt}}
         \fi
     \fi
-
     \setcounter{anlagen}{\type}
+
+    % only here because the \type-counter is one lower (later it will count up like normal)
+    % -> reason... it's called to early but can't called later because of dependecies other types LUL
+    % works only in the last section of the paper so it should be fine :)   
+    \refstepcounter{anlagen}
+
     \addcontentsline{alt}{anlagen}
     {\name\protect\numberline{\theanlagen}\quad\nameref{#1:#2}}\par
 }
+
+\newcommand{\addtoanlagen}[1]{\def\addAnlagen{#1}}
+
+\newcommand{\renewFigTab}{
+    \let\oldTab=\table
+    \let\oldFig=\figure
+
+    \renewcommand{\table}{{\ATA{tab}{\addAnlagen}}\oldTab}
+    \renewcommand{\figure}{{\ATA{fig}{\addAnlagen}}\oldFig}
+}    
