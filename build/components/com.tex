@@ -72,28 +72,15 @@
     {\name\protect\numberline{\theanlagen}\quad#1}\par
 }
 
-% command who set a global var... mandatory in "anlagen.tex"
-\newcommand{\addtoanlagen}[1]{\def\addAnlagen{#1}}
-
-\newcommand{\renewFigTab}{
+\newcommand{\renewFigTabCap}{
+    % caption ruft jetzt \ATA{} auf welches das jeweilige Objekt zum "Anlageverzeichnis" hinzufügt 
     \let\oldCap=\caption
-    \renewcommand{\caption}
-    {
-        \ATA{hierMussDieCaptionStehen}
-        \oldCap
-    }
+    \renewcommand{\caption}[1]{\ATA{##1}\oldCap{##1}}
 
+    % redefine table and figure -> table and figure set a global variable on the specific value
     \let\oldTab=\table
-    \renewcommand{\table}
-    {
-        \def\typeOfCap{tab}
-        \oldTab
-    }
+    \renewcommand{\table}{\def\typeOfCap{tab}\oldTab}
 
     \let\oldFig=\figure
-    \renewcommand{\figure}
-    {
-        \def\typeOfCap{fig}
-        \oldFig
-    }
+    \renewcommand{\figure}{\def\typeOfCap{fig}\oldFig}
 }    
