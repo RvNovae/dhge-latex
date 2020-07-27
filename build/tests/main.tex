@@ -3,5 +3,19 @@ Testtext\footcite{Xarticle}
 \dhgefigure[h]{img}{scale=0.75}{Ein Testbild}{fig:test}[Xarticle][S. 17ff]
 \dhgefigure[h]{img}{scale=0.75}{Ein Testbild}{fig:test}
 \doubleunderline{$150\mathrm{\Omega}$}
-\listofanlagen
-\addtoanlagen{fig}{test}
+
+\renewFigTabCap
+
+\begin{figure}[]
+	\centering
+	\caption{test}
+	\includegraphics{img}
+	\label{fig:anlagentest}
+\end{figure}
+
+\begin{table}
+	\caption{Test Table}
+	\begin{tabular}{ll}
+		Test & Test\\
+		Test & test
+	\end{tabular}
