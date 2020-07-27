@@ -14,3 +14,5 @@
 *.synctex(busy)
 *.lof
 *.xdv
+*.alt
+*.lot
