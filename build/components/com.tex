@@ -49,14 +49,15 @@
 \newlistof{anlagen}{alt}{\listexamplename}
 
 % Befehl welcher ein Item dem Anlagenverzeichnis hinzufügt
-\newcommand{\ATA}[1]{%
+\newcommand{\ATA}[2]{%
+\def\in{#1}
     \def\fig{fig}
     \def\tab{tab}
 
-    \ifx\fig\typeOfCap
+    \ifx\fig\in
         \def\type{\thefigure}
         \def\name{Abb.\hspace{8pt}}
-        \else \ifx\tab\typeOfCap
+        \else \ifx\tab\in
             \def\type{\thetable}
             \def\name{Tab.\hspace{10pt}}
         \fi
@@ -69,31 +70,15 @@
     \refstepcounter{anlagen}
 
     \addcontentsline{alt}{anlagen}
-    {\name\protect\numberline{\theanlagen}\quad#1}\par
+    {\name\protect\numberline{\theanlagen}\quad\nameref{#1:#2}}\par
 }
 
-% command who set a global var... mandatory in "anlagen.tex"
 \newcommand{\addtoanlagen}[1]{\def\addAnlagen{#1}}
 
 \newcommand{\renewFigTab}{
-    \let\oldCap=\caption
-    \renewcommand{\caption}
-    {
-        \ATA{hierMussDieCaptionStehen}
-        \oldCap
-    }
-
     \let\oldTab=\table
-    \renewcommand{\table}
-    {
-        \def\typeOfCap{tab}
-        \oldTab
-    }
-
     \let\oldFig=\figure
-    \renewcommand{\figure}
-    {
-        \def\typeOfCap{fig}
-        \oldFig
-    }
+
+    \renewcommand{\table}{{\ATA{tab}{\addAnlagen}}\oldTab}
+    \renewcommand{\figure}{{\ATA{fig}{\addAnlagen}}\oldFig}
 }    
