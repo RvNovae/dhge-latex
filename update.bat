@@ -1,4 +1,4 @@
-rem update the build folder
+rem Update the build folder
 cd .\build
 set "GIT_DHGE_LATEX_HOME=https://raw.githubusercontent.com/RvNovae/dhge-latex/develop/build"
 curl %GIT_DHGE_LATEX_HOME%/template.tex -o template.tex
@@ -10,7 +10,7 @@ curl %GIT_DHGE_LATEX_HOME%/components/package.config.tex -o components/package.c
 curl %GIT_DHGE_LATEX_HOME%/components/setup.tex -o components/setup.tex
 curl %GIT_DHGE_LATEX_HOME%/components/alphabetic-ibid.cbx -o components/alphabetic-ibid.cbx
 
-rem delete not neccesary folders and files
+rem Delete unneccesary files and folders
 rd /q /s tests 
 cd ..
 del -f .gitignore
