@@ -1,5 +1,5 @@
 echo Update the build folder
-cd .\build
+cd build/
 GIT_DHGE_LATEX_HOME="https://raw.githubusercontent.com/RvNovae/dhge-latex/develop/build"
 curl ${GIT_DHGE_LATEX_HOME}/template.tex -o template.tex
 mkdir components
@@ -16,8 +16,8 @@ cd ..
 rm -f .gitignore
 rm -f .travis.yml
 rm -rf .git
-cd assets
-cd img 
+cd assets/
+cd img/
 rm -f .gitkeep
 cd ..
 cd ..
