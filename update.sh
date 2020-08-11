@@ -1,6 +1,6 @@
 echo Update the build folder
 cd build/
-GIT_DHGE_LATEX_HOME="https://raw.githubusercontent.com/RvNovae/dhge-latex/develop/build"
+GIT_DHGE_LATEX_HOME="https://raw.githubusercontent.com/RvNovae/dhge-latex/master/build"
 curl ${GIT_DHGE_LATEX_HOME}/template.tex -o template.tex
 mkdir components
 curl ${GIT_DHGE_LATEX_HOME}/components/com.tex -o components/com.tex
