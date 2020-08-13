@@ -24,6 +24,17 @@
 	}}}
 }
 
+\newbibmacro*{cite-clean}{%
+	{\printtext[bibhyperref]{\printtext{%
+		\printfield{labelprefix}%
+		\printfield{labelalpha}%
+		\printfield{extraalpha}%
+		\ifbool{bbx:subentry} {
+			\printfield{entrysetcount}
+		}
+	}}}
+}
+
 \newbibmacro*{cite:ibid}{%
 	\printtext[bibhyperref]{\biblstring[\mkibid]{ibidem}}%
 	\ifloccit
@@ -41,6 +52,12 @@
 	{\usebibmacro{citeindex}{\usebibmacro{cite}}}
 	{\multicitedelim}
 	{\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\supercite}[\textsuperscript]
+	{\usebibmacro{prenote}}
+	{\usebibmacro{citeindex}{\bibleftbracket\usebibmacro{cite-clean}\usebibmacro{postnote}}\bibrightbracket}
+	{\multicitedelim}
+	{}
 
 \DeclareFieldFormat{url}{\newline\url{#1}}
 \DeclareFieldFormat
