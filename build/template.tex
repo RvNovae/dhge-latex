@@ -22,10 +22,10 @@
 
 \begin{document}
 \pagenumbering	{gobble}
-\ifnum\CBACHLOR=0
-	\input			{build/components/PA_deckblatt.tex}
-	\else
-	\input			{build/components/BA_deckblatt.tex}
+
+\input			{build/components/deckblatt.tex}
+
+\if\CARBEIT B
 	\input			{build/components/BA_thesenpapier.tex}
 	\input			{build/components/BA_autorreferat.tex}
 \fi

@@ -1,15 +1,33 @@
 \vspace{\fill}
 \maketitle
 
-\begin{tabular}{rcccc}
-	     \hspace{0.45\textwidth} &       I       &     II      &     III     &     IV      \\
-	{Projektarbeit Nr.}  \markBox{\CARBEITNR}{&}
-\end{tabular}
+\if\CARBEIT B
 
-\begin{tabular}{rl}
-	 \hspace{0.45\textwidth} &       \\
-	vorgelegt am: & \CDATUM
-\end{tabular}
+	\begin{center}
+		{\LARGE\bf Bachelorarbeit}
+		
+		\vspace{0.5cm}vorgelegt am \CDATUM
+	\end{center}
+
+	\vspace{1cm}
+
+	\def\BETREUER{Gutachter}
+
+\else
+
+	\begin{tabular}{rcccc}
+		\hspace{0.45\textwidth} &       I       &     II      &     III     &     IV      \\
+	{Projektarbeit Nr.}  \markBox{\CARBEIT}{&}
+	\end{tabular}
+
+	\begin{tabular}{rl}
+		\hspace{0.45\textwidth} &       \\
+	   vorgelegt am: & \CDATUM
+   \end{tabular}
+
+   \def\BETREUER{Betreuer}
+
+\fi
 
 \begin{tabular}{rl}
 	\hspace{0.45\textwidth} &              \\
@@ -48,7 +66,7 @@
 
 \begin{tabular}{rl}
 	\hspace{0.45\textwidth} &          \\
-	   Betreuer: & \CBETREUER
+	\BETREUER: & \CBETREUER
 \end{tabular}
 
 \vspace*{\fill}
