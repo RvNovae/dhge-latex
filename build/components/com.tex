@@ -84,3 +84,22 @@
     \let\oldFig=\figure
     \renewcommand{\figure}{\def\typeOfCap{fig}\oldFig}
 }    
+
+% formatierung der ba teile autorreferat und thesenblatt 
+\newcommand{\baFormat}[2]{
+    \begin{center}
+        {\LARGE\bf #1}
+    
+        \vspace{0.7cm}
+        {\large\bf\enquote{\CTITLE}}
+    
+        \vspace{0.5cm}
+        von \CAUTHOR
+    \end{center}
+    
+    \vspace{1.5cm}
+    
+    {#2}
+
+    \cleardoublepage
+}

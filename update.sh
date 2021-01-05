@@ -9,8 +9,10 @@ curl ${GIT_DHGE_LATEX_HOME}/components/ehrenwort.tex -o components/ehrenwort.tex
 curl ${GIT_DHGE_LATEX_HOME}/components/package.config.tex -o components/package.config.tex
 curl ${GIT_DHGE_LATEX_HOME}/components/setup.tex -o components/setup.tex
 curl ${GIT_DHGE_LATEX_HOME}/components/alphabetic-ibid.cbx -o components/alphabetic-ibid.cbx
+curl $GIT_DHGE_LATEX_HOME$/components/freigabe.tex -o components/freigabe.tex
+curl $GIT_DHGE_LATEX_HOME$/bachelor.tex -o bachelor.tex
 
-echo Delete  unneccesary files and folders
+echo Delete unneccesary files and folders
 rm -rf tests 
 cd ..
 rm -f .gitignore
