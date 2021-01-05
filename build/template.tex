@@ -1,6 +1,9 @@
 % ROOT & PACKAGE SETUP
 \documentclass	[a4paper, 12pt]{article}
 
+% preamble input
+\input{../preamble.tex}
+
 % management for all packages
 \input{components/package.config.tex}
 
@@ -11,6 +14,13 @@
 \input{../config.tex}
 
 % configuration of global definitions
+
+% PDF Metadata
+\hypersetup{
+	pdftitle={\CTITLE},
+	pdfauthor={\CAUTHOR}
+}
+\setlist[itemize,1]{label=\faAngleRight}
 
 \addbibresource	{../literatur.bib}
 \graphicspath	{{../assets/img/}}
@@ -36,14 +46,16 @@
 \cleardoublepage
 
 % ABBILDUNGSVERZEICHNIS
+\phantomsection
 \conditionalLoF
 
 % TABELLENVERZEICHNIS
+\phantomsection
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
 \section*{Abkürzungsverzeichnis}
-\begin{acronym}[DHGE]\itemsep0pt
+\begin{acronym}[\CABKL]\itemsep0pt
 	\input{abk.tex}
 \end{acronym}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
@@ -64,8 +76,13 @@
 \cleardoublepage
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
-\section*{Anlagenverzeichnis}
+\section*{Anlagen}
+\begin{spacing}{2}
+	\listofanlagen	
+\end{spacing}
 \addcontentsline{toc}{section}{Anlagen}
+\cleardoublepage
+\renewFigTabCap % change the behavior from the env figure and table and the command \caption{}
 \input{anlagen.tex}
 \cleardoublepage
 
