@@ -95,3 +95,16 @@
 
 % define the old CAUTHOR variable
 \def\CAUTHOR{\CAUTHORVOR\ \CAUTHORNACH}
+
+
+\newcounter{totalbibentries}
+\newcommand*{\listcounted}{}
+
+\makeatletter
+\AtDataInput{%
+  \xifinlist{\abx@field@entrykey}\listcounted
+    {}
+    {\stepcounter{totalbibentries}%
+     \listxadd\listcounted{\abx@field@entrykey}}%
+}
+\makeatother

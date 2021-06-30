@@ -35,7 +35,7 @@
 \input			{build/components/deckblatt.tex}
 
 \if\CARBEIT B
-	\input			{../bachelor.tex}
+\input			{../bachelor.tex}
 \fi
 
 
@@ -70,9 +70,15 @@
 % LITERATURVERZEICHNIS
 % TODO Formatierung
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
-\printbibliography[title=Literaturverzeichnis]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\cleardoublepage
+
+% wenn keine literatur verwendet (zitiert) wird, erstelle kein literaturverzeichnis 
+\if\thetotalbibentries=0
+	
+	\else
+	\printbibliography[title=Literaturverzeichnis]
+	\addcontentsline{toc}{section}{Literaturverzeichnis}
+	\cleardoublepage
+\fi
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
 \section*{Anlagen}
