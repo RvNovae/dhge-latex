@@ -1,29 +1,63 @@
-name: Build dhge-latex-template
+name: Build and Release on push
+
 on:
   push:
     branches:
       - main
   pull_request:
     branches:
-      - main
+        - main
+
 jobs:
-  build_latex:
+  build_artifact:
+    name: Build artifact
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Copy test/<data>
-        run: cp -v ./build/tests/main.tex ./main.tex && 
-             cp -v ./build/tests/config.tex ./config.tex && 
-             cp -v ./build/tests/anlagen.tex ./anlagen.tex &&      
-             cp -v ./build/tests/img.png ./assets/img/img.png
-      - name: Build dhge-latex-template with test/main
+
+      - name: Copy test/<data> to root
+        run: |
+          cp -v build/tests/main.tex    main.tex
+          cp -v build/tests/config.tex  config.tex
+          cp -v build/tests/anlagen.tex anlagen.tex
+          cp -v build/tests/img.png     assets/img/img.png
+
+      - name: Rename template.tex
+        run: mv -v build/template.tex   build/example.tex
+
+      - name: Compile *.tex
         uses: xu-cheng/latex-action@v2
         with:
-          working_directory: ./build/
-          root_file: ./template.tex
+          working_directory: build/
+          root_file: example.tex
+
       - name: Upload artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v2
         with:
-          name: dhge-latex-example.zip
-          path: ./build/template.pdf
+          name: example
+          path: ./build/example.pdf
+
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    name: Release artifact
+    needs: build_artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: example
+          path: example
+          
+      - name: Publish Release
+        uses: meeDamian/github-release@2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: example-release
+          name: dhge-latex-example
+          body: Automatic example release
+          gzip: false
+          files: example/example.pdf
+          allow_override: true
