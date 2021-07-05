@@ -13,7 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Copy test/<data>
-        run: cp -v ./build/tests/main.tex ./main.tex && cp -v ./build/tests/img.png ./assets/img/img.png
+        run: cp -v ./build/tests/main.tex ./main.tex && 
+             cp -v ./build/tests/config.tex ./config.tex && 
+             cp -v ./build/tests/anlagen.tex ./anlagen.tex &&      
+             cp -v ./build/tests/img.png ./assets/img/img.png
       - name: Build dhge-latex-template with test/main
         uses: xu-cheng/latex-action@v2
         with:
@@ -22,5 +25,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: dhge-latex-template.zip
+          name: dhge-latex-example.zip
           path: ./build/template.pdf
