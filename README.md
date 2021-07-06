@@ -1,12 +1,12 @@
 # DHGE-LaTeX [![Build Status](https://travis-ci.org/RvNovae/dhge-latex.svg?branch=develop)](https://travis-ci.org/RvNovae/dhge-latex) <!-- omit in toc -->
-Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an der Dualen Hochschule Gera Eisenach
+Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an der Dualen Hochschule Gera Eisenach
 
 ## [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/)
 
 
 - [Installation](#installation)
-  - [1 LaTeX Installation](#1-latex-installation)
-  - [2 Setup](#2-setup)
+  - [LaTeX Installation](#latex-installation)
+  - [Setup](#setup)
 - [Zitate und Literaturverzeichnis](#zitate-und-literaturverzeichnis)
   - [Tipps](#tipps)
     - [Firma als Autor](#firma-als-autor)
@@ -23,17 +23,17 @@ Inoffizelles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an d
 
 # Installation
 
-## 1 LaTeX Installation
+## LaTeX Installation
 Eine Installation von MikTeX über [proTeXt](https://www.tug.org/protext/) wird empfohlen.
-Als Editor bieten sich beispielsweise [TeXstudio](https://www.texstudio.org/) und [Visual Studio Code](https://code.visualstudio.com/) an.
+Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualstudio.com/) in Kombination mit der [latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) Extension und [TeXstudio](https://www.texstudio.org/) an.
 
-## 2 Setup
+## Setup 
 1. Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
 1. Mit der Update-Datei (OS abhängig .bat/.sh) kann das Template aktualisiert werden
 * ### **ACHTUNG** die Update-Datei (entsprechend OS) 
-    * **überschreibt** die Dateien im build Ordner
-        * eigene Anpassungen sollten über die Dateien im Root-Ordner geschehen
-    * **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
+  * **überschreibt** die Dateien im build Ordner
+    * eigene Anpassungen sollten über die Dateien im Root-Ordner geschehen
+  * **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
 
 Das Projekt sollte sich nun bauen lassen.
 
@@ -67,7 +67,7 @@ Alternativ kann nun auch der `supercite` Befehl verwendet werden:
 1. Bieber ausführen (`biber.exe "template"`)
 1. Das Projekt 2x kompilieren
 ***
-Werden die oben genannten Schritte nicht durchgeführt, kommt es zu Darstellungsfehlern bei Zitaten und dem Literaturverzeichnis.
+>Werden die oben genannten Schritte nicht durchgeführt, kommt es zu Darstellungsfehlern bei Zitaten und dem Literaturverzeichnis.
 
 ***
 
@@ -107,9 +107,9 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 1. Snippet einfügen:
 ```json
 "DHGE Figure": {
-    "prefix": "dhgefigure",
-    "body": "\\dhgefigure[H]{${1:filename}}{scale=${6:1.0}}{${2:Caption}}{fig:${3:label}}[${4:biblatex_id}][${5:Postnote}]",
-    "description": "Insert \\dhgefigure"
+  "prefix": "dhgefigure",
+  "body": "\\dhgefigure[H]{${1:filename}}{scale=${6:1.0}}{${2:Caption}}{fig:${3:label}}[${4:biblatex_id}][${5:Postnote}]",
+  "description": "Insert \\dhgefigure"
 }
 ```
 
