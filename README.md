@@ -194,6 +194,7 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 
 
 # WIP: Abkürzungen 
+> Hinweis: In naher Zukunft soll auf das `acro` package umgestiegen werden, siehe dazu https://github.com/RvNovae/dhge-latex/issues/60
 <!-- todo: @LordofAgents Anpassungen -->
 <!-- Struktur evtl. Anwendung, Beispiel (siehe Zitate oder Abbildungen) muss aber nicht unbedingt so sein -->
 werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax versehen: 
