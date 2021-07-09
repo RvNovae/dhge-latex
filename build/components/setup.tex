@@ -18,8 +18,8 @@
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
 
 \addto{\captionsngerman}{%
-	\renewcommand*{\figurename}{Abb.}
-	\renewcommand*{\tablename}{Tab.}
+    \renewcommand*{\figurename}{Abb.}
+    \renewcommand*{\tablename}{Tab.}
 }
 
 \addtocontents{lof}{\linespread{2}\selectfont}
@@ -38,11 +38,11 @@
 
 % CAPTION SETUP
 \captionsetup{%
-	font=small,
-	labelfont=bf,
-	singlelinecheck=false,
-	skip=10pt,
-	belowskip=0pt
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false,
+    skip=10pt,
+    belowskip=0pt
 }
 
 \renewcommand*{\labelalphaothers}{\textsuperscript{}}
@@ -65,15 +65,15 @@
 % AUTISTIC CONDITIONALS
 % This hides ToF and ToT if they are empty
 \makeatletter
-\AtEndEnvironment	{figure}{\gdef\there@is@a@figure{}} 
-\AtEndEnvironment	{table}{\gdef\there@is@a@table{}} 
+\AtEndEnvironment	{figure}{\gdef\there@is@a@figure{}}
+\AtEndEnvironment	{table}{\gdef\there@is@a@table{}}
 
 \AtEndDocument		{\ifdefined\there@is@a@figure\label{fig:was:used:in:doc}\fi}
 \AtEndDocument		{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
 \newcommand{\conditionalLoF}{\@ifundefined{r@fig:was:used:in:doc}{}
-	{\addcontentsline{toc}{section}{\listfigurename} \listoffigures \cleardoublepage}}%
+    {\addcontentsline{toc}{section}{\listfigurename} \listoffigures \cleardoublepage}}%
 \newcommand{\conditionalLoT}{\@ifundefined{r@tab:was:used:in:doc}{}
-	{\addcontentsline{toc}{section}{\listtablename} \listoftables \cleardoublepage}}%
+    {\addcontentsline{toc}{section}{\listtablename} \listoftables \cleardoublepage}}%
 \makeatother
 
 % COUNTER (So we can keep counting in Roman after switching to Arabic)
@@ -90,7 +90,7 @@
 % input path is the root-folder 
 % only after \input{setup.tex} so all new files in the root will be integrated
 \makeatletter
-	\def\input@path{{../}{path1/}}
+\def\input@path{{../}{path1/}}
 \makeatother
 
 % define the old CAUTHOR variable
