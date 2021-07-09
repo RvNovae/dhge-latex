@@ -64,7 +64,7 @@ Alternativ kann nun auch der `supercite` Befehl verwendet werden:
 
 **Bei jeder Änderung in `literatur.bib` müssen folgende Schritte durchgeführt werden:**
 1. Das Projekt kompilieren (`pdflatex.exe -synctex=1 -interaction=nonstopmode "template".tex`)
-1. Bieber ausführen (`biber.exe "template"`)
+1. Biber ausführen (`biber.exe "template"`)
 1. Das Projekt 2x kompilieren
 ***
 Werden die oben genannten Schritte nicht durchgeführt, kommt es zu Darstellungsfehlern bei Zitaten und dem Literaturverzeichnis.
