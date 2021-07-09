@@ -3,33 +3,35 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 
 # Inhaltsverzeichnis <!-- omit in toc -->
 - [Installation](#installation)
-  - [LaTeX Installation](#latex-installation)
-  - [Setup](#setup)
+	- [LaTeX Installation](#latex-installation)
+	- [Setup](#setup)
 - [Latex Tipps](#latex-tipps)
-  - ["Variablen"](#variablen)
-  - [Environment (Umgebung)](#environment-umgebung)
-    - [Common Environment's](#common-environments)
+	- ["Variablen"](#variablen)
+	- [Environment (Umgebung)](#environment-umgebung)
+		- [Common Environment's](#common-environments)
 - [Zitate und Literaturverzeichnis](#zitate-und-literaturverzeichnis)
-  - [Zitat als Fußnote einfügen](#zitat-als-fußnote-einfügen)
-    - [Beispiel](#beispiel)
-  - [Hochgestelltes Zitat einfügen](#hochgestelltes-zitat-einfügen)
-    - [Beispiel](#beispiel-1)
-  - [Tipps](#tipps)
-    - [Firma als Autor](#firma-als-autor)
-    - [Mehrere Autoren](#mehrere-autoren)
+	- [Zitat als Fußnote einfügen](#zitat-als-fußnote-einfügen)
+		- [Beispiel](#beispiel)
+	- [Hochgestelltes Zitat einfügen](#hochgestelltes-zitat-einfügen)
+		- [Beispiel](#beispiel-1)
+	- [Indirektes Zitat](#indirektes-zitat)
+		- [Beispiel](#beispiel-2)
+	- [Tipps](#tipps)
+		- [Firma als Autor](#firma-als-autor)
+		- [Mehrere Autoren](#mehrere-autoren)
 - [Abbildungen](#abbildungen)
-  - [LaTeX Abbildungen](#latex-abbildungen)
-    - [Beispiel](#beispiel-2)
-  - [dhge-latex Abbildungen](#dhge-latex-abbildungen)
-    - [Beispiel](#beispiel-3)
+	- [LaTeX Abbildungen](#latex-abbildungen)
+		- [Beispiel](#beispiel-3)
+	- [dhge-latex Abbildungen](#dhge-latex-abbildungen)
+		- [Beispiel](#beispiel-4)
 - [WIP: Abkürzungen](#wip-abkürzungen)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
-  - [Verwendung](#verwendung)
-    - [Beispiel](#beispiel-4)
+	- [Verwendung](#verwendung)
+		- [Beispiel](#beispiel-5)
 - [Code einfügen mit Minted](#code-einfügen-mit-minted)
 - [Spezielle Abschnitte](#spezielle-abschnitte)
-  - [SubSubSubSection](#subsubsubsection)
-    - [Beispiel](#beispiel-5)
+	- [SubSubSubSection](#subsubsubsection)
+		- [Beispiel](#beispiel-6)
 - [Unicode Alphabete](#unicode-alphabete)
 
 # Installation
@@ -38,10 +40,10 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 Eine Installation von MikTeX über [proTeXt](https://www.tug.org/protext/) wird empfohlen.
 Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualstudio.com/) in Kombination mit der [latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) Extension und [TeXstudio](https://www.texstudio.org/) an.
 
-## Setup 
+## Setup
 1. Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
 1. Mit der Update-Datei (OS abhängig .bat/.sh) kann das Template aktualisiert werden
-* ### **ACHTUNG** die Update-Datei (entsprechend OS) 
+* ### **ACHTUNG** die Update-Datei (entsprechend OS)
   * **überschreibt** die Dateien im build Ordner
     * eigene Anpassungen sollten über die Dateien im Root-Ordner geschehen
   * **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
@@ -54,7 +56,7 @@ Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts (erfordert eine 
 # Latex Tipps
 
 <!-- todo: add more -->
-Ein relativ simples [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/) zum einfachen Einstieg in die Welt von TeX. 
+Ein relativ simples [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/) zum einfachen Einstieg in die Welt von TeX.
 > _ist allerdings durch das Template nicht nötig, nachfolgendes sollte ausreichen_
 
 ## "Variablen"
@@ -87,7 +89,7 @@ Ein Codeblock welcher bestimmte Anläufe vor und nach dem eigenen Code laufen l�
 
 ## Zitat als Fußnote einfügen
 
-Dafür wird der `footcite` Befehl genutzt. Dieser bietet folgende Syntax: 
+Dafür wird der `footcite` Befehl genutzt. Dieser bietet folgende Syntax:
 ```
 \footcite[Postnote]{literatur_id}
 ```
@@ -119,6 +121,20 @@ Alternativ kann nun auch der `supercite` Befehl verwendet werden:
 > Werden die oben genannten Schritte nicht durchgeführt, kommt es zu Darstellungsfehlern bei Zitaten und dem Literaturverzeichnis.
 
 ***
+
+## Indirektes Zitat
+
+Wird `\footcite` oder `\supercite` mit beiden optionalen Parametern aufgerufen, so ist die Syntax wie folgt:
+
+```
+\footcite[Prenote][Postnote]{id}
+```
+
+### Beispiel
+
+```
+\supercite[Vgl.][]{Computerphile.2020}
+```
 
 ## Tipps
 ### Firma als Autor
@@ -156,7 +172,7 @@ Mehrere Autoren können mit `and` verknüpft werden. Beispielsweise: `author={Fe
 ```
 - `[H]` - entspricht dem fixieren an der Stelle im Text
 - `[scale=0.75]` - skaliert das Bild auf 75% der Originalgröße
-- `fig:anlagentest` - `fig:` oder `tab:` ist ein typischer Anfang von Referenzen für entsprechend `figure` oder `table` Umgebung 
+- `fig:anlagentest` - `fig:` oder `tab:` ist ein typischer Anfang von Referenzen für entsprechend `figure` oder `table` Umgebung
 
 ## dhge-latex Abbildungen
 ```latex
@@ -193,15 +209,15 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 ```
 
 
-# WIP: Abkürzungen 
+# WIP: Abkürzungen
 > Hinweis: In naher Zukunft soll auf das `acro` package umgestiegen werden, siehe dazu https://github.com/RvNovae/dhge-latex/issues/60
 <!-- todo: @LordofAgents Anpassungen -->
 <!-- Struktur evtl. Anwendung, Beispiel (siehe Zitate oder Abbildungen) muss aber nicht unbedingt so sein -->
-werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax versehen: 
+werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax versehen:
 ```
 \acro {1} [2] {3}
 ```
-1. ID der Abkürzung, damit wird im Fließtext später referenziert. 
+1. ID der Abkürzung, damit wird im Fließtext später referenziert.
 2. Die Abkürzung selbst
 3. Der ausgeschriebene Begriff
 
@@ -244,7 +260,7 @@ Für mehr Informationen kann die [Acronym Package Documentation](https://ctan.mc
         1 & 1 \\
     \end{tabular}
 \end{table}
-``` 
+```
 
 # Code einfügen mit Minted
 
@@ -259,14 +275,14 @@ Für mehr Informationen kann die [Acronym Package Documentation](https://ctan.mc
 
 ***
 
-Bei Proxy-Problemen mit pip, kann auch das `Pygments.whl` file runtergeladen und dann mit pip installiert werden.  
+Bei Proxy-Problemen mit pip, kann auch das `Pygments.whl` file runtergeladen und dann mit pip installiert werden.
 [Pygments Download](https://pypi.org/project/Pygments/#files)
 
 
 # Spezielle Abschnitte
 
 ## SubSubSubSection
-Falls man einen Abschnitt 4. Stufe schreiben möchte, kann das mit  
+Falls man einen Abschnitt 4. Stufe schreiben möchte, kann das mit
 ```latex
 \dhgeparagraph{}
 ```
