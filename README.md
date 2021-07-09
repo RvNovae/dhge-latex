@@ -6,7 +6,9 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - [LaTeX Installation](#latex-installation)
   - [Setup](#setup)
 - [Latex Tipps](#latex-tipps)
-  - [Latex Einstieg](#latex-einstieg)
+  - ["Variablen"](#variablen)
+  - [Environment (Umgebung)](#environment-umgebung)
+    - [Common Environment's](#common-environments)
 - [Zitate und Literaturverzeichnis](#zitate-und-literaturverzeichnis)
   - [Zitat als Fußnote einfügen](#zitat-als-fußnote-einfügen)
     - [Beispiel](#beispiel)
@@ -52,9 +54,34 @@ Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts (erfordert eine 
 # Latex Tipps
 
 <!-- todo: add more -->
-## Latex Einstieg
-- [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/)
+Ein relativ simples [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/) zum einfachen Einstieg in die Welt von TeX. 
+> _ist allerdings durch das Template nicht nötig, nachfolgendes sollte ausreichen_
 
+## "Variablen"
+Variablen gibt es in TeX an sich nicht wie in anderen Sprachen.
+```
+\def\<variablenName>{<variablenWert>}
+```
+Der `\def` Befehl definiert ein Command der letztendlich dem folgendem entspricht
+```
+\newcommand{\<variablenName>}{<variablenWert>}
+```
+Richtig werden diese "Variablen" dann durch `\<variablenName>`**`{}`** aufgerufen.
+
+Es ist aber auch möglich sie einfach nur durch `\<variablenName>` aufzurufen.\
+> Hier ist zu beachten ist das nach der Variable das Leerzeichen fehlt wird, da dieses als Argument aufgenommen wird
+
+## Environment (Umgebung)
+Ein Codeblock welcher bestimmte Anläufe vor und nach dem eigenen Code laufen lässt.
+```
+\begin{<environment>}
+  <codeAndText>
+\end{<environment>}
+```
+### Common Environment's
+* [itemize/enumerate](https://en.wikibooks.org/wiki/LaTeX/List_Structures)
+* [table/tabular](https://en.wikibooks.org/wiki/LaTeX/Tables)
+* [figure](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
 
 # Zitate und Literaturverzeichnis
 
@@ -130,7 +157,6 @@ Mehrere Autoren können mit `and` verknüpft werden. Beispielsweise: `author={Fe
 - `[H]` - entspricht dem fixieren an der Stelle im Text
 - `[scale=0.75]` - skaliert das Bild auf 75% der Originalgröße
 - `fig:anlagentest` - `fig:` oder `tab:` ist ein typischer Anfang von Referenzen für entsprechend `figure` oder `table` Umgebung 
-  - Umgebung (Environment) `\begin{<environment>}<codeAndText>\end{<environment>}`
 
 ## dhge-latex Abbildungen
 ```latex
