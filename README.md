@@ -1,24 +1,33 @@
-# DHGE-LaTeX [![Build Status](https://github.com/RvNovae/dhge-latex/actions/workflows/ci-dhge-latex.yaml/badge.svg)](https://github.com/RvNovae/dhge-latex/actions/workflows/ci-dhge-latex.yaml)
+# DHGE-LaTeX [![Build Status](https://github.com/RvNovae/dhge-latex/actions/workflows/ci-dhge-latex.yaml/badge.svg)](https://github.com/RvNovae/dhge-latex/actions/workflows/ci-dhge-latex.yaml) <!-- omit in toc -->
 Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an der Dualen Hochschule Gera Eisenach
 
-## [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/)
-
-
+# Inhaltsverzeichnis <!-- omit in toc -->
 - [Installation](#installation)
   - [LaTeX Installation](#latex-installation)
   - [Setup](#setup)
+- [Latex Tipps](#latex-tipps)
+  - [Latex Einstieg](#latex-einstieg)
 - [Zitate und Literaturverzeichnis](#zitate-und-literaturverzeichnis)
+  - [Zitat als Fußnote einfügen](#zitat-als-fußnote-einfügen)
+    - [Beispiel](#beispiel)
+  - [Hochgestelltes Zitat einfügen](#hochgestelltes-zitat-einfügen)
+    - [Beispiel](#beispiel-1)
   - [Tipps](#tipps)
     - [Firma als Autor](#firma-als-autor)
     - [Mehrere Autoren](#mehrere-autoren)
 - [Abbildungen](#abbildungen)
-- [Abkürzungen](#abkürzungen)
+  - [LaTeX Abbildungen](#latex-abbildungen)
+    - [Beispiel](#beispiel-2)
+  - [dhge-latex Abbildungen](#dhge-latex-abbildungen)
+    - [Beispiel](#beispiel-3)
+- [WIP: Abkürzungen](#wip-abkürzungen)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
-    - [wird automatisch generiert](#wird-automatisch-generiert)
-      - [Beispiel:](#beispiel)
+  - [Verwendung](#verwendung)
+    - [Beispiel](#beispiel-4)
 - [Code einfügen mit Minted](#code-einfügen-mit-minted)
 - [Spezielle Abschnitte](#spezielle-abschnitte)
   - [SubSubSubSection](#subsubsubsection)
+    - [Beispiel](#beispiel-5)
 - [Unicode Alphabete](#unicode-alphabete)
 
 # Installation
@@ -40,34 +49,47 @@ Das Projekt sollte sich nun bauen lassen.
 Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts (erfordert eine Perl Installation).
 
 
+# Latex Tipps
+
+<!-- todo: add more -->
+## Latex Einstieg
+- [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/)
+
 
 # Zitate und Literaturverzeichnis
 
-**Zitat als Fußnote einfügen**
+## Zitat als Fußnote einfügen
 
 Dafür wird der `footcite` Befehl genutzt. Dieser bietet folgende Syntax: 
 ```
 \footcite[Postnote]{literatur_id}
 ```
 
-**Beispiel:** 
+### Beispiel
 ```
 \footcite[S. 42]{mapi}
 ```
 
+## Hochgestelltes Zitat einfügen
 Alternativ kann nun auch der `supercite` Befehl verwendet werden:
+```
+\supercite[Postnote]{literatur_id}
+```
+
+### Beispiel
 ```
 \supercite[S. 42]{mapi}
 ```
 
 ***
 
+<!-- todo: is this still a thing? the vscode extension does this pretty well without crying -->
 **Bei jeder Änderung in `literatur.bib` müssen folgende Schritte durchgeführt werden:**
 1. Das Projekt kompilieren (`pdflatex.exe -synctex=1 -interaction=nonstopmode "template".tex`)
 1. Biber ausführen (`biber.exe "template"`)
 1. Das Projekt 2x kompilieren
 ***
->Werden die oben genannten Schritte nicht durchgeführt, kommt es zu Darstellungsfehlern bei Zitaten und dem Literaturverzeichnis.
+> Werden die oben genannten Schritte nicht durchgeführt, kommt es zu Darstellungsfehlern bei Zitaten und dem Literaturverzeichnis.
 
 ***
 
@@ -80,6 +102,37 @@ Mehrere Autoren können mit `and` verknüpft werden. Beispielsweise: `author={Fe
 
 
 # Abbildungen
+
+- Abbildungen werden durch das Template in `assets/img` gefunden.
+  - `\includegraphics{<imgName>}` entspricht `\includegraphics{assets/img/<imgName>}`
+  - anpassbar durch `\graphicspath	{{<newImagePath>}}`
+    - **`<newImagePath>`** ist aus der sicht von `build/` zu sehen
+    - `\graphicspath	{{../assets/img/}}}`
+
+## LaTeX Abbildungen
+```
+\begin{figure}[<options>]
+	\caption{<captionName>}
+	\includegraphics[<imgOptions>]{<imgName>}
+	\label{<labelName>}
+\end{figure}
+```
+
+### Beispiel
+```
+\begin{figure}[H]
+	\centering
+	\caption{testImgName}
+	\includegraphics[scale=0.75]{imgName}
+	\label{fig:anlagentest}
+\end{figure}
+```
+- `[H]` - entspricht dem fixieren an der Stelle im Text
+- `[scale=0.75]` - skaliert das Bild auf 75% der Originalgröße
+- `fig:anlagentest` - `fig:` oder `tab:` ist ein typischer Anfang von Referenzen für entsprechend `figure` oder `table` Umgebung 
+  - Umgebung (Environment) `\begin{<environment>}<codeAndText>\end{<environment>}`
+
+## dhge-latex Abbildungen
 ```latex
 \dhgefigure[1]{2}{3}{4}{5}[6][7]
 ```
@@ -92,7 +145,7 @@ kann mit bis zu sechs Argumenten aufgerufen werden:
 1. **Optional:** ID
 1. **Optional:** "Postnote", beispielsweise um Seitenzahlen anzugeben
 
-**Beispiel:**
+### Beispiel
 ```latex
 \dhgefigure[h]{mapi_outgoing_illustration}{scale=0.75}{Absenden einer MAPI Nachricht}{fig:mapi}[mapi][S. 17ff]
 ```
@@ -114,8 +167,9 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 ```
 
 
-# Abkürzungen
-
+# WIP: Abkürzungen 
+<!-- todo: @LordofAgents Anpassungen -->
+<!-- Struktur evtl. Anwendung, Beispiel (siehe Zitate oder Abbildungen) muss aber nicht unbedingt so sein -->
 werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax versehen: 
 ```
 \acro {1} [2] {3}
@@ -144,14 +198,18 @@ Für mehr Informationen kann die [Acronym Package Documentation](https://ctan.mc
 
 # Anlagenverzeichnis
 
-### wird automatisch generiert
-* hierbei ist zu beachten:
-    * die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
-    * die Anlage benötigt eine Beschriftung `\caption{}`
-* ein Label ist nicht nötig für eine automatische Verknüpfung im Anlagenverzeichnis
-* der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
+> wird automatisch generiert
 
-#### Beispiel:
+## Verwendung
+* Anlagen werden in der anlagen.tex hinterlegt.
+  * hierbei ist zu beachten:
+      * die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
+      * die Anlage benötigt eine Beschriftung `\caption{}`
+  * ein Label ist nicht nötig für eine automatische Verknüpfung im Anlagenverzeichnis
+  * der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
+  * siehe Beispiel `build/tests/anlagen.tex`
+
+### Beispiel
 ```
 \begin{table}
     \caption{TestBeschriftung}
@@ -160,7 +218,6 @@ Für mehr Informationen kann die [Acronym Package Documentation](https://ctan.mc
     \end{tabular}
 \end{table}
 ``` 
-
 
 # Code einfügen mit Minted
 
@@ -188,14 +245,10 @@ Falls man einen Abschnitt 4. Stufe schreiben möchte, kann das mit
 ```
 umgesetzt werden.
 
-**Beispiel:**
+### Beispiel
 ```latex
 \dhgeparagraph{This is a SubSubSubSection}
 ```
-
-***
-
-> **Work in progress**
 
 
 # Unicode Alphabete
