@@ -50,7 +50,15 @@ jobs:
         with:
           name: example
           path: example
-          
+
+      - name: Delete latest Release
+        uses: dev-drprasad/delete-tag-and-release@v0.2.0
+        with:
+          delete_release: true
+          tag_name: example-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish Release
         uses: meeDamian/github-release@2.0
         with:
