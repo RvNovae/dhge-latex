@@ -15,10 +15,10 @@
 		\usebibmacro{cite:ibid}
 	}
 	{\addspace\printtext[bibhyperref]{\printtext[brackets]{%
-    	\printfield{labelprefix}%
-    	\printfield{labelalpha}%
-    	\printfield{extraalpha}%
-    	\ifbool{bbx:subentry} {
+		\printfield{labelprefix}%
+		\printfield{labelalpha}%
+		\printfield{extraalpha}%
+		\ifbool{bbx:subentry} {
 			\printfield{entrysetcount}
 		}
 	}}}
@@ -70,6 +70,6 @@ inproceedings,patent,thesis,unpublished,booklet,conference,mastersthesis]
 \renewcommand{\finentrypunct}{}
 
 \renewcommand{\bibfootnotewrapper}[1]{%
-  \bibsentence#1}
+	\bibsentence#1}
 
 \endinput
