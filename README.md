@@ -1,4 +1,5 @@
 # DHGE-LaTeX [![Build Status](https://github.com/RvNovae/dhge-latex/actions/workflows/ci-dhge-latex.yaml/badge.svg)](https://github.com/RvNovae/dhge-latex/actions/workflows/ci-dhge-latex.yaml) <!-- omit in toc -->
+
 Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an der Dualen Hochschule Gera Eisenach
 
 # Inhaltsverzeichnis <!-- omit in toc -->
@@ -34,8 +35,10 @@ Eine Installation von MikTeX über [proTeXt](https://www.tug.org/protext/) wird 
 Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualstudio.com/) in Kombination mit der [latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) Extension und [TeXstudio](https://www.texstudio.org/) an.
 
 ## Setup
+
 1. Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
-1. Mit der Update-Datei (OS abhängig .bat/.sh) kann das Template aktualisiert werden
+2. Mit der Update-Datei (OS abhängig .bat/.sh) kann das Template aktualisiert werden
+
 * ### **ACHTUNG** die Update-Datei (entsprechend OS)
   * **überschreibt** die Dateien im build Ordner
     * eigene Anpassungen sollten über die Dateien im Root-Ordner geschehen
@@ -44,7 +47,6 @@ Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualst
 Das Projekt sollte sich nun bauen lassen.
 
 Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts (erfordert eine Perl Installation).
-
 
 # Latex Tipps
 
@@ -56,13 +58,13 @@ Ein relativ simples [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/fi
 
 Variablen gibt es in TeX an sich nicht wie in anderen Sprachen.
 
-```
+```latex
 \def\<variablenName>{<variablenWert>}
 ```
 
 Der `\def` Befehl definiert ein Command der letztendlich dem folgendem entspricht
 
-```
+```latex
 \newcommand{\<variablenName>}{<variablenWert>}
 ```
 
@@ -74,7 +76,8 @@ Es ist aber auch möglich sie einfach nur durch `\<variablenName>` aufzurufen.\
 ## Environment (Umgebung)
 
 Ein Codeblock welcher bestimmte Anläufe vor und nach dem eigenen Code laufen lässt.
-```
+
+```latex
 \begin{<environment>}
   <codeAndText>
 \end{<environment>}
@@ -92,13 +95,13 @@ Ein Codeblock welcher bestimmte Anläufe vor und nach dem eigenen Code laufen l�
 
 Dafür wird der `footcite` Befehl genutzt. Dieser bietet folgende Syntax:
 
-```
+```latex
 \footcite[Postnote]{literatur_id}
 ```
 
 Beispiel:
 
-```
+```latex
 \footcite[S. 42]{mapi}
 ```
 
@@ -106,13 +109,13 @@ Beispiel:
 
 Alternativ kann nun auch der `supercite` Befehl verwendet werden:
 
-```
+```latex
 \supercite[Postnote]{literatur_id}
 ```
 
 Beispiel:
 
-```
+```latex
 \supercite[S. 42]{mapi}
 ```
 
@@ -120,6 +123,7 @@ Beispiel:
 
 <!-- todo: is this still a thing? the vscode extension does this pretty well without crying -->
 **Bei jeder Änderung in `literatur.bib` müssen folgende Schritte durchgeführt werden:**
+
 1. Das Projekt kompilieren (`pdflatex.exe -synctex=1 -interaction=nonstopmode "template".tex`)
 2. Biber ausführen (`biber.exe "template"`)
 3. Das Projekt 2x kompilieren
@@ -145,13 +149,13 @@ Mehrere Autoren können mit `and` verknüpft werden. Beispielsweise: `author={Fe
 
 Wird `\footcite` oder `\supercite` mit beiden optionalen Parametern aufgerufen, so ist die Syntax wie folgt:
 
-```
+```latex
 \footcite[Prenote][Postnote]{id}
 ```
 
 Beispiel:
 
-```
+```latex
 \supercite[Vgl.][]{Computerphile.2020}
 ```
 
@@ -159,28 +163,28 @@ Beispiel:
 
 - Abbildungen werden durch das Template in `assets/img` gefunden.
   - `\includegraphics{<imgName>}` entspricht `\includegraphics{assets/img/<imgName>}`
-  - anpassbar durch `\graphicspath	{{<newImagePath>}}`
+  - anpassbar durch `\graphicspath {{<newImagePath>}}`
     - **`<newImagePath>`** ist aus der sicht von `build/` zu sehen
-    - `\graphicspath	{{../assets/img/}}}`
+    - `\graphicspath {{../assets/img/}}}`
 
 ## LaTeX Abbildungen
 
-```
+```latex
 \begin{figure}[<options>]
-	\caption{<captionName>}
-	\includegraphics[<imgOptions>]{<imgName>}
-	\label{<labelName>}
+  \caption{<captionName>}
+  \includegraphics[<imgOptions>]{<imgName>}
+  \label{<labelName>}
 \end{figure}
 ```
 
 Beispiel:
 
-```
+```latex
 \begin{figure}[H]
-	\centering
-	\caption{testImgName}
-	\includegraphics[scale=0.75]{imgName}
-	\label{fig:anlagentest}
+  \centering
+  \caption{testImgName}
+  \includegraphics[scale=0.75]{imgName}
+  \label{fig:anlagentest}
 \end{figure}
 ```
 
@@ -195,6 +199,7 @@ Beispiel:
 ```
 
 kann mit bis zu sechs Argumenten aufgerufen werden:
+
 1. **Optional** Float Position, standardmäßig `h`
 1. Relativer bild-path mit oder ohne Dateiendung (relativ zum `./assets/img` Ordner, kann in `template.tex` angepasst werden)
 1. `\includegraphics` Optionen (leer lassen für Standard)
@@ -213,6 +218,7 @@ Beispiel:
 
 Wir empfehlen den Befehl als Snippet im Text-Editor zu hinterlegen.
 In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
+
 1. _CTRL+Shift+P_
 2. `Preferences: Configure User Snippets`
 3. bereits existierenden latex Snippet File auswählen **oder** `New Global Snippets File...`
@@ -228,12 +234,12 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 
 # WIP: Abkürzungen
 
-> Hinweis: In naher Zukunft soll auf das `acro` package umgestiegen werden, siehe dazu https://github.com/RvNovae/dhge-latex/issues/60
+> Hinweis: In naher Zukunft soll auf das `acro` package umgestiegen werden, siehe dazu [Issue 60](https://github.com/RvNovae/dhge-latex/issues/60)
 <!-- todo: @LordofAgents Anpassungen -->
 <!-- Struktur evtl. Anwendung, Beispiel (siehe Zitate oder Abbildungen) muss aber nicht unbedingt so sein -->
 werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax versehen:
 
-```
+```latex
 \acro {1} [2] {3}
 ```
 
@@ -243,13 +249,13 @@ werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax verse
 
 Beispielweise:
 
-```
+```latex
 \acro {dhge} [DHGE] {Duale Hochschule Gera Eisenach}
 ```
 
 Im Fließtext wird dann mit
 
-```
+```latex
 \ac{dhge}
 ```
 
@@ -268,15 +274,15 @@ Für mehr Informationen kann die [Acronym Package Documentation](https://ctan.mc
 
 * Anlagen werden in der anlagen.tex hinterlegt.
   * hierbei ist zu beachten:
-      * die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
-      * die Anlage benötigt eine Beschriftung `\caption{}`
+    * die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
+    * die Anlage benötigt eine Beschriftung `\caption{}`
   * ein Label ist nicht nötig für eine automatische Verknüpfung im Anlagenverzeichnis
   * der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
   * siehe Beispiel `build/tests/anlagen.tex`
 
 Beispiel:
 
-```
+```latex
 \begin{table}
     \caption{TestBeschriftung}
     \begin{tabular}{c | c}
@@ -301,7 +307,6 @@ Beispiel:
 Bei Proxy-Problemen mit pip, kann auch das `Pygments.whl` file runtergeladen und dann mit pip installiert werden.
 [Pygments Download](https://pypi.org/project/Pygments/#files)
 
-
 # Spezielle Abschnitte
 
 ## SubSubSubSection
@@ -311,6 +316,7 @@ Falls man einen Abschnitt 4. Stufe schreiben möchte, kann das mit
 ```latex
 \dhgeparagraph{}
 ```
+
 umgesetzt werden.
 
 Beispiel:
