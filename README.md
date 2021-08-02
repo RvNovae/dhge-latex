@@ -45,6 +45,7 @@ Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualst
   * **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
 
 Das Projekt sollte sich nun bauen lassen.
+Sollte es doch zu einmal zu Problemen kommen, können diese möglicherweise durch die Aktualisierung der installierten LaTeX Packages gelöst werden.
 
 Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts (erfordert eine Perl Installation).
 
