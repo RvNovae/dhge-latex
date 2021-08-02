@@ -1,0 +1,15 @@
+[*]
+charset = utf8
+end_of_line = crlf
+insert_final_newline = true
+
+[*.bib]
+indent_style = tab
+
+[*.tex]
+indent_style = space
+indent_size = 4
+
+[*.{md,json}]
+indent_style = space
+indent_size = 2
