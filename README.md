@@ -34,6 +34,8 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 Eine Installation von MikTeX über [proTeXt](https://www.tug.org/protext/) wird empfohlen.
 Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualstudio.com/) in Kombination mit der [latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) Extension und [TeXstudio](https://www.texstudio.org/) an.
 
+>Bei einer bereits bestehenden Installation sollten die installierten Packages auf Updates überprüft werden. Andererseits kann es zu Problemen beim Bauen kommen.
+
 ## Setup
 
 1. Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
@@ -45,7 +47,6 @@ Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualst
   * **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
 
 Das Projekt sollte sich nun bauen lassen.
-Sollte es doch zu einmal zu Problemen kommen, können diese möglicherweise durch die Aktualisierung der installierten LaTeX Packages gelöst werden.
 
 Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts (erfordert eine Perl Installation).
 
