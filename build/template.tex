@@ -10,7 +10,7 @@
 % setups and commands
 \input{components/com.tex}
 \input{components/setup.tex}  % -> default dir set to "../"
-
+\input{abk.tex}
 \input{../config.tex}
 
 % configuration of global definitions
@@ -59,10 +59,7 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-\section*{Abkürzungsverzeichnis}
-\begin{acronym}[\CABKL]\itemsep0pt
-	\input{abk.tex}
-\end{acronym}
+\printacronyms
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \cleardoublepage
 
