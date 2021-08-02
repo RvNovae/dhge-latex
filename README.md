@@ -234,10 +234,6 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 
 # WIP: Abkürzungen
 
-> Hinweis: In naher Zukunft soll auf das `acro` package umgestiegen werden, siehe dazu [Issue 60](https://github.com/RvNovae/dhge-latex/issues/60)
-<!-- Struktur evtl. Anwendung, Beispiel (siehe Zitate oder Abbildungen) muss aber nicht unbedingt so sein -->
-werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax versehen:
-
 ```latex
 \DeclareAcronym{1}{
   short = {2},
