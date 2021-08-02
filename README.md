@@ -235,12 +235,14 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 # WIP: Abkürzungen
 
 > Hinweis: In naher Zukunft soll auf das `acro` package umgestiegen werden, siehe dazu [Issue 60](https://github.com/RvNovae/dhge-latex/issues/60)
-<!-- todo: @LordofAgents Anpassungen -->
 <!-- Struktur evtl. Anwendung, Beispiel (siehe Zitate oder Abbildungen) muss aber nicht unbedingt so sein -->
 werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax versehen:
 
 ```latex
-\acro {1} [2] {3}
+\DeclareAcronym{1}{
+  short = {2},
+  long = {3}
+  }
 ```
 
 1. ID der Abkürzung, damit wird im Fließtext später referenziert.
@@ -250,7 +252,10 @@ werden in `abk.tex` eingetragen. Jede Abkürzung wird mit folgender Syntax verse
 Beispielweise:
 
 ```latex
-\acro {dhge} [DHGE] {Duale Hochschule Gera Eisenach}
+\DeclareAcronym{dhge}{
+	short = {DHGE},
+	long = {Duale Hochschule Gera-Eisenach}
+}
 ```
 
 Im Fließtext wird dann mit
@@ -260,11 +265,79 @@ Im Fließtext wird dann mit
 ```
 
 die Abkürzung aufgerufen.
+Dies sind die Angaben, die mindestens benötigt werden. Es gibt weitere Einstellungsmöglichkeiten bei dem Deklarieren von Abkürzungen, die in der unten stehenden Dokumentation nachgelesen werden können. Eine sinnvolle Auswahl davon:
+
+```latex
+\DeclareAcronym{1}{
+  short = {2},
+  long = {3},
+  short-plural = {4},
+  long-plural = {5},
+  alt = {8}
+  }
+```
+ODER
+```latex
+\DeclareAcronym{1}{
+  short = {2},
+  long = {3},
+  short-plural-form = {6},
+  long-plural-form = {7},
+  alt = {8}
+  }
+```
+1. ID der Abkürzung, damit wird im Fließtext später referenziert.
+2. Die Abkürzung selbst
+3. Der ausgeschriebene Begriff
+4. Buchstabe oder Silbe, die der Abkürzung im Plural angehangen wird
+5. Buchstabe oder Silbe, die dem ausgeschriebenen Wort im Plural angehangen wird
+6. Plural-Form der Abkürzung, ersetzt die Abkürzung komplett
+7. Plural-Form des Wortes, ersetzt das Wort komplett
+8. Alternative zum ausgeschriebenen Wort
+
+Die Angaben 4 bis 8 sind optional.
+
+Die Pluralform lässt sich mit
+```latex
+\acp{1}
+```
+aufrufen, die Alternativform mit
+```latex
+\aca{1}
+```
+
+Beispiel:
+```latex
+\DeclareAcronym{jpg}{
+  short = {JPEG},
+  long = {Joint Photographic Experts Group},
+  short-plural-form = {JPEGs},
+  long-plural-form = {Joint Photographic Experts Groups},
+  alt = {JPG}
+  }
+```
+ODER
+```latex
+\DeclareAcronym{jpg}{
+  short = {JPEG},
+  long = {Joint Photographic Experts Group},
+  short-plural = {s},
+  long-plural = {s},
+  alt = {JPG}
+  }
+```
+Aufruf:
+```latex
+\ac{jpg} % Normale Form
+\acp{jpg} % Plural-Form
+\aca{jpg} % Alternativ-Form
+```
+
 Das Abkürzungsverzeichnis wird dann automatisch erstellt.
 
 ***
 
-Für mehr Informationen kann die [Acronym Package Documentation](https://ctan.mc1.root.project-creative.net/macros/latex/contrib/acronym/acronym.pdf) gelesen werden
+Für mehr Informationen kann die [Acro Package Documentation](https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/acro/acro-manual.pdf) gelesen werden
 
 # Anlagenverzeichnis
 
