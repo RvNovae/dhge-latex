@@ -59,7 +59,8 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-\ifnum\totvalue{acro_num}>0%
+% only if \ac or simmilar used
+\ifnum\totvalue{acro_num}>0
 	\printacronyms
 	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 	\cleardoublepage
