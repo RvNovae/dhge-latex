@@ -64,17 +64,27 @@
 
 % AUTISTIC CONDITIONALS
 % This hides ToF and ToT if they are empty
-\makeatletter
-\AtEndEnvironment	{figure}{\gdef\there@is@a@figure{}}
-\AtEndEnvironment	{table}{\gdef\there@is@a@table{}}
+\newtotcounter{figCount}
+\newtotcounter{tabCount}
+\let\oldTab=\table
+\let\oldFig=\figure
+\renewcommand{\figure}{\stepcounter{figCount}\oldFig}
+\renewcommand{\table}{\stepcounter{tabCount}\oldTab}
 
-\AtEndDocument		{\ifdefined\there@is@a@figure\label{fig:was:used:in:doc}\fi}
-\AtEndDocument		{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
-\newcommand{\conditionalLoF}{\@ifundefined{r@fig:was:used:in:doc}{}
-    {\addcontentsline{toc}{section}{\listfigurename} \listoffigures \cleardoublepage}}%
-\newcommand{\conditionalLoT}{\@ifundefined{r@tab:was:used:in:doc}{}
-    {\addcontentsline{toc}{section}{\listtablename} \listoftables \cleardoublepage}}%
-\makeatother
+\newcommand{\conditionalLoF}{
+    \ifnum\totvalue{figCount}>0
+        \addcontentsline{toc}{section}{\listfigurename} 
+        \listoffigures 
+        \cleardoublepage
+    \fi
+}
+\newcommand{\conditionalLoT}{
+    \ifnum\totvalue{tabCount}>0
+        \addcontentsline{toc}{section}{\listtablename} 
+        \listoftables 
+        \cleardoublepage
+    \fi
+}
 
 % COUNTER (So we can keep counting in Roman after switching to Arabic)
 \newcounter{savepage}
