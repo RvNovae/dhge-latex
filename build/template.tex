@@ -60,7 +60,7 @@
 
 % ABKÜRZUNGSVERZEICHNIS
 % only if \ac or simmilar used
-\ifnum\theacronum>0
+\ifnum\totvalue{acro_num}>0
 	\printacronyms
 	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 	\cleardoublepage
