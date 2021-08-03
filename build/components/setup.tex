@@ -103,3 +103,9 @@
 	make-links = true,
 	link-only-first = false
 }
+
+% Abkürzungsverzeichnis redefine of \ac
+\newtotcounter{acro_num}
+\def\oldac{} \let\oldac=\ac
+\def\ac{\stepcounter{acro_num}\oldac}
+
