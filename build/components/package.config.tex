@@ -1,5 +1,5 @@
 \usepackage		[a4paper, 
-    	            inner=3cm, 
+    	           inner=3cm, 
                    outer=2.5cm, 
                    top=2.5cm, 
                    bottom=2.5cm]{geometry}
@@ -15,12 +15,14 @@
 \usepackage		[T1]{fontenc}
 \usepackage		[style=german]{csquotes}
 \usepackage		[backend=biber, 
-                   style=alphabetic, 
+                   style        = ext-numeric,
+                   backend      = biber,
+                   defernumbers = true,
                    citestyle=components/alphabetic-ibid, 
                    giveninits=true, 
                    ibidtracker=true,
                    minbibnames=3,
-                   minalphanames=3]{biblatex} 		
+                   minalphanames=3]{biblatex}
 \usepackage		[ngerman]{babel}
 \usepackage		{csquotes,xpatch}
 \usepackage		{footmisc}

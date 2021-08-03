@@ -96,12 +96,24 @@
 % define the old CAUTHOR variable
 \def\CAUTHOR{\CAUTHORVOR\ \CAUTHORNACH}
 
+\newcounter{totalbibentries}
+\newcommand*{\listcounted}{}
+
+\makeatletter
+\AtDataInput{%
+  \xifinlist{\abx@field@entrykey}\listcounted
+    {}
+    {\stepcounter{totalbibentries}%
+     \listxadd\listcounted{\abx@field@entrykey}}%
+}
+\makeatother
+
 % Abkürzungsverzeichnis SETUP
 \acsetup{
 	list/heading = section*,
 	list/name = {Abkürzungsverzeichnis},
 	make-links = true,
-	link-only-first = false
+	% link-only-first = false
 }
 
 % Abkürzungsverzeichnis redefine of \UseAcroTemplate, which is the base of \ac

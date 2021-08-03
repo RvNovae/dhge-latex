@@ -59,7 +59,7 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-% only if \ac or simmilar used
+% only if \ac or similar used
 \ifnum\totvalue{acro_num}>0
 	\printacronyms
 	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
@@ -77,9 +77,13 @@
 % LITERATURVERZEICHNIS
 % TODO Formatierung
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
-\printbibliography[title=Literaturverzeichnis]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\cleardoublepage
+
+% wenn keine literatur verwendet (zitiert) wird, erstelle kein literaturverzeichnis 
+\if\thetotalbibentries>0
+    \printbibliography[title=Literaturverzeichnis]
+    \addcontentsline{toc}{section}{Literaturverzeichnis}
+    \cleardoublepage
+\fi
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
 \section*{Anlagen}

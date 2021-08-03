@@ -1,11 +1,13 @@
 {
     "cSpell.words": [
+        "acro",
         "amssymb",
         "belowskip",
         "captionsetup",
         "cauthor",
         "citestyle",
         "csquotes",
+        "defernumbers",
         "dhge",
         "dhgefigure",
         "enumitem",
@@ -31,6 +33,7 @@
         "titletoc",
         "tocdepth",
         "tocloft",
+        "totcount",
         "xparse",
         "xpatch"
     ]
