@@ -113,11 +113,11 @@
 	list/heading = section*,
 	list/name = {Abkürzungsverzeichnis},
 	make-links = true,
-	% link-only-first = false
+	link-only-first = false
 }
 
 % Abkürzungsverzeichnis redefine of \UseAcroTemplate, which is the base of \ac
 % New Counter to count used acronyms:
-\newtotcounter{acro_num}			
+\newtotcounter{acro_num}
 \def\oldUseAcroTemplate{} \let\oldUseAcroTemplate=\UseAcroTemplate
 \def\UseAcroTemplate{\stepcounter{acro_num}\oldUseAcroTemplate}

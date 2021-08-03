@@ -85,13 +85,16 @@
     \cleardoublepage
 \fi
 
+
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
-\section*{Anlagen}
-\begin{spacing}{2}
-	\listofanlagen	
-\end{spacing}
-\addcontentsline{toc}{section}{Anlagen}
-\cleardoublepage
+\ifnum\totvalue{anlagenentries}>0
+    \section*{Anlagen}
+    \begin{spacing}{2}
+        \listofanlagen	
+    \end{spacing}
+    \addcontentsline{toc}{section}{Anlagen}
+    \cleardoublepage
+\fi
 \renewFigTabCap % change the behavior from the env figure and table and the command \caption{}
 \input{anlagen.tex}
 \cleardoublepage
