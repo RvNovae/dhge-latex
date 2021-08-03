@@ -59,9 +59,13 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-\printacronyms
-\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\cleardoublepage
+% only if \ac or simmilar used
+\ifnum\totvalue{acro_num}>0
+	\printacronyms
+	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+	\cleardoublepage
+\fi	
+
 
 \setcounter{savepage}{\arabic{page}}
 
