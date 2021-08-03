@@ -79,7 +79,7 @@
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
 
 % wenn keine literatur verwendet (zitiert) wird, erstelle kein literaturverzeichnis 
-\if\thetotalbibentries>0
+\ifnum\thetotalbibentries>0
     \printbibliography[title=Literaturverzeichnis]
     \addcontentsline{toc}{section}{Literaturverzeichnis}
     \cleardoublepage
