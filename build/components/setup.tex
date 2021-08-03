@@ -106,102 +106,102 @@
 
 % Abkürzungsverzeichnis redefine of \ac
 % New Counter to count used acronyms:
-\newtotcounter{acro_num}			
+\newcounter{acronum}			
 % Normal \ac Commands:
 \def\oldac{} \let\oldac=\ac
-\def\ac{\stepcounter{acro_num}\oldac}
+\def\ac{\stepcounter{acronum}\oldac}
 
 \def\oldAc{} \let\oldAc=\Ac
-\def\Ac{\stepcounter{acro_num}\oldAc}
+\def\Ac{\stepcounter{acronum}\oldAc}
 
 \def\oldacp{} \let\oldacp=\acp
-\def\acp{\stepcounter{acro_num}\oldacp}
+\def\acp{\stepcounter{acronum}\oldacp}
 
 \def\oldAcp{} \let\oldAcp=\Acp
-\def\Acp{\stepcounter{acro_num}\oldAcp}
+\def\Acp{\stepcounter{acronum}\oldAcp}
 
 \def\oldiac{} \let\oldiac=\iac
-\def\iac{\stepcounter{acro_num}\oldiac}
+\def\iac{\stepcounter{acronum}\oldiac}
 
 \def\oldIac{} \let\oldIac=\Iac
-\def\Iac{\stepcounter{acro_num}\oldIac}
+\def\Iac{\stepcounter{acronum}\oldIac}
 
 % short forms
 
 \def\oldacs{} \let\oldasc=\acs
-\def\acs{\stepcounter{acro_num}\oldacs}
+\def\acs{\stepcounter{acronum}\oldacs}
 
 \def\oldAcs{} \let\oldAcs=\Acs
-\def\Acs{\stepcounter{acro_num}\oldAcs}
+\def\Acs{\stepcounter{acronum}\oldAcs}
 
 \def\oldacsp{} \let\oldacsp=\acsp
-\def\acsp{\stepcounter{acro_num}\oldacsp}
+\def\acsp{\stepcounter{acronum}\oldacsp}
 
 \def\oldAcsp{} \let\oldAcsp=\Acsp
-\def\Acsp{\stepcounter{acro_num}\oldAcsp}
+\def\Acsp{\stepcounter{acronum}\oldAcsp}
 
 \def\oldiacs{} \let\oldiacs=\iacs
-\def\iacs{\stepcounter{acro_num}\oldiacs}
+\def\iacs{\stepcounter{acronum}\oldiacs}
 
 \def\oldIacs{} \let\oldIacs=\Iacs
-\def\Iacs{\stepcounter{acro_num}\oldIacs}
+\def\Iacs{\stepcounter{acronum}\oldIacs}
 
 % long forms
 
 \def\oldacl{} \let\oldacl=\acl
-\def\acl{\stepcounter{acro_num}\oldacl}
+\def\acl{\stepcounter{acronum}\oldacl}
 
 \def\oldAcl{} \let\oldAcl=\Acl
-\def\Acl{\stepcounter{acro_num}\oldAcl}
+\def\Acl{\stepcounter{acronum}\oldAcl}
 
 \def\oldaclp{} \let\oldaclp=\aclp
-\def\aclp{\stepcounter{acro_num}\oldaclp}
+\def\aclp{\stepcounter{acronum}\oldaclp}
 
 \def\oldAclp{} \let\oldAclp=\Aclp
-\def\Aclp{\stepcounter{acro_num}\oldAclp}
+\def\Aclp{\stepcounter{acronum}\oldAclp}
 
 \def\oldiacl{} \let\oldiacl=\iacl
-\def\iacl{\stepcounter{acro_num}\oldiacl}
+\def\iacl{\stepcounter{acronum}\oldiacl}
 
 \def\oldIacl{} \let\oldIacl=\Iacl
-\def\Iacl{\stepcounter{acro_num}\oldIacl}
+\def\Iacl{\stepcounter{acronum}\oldIacl}
 
 % alternative form
 
 \def\oldaca{} \let\oldaca=\aca
-\def\aca{\stepcounter{acro_num}\oldaca}
+\def\aca{\stepcounter{acronum}\oldaca}
 
 \def\oldAca{} \let\oldAca=\Aca
-\def\Aca{\stepcounter{acro_num}\oldAca}
+\def\Aca{\stepcounter{acronum}\oldAca}
 
 \def\oldacap{} \let\oldacap=\acap
-\def\acap{\stepcounter{acro_num}\oldacap}
+\def\acap{\stepcounter{acronum}\oldacap}
 
 \def\oldAcap{} \let\oldAcap=\Acap
-\def\Acap{\stepcounter{acro_num}\oldAcap}
+\def\Acap{\stepcounter{acronum}\oldAcap}
 
 \def\oldiaca{} \let\oldiaca=\iaca
-\def\iaca{\stepcounter{acro_num}\oldiaca}
+\def\iaca{\stepcounter{acronum}\oldiaca}
 
 \def\oldIaca{} \let\oldIaca=\Iaca
-\def\Iaca{\stepcounter{acro_num}\oldIaca}
+\def\Iaca{\stepcounter{acronum}\oldIaca}
 
 % full form
 
 \def\oldacf{} \let\oldacf=\acf
-\def\acf{\stepcounter{acro_num}\oldacf}
+\def\acf{\stepcounter{acronum}\oldacf}
 
 \def\oldAcf{} \let\oldAcf=\Acf
-\def\Acf{\stepcounter{acro_num}\oldAcf}
+\def\Acf{\stepcounter{acronum}\oldAcf}
 
 \def\oldacfp{} \let\oldacfp=\acfp
-\def\acfp{\stepcounter{acro_num}\oldacfp}
+\def\acfp{\stepcounter{acronum}\oldacfp}
 
 \def\oldAcfp{} \let\oldAcfp=\Acfp
-\def\Acfp{\stepcounter{acro_num}\oldAcfp}
+\def\Acfp{\stepcounter{acronum}\oldAcfp}
 
 \def\oldiacf{} \let\oldiacf=\iacf
-\def\iacf{\stepcounter{acro_num}\oldiacf}
+\def\iacf{\stepcounter{acronum}\oldiacf}
 
 \def\oldIacf{} \let\oldIacf=\Iacf
-\def\Iacf{\stepcounter{acro_num}\oldIacf}
+\def\Iacf{\stepcounter{acronum}\oldIacf}
