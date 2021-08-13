@@ -59,9 +59,13 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-\printacronyms
-\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\cleardoublepage
+% only if \ac or similar used
+\ifnum\totvalue{acro_num}>0
+	\printacronyms
+	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+	\cleardoublepage
+\fi	
+
 
 \setcounter{savepage}{\arabic{page}}
 
@@ -73,17 +77,24 @@
 % LITERATURVERZEICHNIS
 % TODO Formatierung
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
-\printbibliography[title=Literaturverzeichnis]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\cleardoublepage
+
+% wenn keine literatur verwendet (zitiert) wird, erstelle kein literaturverzeichnis 
+\ifnum\thetotalbibentries>0
+    \printbibliography[title=Literaturverzeichnis]
+    \addcontentsline{toc}{section}{Literaturverzeichnis}
+    \cleardoublepage
+\fi
+
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
-\section*{Anlagen}
-\begin{spacing}{2}
-	\listofanlagen	
-\end{spacing}
-\addcontentsline{toc}{section}{Anlagen}
-\cleardoublepage
+\ifnum\totvalue{anlagenentries}>0
+    \section*{Anlagen}
+    \begin{spacing}{2}
+        \listofanlagen	
+    \end{spacing}
+    \addcontentsline{toc}{section}{Anlagen}
+    \cleardoublepage
+\fi
 \renewFigTabCap % change the behavior from the env figure and table and the command \caption{}
 \input{anlagen.tex}
 \cleardoublepage
