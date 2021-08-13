@@ -66,10 +66,10 @@
 % This hides ToF and ToT if they are empty
 \newtotcounter{figCount}
 \newtotcounter{tabCount}
-\let\oldTab=\table
-\let\oldFig=\figure
-\renewcommand{\figure}{\stepcounter{figCount}\oldFig}
-\renewcommand{\table}{\stepcounter{tabCount}\oldTab}
+\let\oldTabTOC=\table
+\let\oldFigTOC=\figure
+\renewcommand{\figure}{\stepcounter{figCount}\oldFigTOC}
+\renewcommand{\table}{\stepcounter{tabCount}\oldTabTOC}
 
 \newcommand{\conditionalLoF}{
     \ifnum\totvalue{figCount}>0
