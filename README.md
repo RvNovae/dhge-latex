@@ -20,7 +20,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Abbildungen](#abbildungen)
   - [LaTeX Abbildungen](#latex-abbildungen)
   - [dhge-latex Abbildungen](#dhge-latex-abbildungen)
-- [WIP: Abkürzungen](#wip-abkürzungen)
+- [Abkürzungen](#abkürzungen)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
   - [Verwendung](#verwendung)
 - [Code einfügen mit Minted](#code-einfügen-mit-minted)
@@ -234,7 +234,7 @@ In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
 }
 ```
 
-# WIP: Abkürzungen
+# Abkürzungen
 
 ```latex
 \DeclareAcronym{1}{
@@ -332,6 +332,7 @@ Aufruf:
 ```
 
 Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu vier Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
+
 ***
 
 Für mehr Informationen kann die [Acro Package Documentation](https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/acro/acro-manual.pdf) gelesen werden
