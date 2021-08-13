@@ -331,8 +331,7 @@ Aufruf:
 \aca{jpg} % Alternativ-Form
 ```
 
-Das Abkürzungsverzeichnis wird dann automatisch erstellt.
-
+Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu vier Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
 ***
 
 Für mehr Informationen kann die [Acro Package Documentation](https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/acro/acro-manual.pdf) gelesen werden
