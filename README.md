@@ -5,6 +5,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 # Inhaltsverzeichnis <!-- omit in toc -->
 - [Installation](#installation)
   - [LaTeX Installation](#latex-installation)
+    - [Perl](#perl)
   - [Setup](#setup)
 - [Latex Tipps](#latex-tipps)
   - ["Variablen"](#variablen)
@@ -36,6 +37,26 @@ Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualst
 
 >Bei einer bereits bestehenden Installation sollten die installierten Packages auf Updates überprüft werden. Andererseits kann es zu Problemen beim Bauen kommen.
 
+### Perl
+
+Möchte man Dokumente mit `latextmk` bauen, was wir im Abschnitt [Setup](#setup) empfehlen, wird eine funktionierende Perl-Installation benötigt.
+Nutzer von macOS und Linux haben meistens schon ein vorinstalliertes Perl.
+
+**Überprüfung einer Installation**
+
+Wenn man herausfinden möchte, ob man bereits ein funktionierendes Perl hat oder die unten genannte Installation erfolgreich verlief, kann man in einer Kommandozeile (Terminal) seiner Wahl ``perl -v`` ausführen.
+Ist Perl korrekt installiert, wird die Version ausgegeben:
+
+![Perl ist unter Windows korrekt installiert](assets/img/perl-windows.jpg)
+
+Ist die Perl-Installation nicht vorhanden oder dem Terminal unbekannt, wird stattdessen folgendes ausgegeben:
+
+![Kein Perl installiert](assets/img/no-perl-windows.jpg)
+
+**Installation unter Windows**
+
+Für Windows Nutzer empfiehlt sich Strawberry Perl, was [hier](https://strawberryperl.com/) erhältlich ist.
+
 ## Setup
 
 1. Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
@@ -48,7 +69,14 @@ Als Editor bieten sich beispielsweise [Visual Studio Code](https://code.visualst
 
 Das Projekt sollte sich nun bauen lassen.
 
-Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts (erfordert eine Perl Installation).
+Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts.
+Während die Visual Studio Code Erweiterung "LaTeX Workshop" standardmäßig `latexmk` verwendet, ist bei TeXstudio eine Anpassung der Einstellungen erforderlich:
+
+**Einstellen von TeXstudio zur Nutzung von `latexmk`:**
+
+1. Die TeXstudio-Einstellungen öffnen: Im Menüband `Optionen`, dann `TeXstudio konfigurieren...` anklicken
+2. Im Abschnitt `Befehle` sichergehen, dass der Latexmk-Eintrag befüllt ist, z.B. mit: `latexmk.exe -pdf -silent -synctex=1 %`
+3. Im Abscnnitt `Erzeugen` den Standardcompiler `Latexmk` in der Drop-down Liste auswählen
 
 # Latex Tipps
 
