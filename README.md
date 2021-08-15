@@ -76,7 +76,7 @@ Während die Visual Studio Code Erweiterung "LaTeX Workshop" standardmäßig `la
 
 1. Die TeXstudio-Einstellungen öffnen: Im Menüband `Optionen`, dann `TeXstudio konfigurieren...` anklicken
 2. Im Abschnitt `Befehle` sichergehen, dass der Latexmk-Eintrag befüllt ist, z.B. mit: `latexmk.exe -pdf -silent -synctex=1 %`
-3. Im Abscnnitt `Erzeugen` den Standardcompiler `Latexmk` in der Drop-down Liste auswählen
+3. Im Abschnitt `Erzeugen` den Standardcompiler `Latexmk` in der Drop-down Liste auswählen
 
 # Latex Tipps
 
