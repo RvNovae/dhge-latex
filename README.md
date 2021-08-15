@@ -84,6 +84,8 @@ Während die Visual Studio Code Erweiterung "LaTeX Workshop" standardmäßig `la
 Ein relativ simples [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/) zum einfachen Einstieg in die Welt von TeX.
 > _ist allerdings durch das Template nicht nötig, nachfolgendes sollte ausreichen_
 
+Für einen Einstieg in das wissenschaftliche Schreiben an sich bietet sich ein Artikel von Sebastian Hahnert an, der ebenfalls auf LaTeX eingeht: [Wissenschaftliches Schreiben Schnelleinstieg](https://github.com/sebinside/WissenschaftlichesSchreiben-Schnelleinstieg)
+
 ## "Variablen"
 
 Variablen gibt es in TeX an sich nicht wie in anderen Sprachen.
