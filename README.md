@@ -73,18 +73,31 @@ Das Projekt sollte sich nun bauen lassen.
 Wir empfehlen den `latexmk` Befehl zum kompilieren des Projekts.
 Während die Visual Studio Code Erweiterung "LaTeX Workshop" standardmäßig `latexmk` verwendet, ist bei TeXstudio eine Anpassung der Einstellungen erforderlich:
 
-**Einstellen von TeXstudio zur Nutzung von `latexmk`:**
-
-1. Die TeXstudio-Einstellungen öffnen: Im Menüband `Optionen`, dann `TeXstudio konfigurieren...` anklicken
-2. Im Abschnitt `Befehle` sichergehen, dass der Latexmk-Eintrag befüllt ist, z.B. mit: `latexmk.exe -pdf -silent -synctex=1 %`
-3. Im Abschnitt `Erzeugen` den Standardcompiler `Latexmk` in der Drop-down Liste auswählen
-
 **Visual Studio Code: empfohlene Erweiterungen**
 
 Wir empfehlen für die Arbeit in Visual Studio Code ausgewählte Erweiterungen, die sowohl für das Schreiben mit LaTeX, als auch für das Studium an der DHGE<!--ähem Plantuml--> hilfreich sind.
 Um sie zu prüfen und ggf. zu installieren, kann in dem Erweiterungsmenü nach `@recommended` gesucht werden:
 
 ![Empfohlene Erweiterungen in VS Code](assets/img/vscode-recom-exts.png)
+
+**Einstellen von TeXstudio zur Nutzung von `latexmk`:**
+
+1. Die TeXstudio-Einstellungen öffnen: Im Menüband `Optionen`, dann `TeXstudio konfigurieren...` anklicken
+2. Im Abschnitt `Befehle` sichergehen, dass der Latexmk-Eintrag befüllt ist, z.B. mit: `latexmk.exe -pdf -silent -synctex=1 %`
+3. Im Abschnitt `Erzeugen` den Standardcompiler `Latexmk` in der Drop-down Liste auswählen
+
+**Einstellen von LaTeX Workshop (VSCode)**
+
+Die Erweiterung "LaTeX Workshop" für Visual Studio Code bietet eine Vielzahl von Einstellungsmöglichkeiten und kann auf die individuellen Bedürfnisse angepasst werden.
+Z.B. kann ein externer PDF-Betrachter oder ein automatisches Build-Intervall eingerichtet werden.
+Die Einstellungen für die Erweiterung findet man am Ende der Einstellungen von Visual Studio Code selbst:
+
+1. im Menüband `Datei` anklicken
+2. über `Einstellungen` hovern und dort `Einstellungen` anklicken.
+3. Am Ende der Liste `Erweiterungen` aufklappen und das Kapitel `LaTeX` anklicken.
+
+![Einstellungen für LaTeX Workshop](assets/img/vscode-latex-settings.jpg)
+
 # Latex Tipps
 
 <!-- todo: add more -->
