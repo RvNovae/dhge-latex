@@ -3,6 +3,7 @@
 Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an der Dualen Hochschule Gera Eisenach
 
 # Inhaltsverzeichnis <!-- omit in toc -->
+
 - [Installation](#installation)
   - [LaTeX Installation](#latex-installation)
     - [Perl](#perl)
@@ -78,13 +79,19 @@ Während die Visual Studio Code Erweiterung "LaTeX Workshop" standardmäßig `la
 2. Im Abschnitt `Befehle` sichergehen, dass der Latexmk-Eintrag befüllt ist, z.B. mit: `latexmk.exe -pdf -silent -synctex=1 %`
 3. Im Abschnitt `Erzeugen` den Standardcompiler `Latexmk` in der Drop-down Liste auswählen
 
+**Visual Studio Code: empfohlene Erweiterungen**
+
+Wir empfehlen für die Arbeit in Visual Studio Code ausgewählte Erweiterungen, die sowohl für das Schreiben mit LaTeX, als auch für das Studium an der DHGE<!--ähem Plantuml--> hilfreich sind.
+Um sie zu prüfen und ggf. zu installieren, kann in dem Erweiterungsmenü nach `@recommended` gesucht werden:
+
+![Empfohlene Erweiterungen in VS Code](assets/img/vscode-recom-exts.png)
 # Latex Tipps
 
 <!-- todo: add more -->
 Ein relativ simples [LaTeX-Tutorial](https://www.latex-tutorial.com/tutorials/first-document/) zum einfachen Einstieg in die Welt von TeX.
 > _ist allerdings durch das Template nicht nötig, nachfolgendes sollte ausreichen_
 
-Für einen Einstieg in das wissenschaftliche Schreiben an sich bietet sich ein Artikel von Sebastian Hahnert an, der ebenfalls auf LaTeX eingeht: [Wissenschaftliches Schreiben Schnelleinstieg](https://github.com/sebinside/WissenschaftlichesSchreiben-Schnelleinstieg)
+Für einen Einstieg in das wissenschaftliche Schreiben an sich bietet sich ein Artikel von Sebastian Hahner an, der ebenfalls auf LaTeX eingeht: [Wissenschaftliches Schreiben Schnelleinstieg](https://github.com/sebinside/WissenschaftlichesSchreiben-Schnelleinstieg)
 
 ## "Variablen"
 
