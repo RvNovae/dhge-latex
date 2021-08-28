@@ -92,7 +92,7 @@ Um sie zu prüfen und ggf. zu installieren, kann in dem Erweiterungsmenü nach `
 ### Einstellen von LaTeX Workshop (VSCode)
 
 Die Erweiterung "LaTeX Workshop" für Visual Studio Code bietet eine Vielzahl von Einstellungsmöglichkeiten und kann auf die individuellen Bedürfnisse angepasst werden.
-Z.B. kann ein externer PDF-Betrachter oder ein automatisches Build-Intervall eingerichtet werden.
+z.B. kann ein externer PDF-Betrachter oder ein automatisches Build-Intervall eingerichtet werden.
 Die Einstellungen für die Erweiterung findet man am Ende der Einstellungen von Visual Studio Code selbst:
 
 1. im Menüband `Datei` anklicken
@@ -130,7 +130,7 @@ Es ist aber auch möglich, sie einfach durch `\<variablenName>` aufzurufen.\
 
 ## Environment (Umgebung)
 
-Ein Codeblock, welcher bestimmte Anläufe vor und nach dem eigenen Code laufen lässt.
+Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen lässt.
 
 ```latex
 \begin{<environment>}
@@ -464,6 +464,6 @@ Beispiel:
 
 # Unicode Alphabete
 
-Falls chinesische, japanische o.ä. Alphabete verwendet werden müssen (bsp. bedingt durch Autoren), ist die einfachste Methode, das `CJKutf8` Package zu laden.
+Falls chinesische, japanische o.ä. Alphabete verwendet werden müssen (bspw. bedingt durch Autoren), ist die einfachste Methode, das `CJKutf8` Package zu laden.
 
 Eine Anleitung finden Sie in [diesem Artikel](https://www.overleaf.com/learn/latex/chinese).
