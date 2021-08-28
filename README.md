@@ -51,11 +51,11 @@ Nutzer von macOS und Linux haben meistens schon ein vorinstalliertes Perl.
 Wenn man herausfinden möchte, ob man bereits ein funktionierendes Perl hat oder die unten genannte Installation erfolgreich verlief, kann man in einer Kommandozeile (Terminal) seiner Wahl ``perl -v`` ausführen.
 Ist Perl korrekt installiert, wird die Version ausgegeben:
 
-![Perl ist unter Windows korrekt installiert](assets/img/perl-windows.jpg)
+![Perl ist unter Windows korrekt installiert](assets/readme/perl-windows.jpg)
 
 Ist die Perl-Installation nicht vorhanden oder dem Terminal unbekannt, wird stattdessen folgendes ausgegeben:
 
-![Kein Perl installiert](assets/img/no-perl-windows.jpg)
+![Kein Perl installiert](assets/readme/no-perl-windows.jpg)
 
 **Installation unter Windows**
 
@@ -81,7 +81,7 @@ Während die Visual Studio Code Erweiterung "LaTeX Workshop" standardmäßig `la
 Wir empfehlen für die Arbeit in Visual Studio Code ausgewählte Erweiterungen, die sowohl für das Schreiben mit LaTeX, als auch für das Studium an der DHGE<!--ähem Plantuml--> hilfreich sind.
 Um sie zu prüfen und ggf. zu installieren, kann in dem Erweiterungsmenü nach `@recommended` gesucht werden:
 
-![Empfohlene Erweiterungen in VS Code](assets/img/vscode-recom-exts.png)
+![Empfohlene Erweiterungen in VS Code](assets/readme/vscode-recom-exts.png)
 
 ### Einstellen von TeXstudio zur Nutzung von `latexmk`
 
@@ -99,7 +99,7 @@ Die Einstellungen für die Erweiterung findet man am Ende der Einstellungen von 
 2. über `Einstellungen` hovern und dort `Einstellungen` anklicken.
 3. Am Ende der Liste `Erweiterungen` aufklappen und das Kapitel `LaTeX` anklicken.
 
-![Einstellungen für LaTeX Workshop](assets/img/vscode-latex-settings.jpg)
+![Einstellungen für LaTeX Workshop](assets/readme/vscode-latex-settings.jpg)
 
 # Latex Tipps
 
@@ -148,7 +148,7 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 
 ## Zitat als Fußnote einfügen
 
-Dafür wird der `footcite` Befehl genutzt. Dieser hat folgende Syntax:
+Dafür wird der `footcite` Befehl genutzt. Dieser besitzt folgende Syntax:
 
 ```latex
 \footcite[Postnote]{literatur_id}
@@ -432,7 +432,7 @@ Beispiel:
 
 1. Python [hier](https://www.python.org/) herunterladen und installieren und **sicherstellen, dass Python zur Umgebung (PATH) hinzugefügt ist**
 
-![Python PATH](assets/img/python-path.png)
+![Python PATH](assets/readme/python-path.png)
 
 2. Pygments installieren (`pip install Pygments`)
 3. `\usepackage {minted}` in `build/package.config.tex` hinzufügen
