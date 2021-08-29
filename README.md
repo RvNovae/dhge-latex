@@ -125,7 +125,7 @@ Der `\def` Befehl definiert ein Command der letztendlich Folgendem entspricht:
 
 Richtig werden diese "Variablen" dann durch `\<variablenName>`**`{}`** aufgerufen.
 
-Es ist aber auch möglich, sie einfach durch `\<variablenName>` aufzurufen.\
+Alternativ ist aber auch möglich, sie durch `\<variablenName>` aufzurufen.\
 > Hier ist zu beachten, dass nach der Variable das Leerzeichen fehlen wird, da dieses als Argument des Befehls aufgenommen wird
 
 ## Environment (Umgebung)
