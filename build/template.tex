@@ -59,12 +59,12 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-% only if \ac or similar used
+% will only be created if \ac or similar used at least once
 \ifnum\totvalue{acro_num}>0
 	\printacronyms
 	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 	\cleardoublepage
-\fi	
+\fi
 
 
 \setcounter{savepage}{\arabic{page}}
@@ -78,19 +78,22 @@
 % TODO Formatierung
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
 
-% wenn keine literatur verwendet (zitiert) wird, erstelle kein literaturverzeichnis 
-\ifnum\thetotalbibentries>0
-    \printbibliography[title=Literaturverzeichnis]
-    \addcontentsline{toc}{section}{Literaturverzeichnis}
-    \cleardoublepage
+% wenn keine literatur verwendet (zitiert) wird, erstelle kein literaturverzeichnis
+\if\kusche 0
+    \ifnum\thetotalbibentries>0
+        \printbibliography[title=Literaturverzeichnis]
+        \addcontentsline{toc}{section}{Literaturverzeichnis}
+        \cleardoublepage
+    \fi
 \fi
 
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
+% im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt (TBD)
 \ifnum\totvalue{anlagenentries}>0
     \section*{Anlagen}
     \begin{spacing}{2}
-        \listofanlagen	
+        \listofanlagen
     \end{spacing}
     \addcontentsline{toc}{section}{Anlagen}
     \cleardoublepage

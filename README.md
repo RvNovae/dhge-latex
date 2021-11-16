@@ -4,6 +4,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 
 # Inhaltsverzeichnis <!-- omit in toc -->
 
+- [](#)
 - [Installation](#installation)
   - [LaTeX Installation](#latex-installation)
     - [Perl](#perl)
@@ -32,6 +33,27 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Spezielle Abschnitte](#spezielle-abschnitte)
   - [SubSubSubSection](#subsubsubsection)
 - [Unicode Alphabete](#unicode-alphabete)
+
+**ACHTUNG: Sie befinden sich auf einer ungetesteten Feature-Branch!**
+
+# Anpassungsfortschritt
+
+In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet, sowie deren Umsetzungsstatus im Template
+
+- [ ] Anlagen werden mit Buchstaben nummeriert
+- [ ] Abstract und InhaltsVZ werden nicht im InhaltsVZ geführt
+- [ ] Abstract vor dem InhaltsVZ
+- [ ] Abstract hat keine Kapitelnummer
+- [ ] Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert
+- [ ] Seitenzahlen erscheinen rechts außen
+- [ ] Höhe der Kapitelnummer und Titel sind auf selber Höhe links außen
+- [ ] Seitenzahlen: alles vor Hauptteil römisch, danach arabisch
+- [ ] Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
+- [ ] inline-Zitierstil, keine Fußnote
+- [ ] LiteraturVZ erscheint zuletzt
+- [ ] LiteraturVZ alphabetisch nach Zitatsschlüssel
+- [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
+- [ ] wenn möglich: Pretty-Printer über Code-Listings bügeln
 
 # Installation
 
