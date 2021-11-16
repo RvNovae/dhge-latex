@@ -46,7 +46,7 @@ In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 - [x] Abstract hat keine Kapitelnummer
 - [ ] Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert
 - [x] Seitenzahlen erscheinen rechts außen, am Besten unten
-- [ ] Höhe der Kapitelnummer und Titel sind auf selber Höhe links außen
+- [x] Kapitel steht links im Footer / Header, analog zur Seitenzahl
 - [x] Seitenzahlen: alles vor Hauptteil römisch, danach arabisch
 - [ ] Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
 - [ ] inline-Zitierstil, keine Fußnote
