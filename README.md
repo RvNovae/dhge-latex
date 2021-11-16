@@ -47,10 +47,10 @@ In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 - [ ] Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert
 - [x] Seitenzahlen erscheinen rechts außen, am Besten unten
 - [ ] Höhe der Kapitelnummer und Titel sind auf selber Höhe links außen
-- [ ] Seitenzahlen: alles vor Hauptteil römisch, danach arabisch
+- [x] Seitenzahlen: alles vor Hauptteil römisch, danach arabisch
 - [ ] Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
 - [ ] inline-Zitierstil, keine Fußnote
-- [ ] LiteraturVZ erscheint zuletzt
+- [x] LiteraturVZ erscheint zuletzt
 - [ ] LiteraturVZ alphabetisch nach Zitatsschlüssel
 - [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
 - [ ] wenn möglich: Pretty-Printer über Code-Listings bügeln
