@@ -45,6 +45,9 @@
 	\input			{../bachelor.tex}
 \fi
 
+\if\HASABSTRACT 1
+    \input          {../abstract.tex}
+\fi
 
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
@@ -78,13 +81,13 @@
 % LITERATURVERZEICHNIS
 % TODO Formatierung
 % Im Kusche-Mode wird arabische Nummerierung beibehalten
-\if\kusche 0
+\if\KUSCHE 0
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
 \fi
 
 % wenn keine Literatur verwendet (zitiert) wird, erstelle kein Literaturverzeichnis
 % im Kusche-Mode wird das LiteraturVZ später generiert
-\if\kusche 0
+\if\KUSCHE 0
     \ifnum\thetotalbibentries>0
         \printbibliography[title=Literaturverzeichnis]
         \addcontentsline{toc}{section}{Literaturverzeichnis}
@@ -95,7 +98,7 @@
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
 % im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt (TBD)
-\if\kusche 0
+\if\KUSCHE 0
     \ifnum\totvalue{anlagenentries}>0
         \section*{Anlagen}
         \begin{spacing}{2}
@@ -112,7 +115,7 @@
 
 
 % Im Kusche-Mode kommt das LiteraturVZ zuletzt
-\if\kusche 1
+\if\KUSCHE 1
     \ifnum\thetotalbibentries>0
         \printbibliography[title=Literaturverzeichnis]
         \addcontentsline{toc}{section}{Literaturverzeichnis}

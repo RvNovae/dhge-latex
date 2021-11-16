@@ -41,9 +41,9 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet, sowie deren Umsetzungsstatus im Template
 
 - [ ] Anlagen werden mit Buchstaben nummeriert
-- [ ] Abstract und InhaltsVZ werden nicht im InhaltsVZ geführt
-- [ ] Abstract vor dem InhaltsVZ
-- [ ] Abstract hat keine Kapitelnummer
+- [x] Abstract und InhaltsVZ werden nicht im InhaltsVZ geführt
+- [x] Abstract vor dem InhaltsVZ
+- [x] Abstract hat keine Kapitelnummer
 - [ ] Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert
 - [x] Seitenzahlen erscheinen rechts außen, am Besten unten
 - [ ] Höhe der Kapitelnummer und Titel sind auf selber Höhe links außen
