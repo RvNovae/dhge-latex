@@ -15,8 +15,7 @@
 
 % im Kusche-Mode sollen Abbildungen nach kapitel.lfd nummeriert werden
 \if\KUSCHE 1
-    \usepackage{chngcntr}
-    \counterwithout{figure}{section}
+    \counterwithin{figure}{section}
 \fi
 
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
