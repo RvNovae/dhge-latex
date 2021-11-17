@@ -44,7 +44,7 @@ In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 - [x] Abstract und InhaltsVZ werden nicht im InhaltsVZ geführt
 - [x] Abstract vor dem InhaltsVZ
 - [x] Abstract hat keine Kapitelnummer
-- [ ] Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert
+- [x] Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert
 - [x] Seitenzahlen erscheinen rechts außen, am Besten unten
 - [x] Kapitel steht links im Footer / Header, analog zur Seitenzahl
 - [x] Seitenzahlen: alles vor Hauptteil römisch, danach arabisch
@@ -85,13 +85,13 @@ Für Windows Nutzer empfiehlt sich Strawberry Perl, was [hier](https://strawberr
 
 ## Setup
 
-* Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
-* Mit der Update-Datei (OS abhängig .bat/.sh) kann ein bestehendes Template aktualisiert werden
+- Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
+- Mit der Update-Datei (OS abhängig .bat/.sh) kann ein bestehendes Template aktualisiert werden
 
-* ### **ACHTUNG** die Update-Datei (entsprechend OS)
-  * **überschreibt** die Dateien im build Ordner
-    * eigene Anpassungen sollten über die Dateien im Wurzelverzeichnis des Projektes geschehen
-  * **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
+- ### **ACHTUNG** die Update-Datei (entsprechend OS)
+  - **überschreibt** die Dateien im build Ordner
+    - eigene Anpassungen sollten über die Dateien im Wurzelverzeichnis des Projektes geschehen
+  - **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
 
 Das Projekt sollte sich nun bauen lassen.
 
@@ -162,9 +162,9 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 
 ### Common Environments
 
-* [itemize/enumerate](https://en.wikibooks.org/wiki/LaTeX/List_Structures)
-* [table/tabular](https://en.wikibooks.org/wiki/LaTeX/Tables)
-* [figure](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
+- [itemize/enumerate](https://en.wikibooks.org/wiki/LaTeX/List_Structures)
+- [table/tabular](https://en.wikibooks.org/wiki/LaTeX/Tables)
+- [figure](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
 
 # Zitate und Literaturverzeichnis
 
@@ -278,12 +278,12 @@ Beispiel:
 kann mit bis zu sechs Argumenten aufgerufen werden:
 
 1. **Optional** Float Position, standardmäßig `h`
-1. Relativer Bild-Pfad mit oder ohne Dateiendung (relativ zum `./assets/img` Ordner, kann in `template.tex` angepasst werden)
-1. `\includegraphics` Optionen (leer lassen für Standard)
-1. Bildunterschrift
-1. Label für die Figure/Grafik
-1. **Optional:** ID
-1. **Optional:** "Postnote", beispielsweise um Seitenzahlen anzugeben
+2. Relativer Bild-Pfad mit oder ohne Dateiendung (relativ zum `./assets/img` Ordner, kann in `template.tex` angepasst werden)
+3. `\includegraphics` Optionen (leer lassen für Standard)
+4. Bildunterschrift
+5. Label für die Figure/Grafik
+6. **Optional:** ID
+7. **Optional:** "Postnote", beispielsweise um Seitenzahlen anzugeben
 
 Beispiel:
 
@@ -429,13 +429,13 @@ Für mehr Informationen kann die [Acro Package Documentation](https://mirror.phy
 
 ## Verwendung
 
-* Anlagen werden in der anlagen.tex hinterlegt.
-  * hierbei ist zu beachten:
-    * die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
-    * die Anlage benötigt eine Beschriftung `\caption{}`
-  * ein Label ist für eine automatische Verknüpfung im Anlagenverzeichnis nicht nötig
-  * der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
-  * siehe Beispiel `build/tests/anlagen.tex`
+- Anlagen werden in der anlagen.tex hinterlegt.
+  - hierbei ist zu beachten:
+    - die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
+    - die Anlage benötigt eine Beschriftung `\caption{}`
+  - ein Label ist für eine automatische Verknüpfung im Anlagenverzeichnis nicht nötig
+  - der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
+  - siehe Beispiel `build/tests/anlagen.tex`
 
 Beispiel:
 
