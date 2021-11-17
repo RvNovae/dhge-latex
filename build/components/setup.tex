@@ -12,6 +12,13 @@
 \setcounter		{secnumdepth}{5}
 
 % ABBILDUNGEN UND TABELLEN SETUP
+
+% im Kusche-Mode sollen Abbildungen nach kapitel.lfd nummeriert werden
+\if\KUSCHE 1
+    \usepackage{chngcntr}
+    \counterwithout{figure}{section}
+\fi
+
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
 
@@ -35,7 +42,7 @@
 \makeatother
 
 % CAPTION SETUP
-\captionsetup{%
+\captionsetup{
     font=small,
     labelfont=bf,
     singlelinecheck=false,
@@ -68,8 +75,7 @@
 % FOOTNOTE
 \renewcommand{\footnotelayout}{\hspace{0.5em}}
 
-% AUTISTIC CONDITIONALS
-% This hides ToF and ToT if they are empty
+% Conditionals to hide ToF and ToT if they are empty
 \newtotcounter{figCount}
 \newtotcounter{tabCount}
 \let\oldTabTOC=\table

@@ -64,8 +64,8 @@
 	\setcounter{anlagen}{\type}
 
 	% only here because the \type-counter is one lower (later it will count up like normal)
-	% -> reason... it's called to early but can't called later because of dependencies other types LUL
-	% works only in the last section of the paper so it should be fine :)   
+	% -> reason... it's called too early but can't called later because of dependencies other types
+	% works only in the last section of the paper so it should be fine :)
 	\refstepcounter{anlagen}
 
 	\addcontentsline{alt}{anlagen}
@@ -74,7 +74,7 @@
 
 \newtotcounter{anlagenentries}
 \newcommand{\renewFigTabCap} {
-	% caption ruft jetzt \ATA{} auf welches das jeweilige Objekt zum "Anlageverzeichnis" hinzufügt 
+	% caption ruft jetzt \ATA{} auf, welches das jeweilige Objekt zum "Anlageverzeichnis" hinzufügt
 	\let\oldCap=\caption
 	\renewcommand{\caption}[1]{\ATA{##1}\oldCap{##1}}
 
@@ -86,7 +86,7 @@
 	\renewcommand{\figure}{\def\typeOfCap{fig}\stepcounter{anlagenentries}\oldFig}
 }
 
-% formatierung der ba teile autorreferat und thesenblatt 
+% Formatierung der Bachelorarbeit: Autorreferat und Thesenblatt
 \newcommand{\baFormat}[2]{
 	\begin{center}
 		{\LARGE\bf #1}
