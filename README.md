@@ -4,7 +4,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 
 # Inhaltsverzeichnis <!-- omit in toc -->
 
-- [](#)
+- [Anpassungsfortschritt](#anpassungsfortschritt)
 - [Installation](#installation)
   - [LaTeX Installation](#latex-installation)
     - [Perl](#perl)
@@ -48,8 +48,8 @@ In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 - [x] Seitenzahlen erscheinen rechts außen, am Besten unten
 - [x] Kapitel steht links im Footer / Header, analog zur Seitenzahl
 - [x] Seitenzahlen: alles vor Hauptteil römisch, danach arabisch
-- [ ] Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
-- [ ] inline-Zitierstil, keine Fußnote
+- [x] Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
+  - die bestehenden Einstellungen sollten es tun, ansonsten mag ich persönlich [diesen Thread](https://tex.stackexchange.com/questions/9533/what-best-combination-of-fonts-for-serif-sans-and-mono-do-you-recommend#9588)
 - [x] LiteraturVZ erscheint zuletzt
 - [ ] LiteraturVZ alphabetisch nach Zitatsschlüssel
 - [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
