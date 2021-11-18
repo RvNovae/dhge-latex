@@ -16,6 +16,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - ["Variablen"](#variablen)
   - [Environment (Umgebung)](#environment-umgebung)
     - [Common Environments](#common-environments)
+  - [ZPMs Fontvorschlag](#zpms-fontvorschlag)
 - [Zitate und Literaturverzeichnis](#zitate-und-literaturverzeichnis)
   - [Zitat als Fußnote einfügen](#zitat-als-fußnote-einfügen)
   - [Hochgestelltes Zitat einfügen](#hochgestelltes-zitat-einfügen)
@@ -51,7 +52,8 @@ In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 - [x] Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
   - die bestehenden Einstellungen sollten es tun, ansonsten mag ich persönlich [diesen Thread](https://tex.stackexchange.com/questions/9533/what-best-combination-of-fonts-for-serif-sans-and-mono-do-you-recommend#9588)
 - [x] LiteraturVZ erscheint zuletzt
-- [ ] LiteraturVZ alphabetisch nach Zitatsschlüssel
+- [x] LiteraturVZ alphabetisch nach Zitatsschlüssel
+  - scheint schon der Fall zu sein
 - [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
 - [ ] wenn möglich: Pretty-Printer über Code-Listings bügeln
 
@@ -165,6 +167,29 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 - [itemize/enumerate](https://en.wikibooks.org/wiki/LaTeX/List_Structures)
 - [table/tabular](https://en.wikibooks.org/wiki/LaTeX/Tables)
 - [figure](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
+
+## ZPMs Fontvorschlag
+
+> Die Standardfonts sind zwar ganz in Ordnung, aber ich finde, das geht schöner :^)
+> Deshalb stelle ich eine alternative Font-Konfiguration vor, die mir sehr gefällt
+
+Die vorgestellte Font-Konfiguration basiert auf [diesem Stackoverflow Thread](https://tex.stackexchange.com/a/114166), wo auch eine Vorschau betrachtet werden kann.
+
+Folgende Anpassungen sind an der ``build/components/package.config.tex`` zu erledigen:
+
+```latex
+\usepackage[scaled=0.88]{beraserif}
+\usepackage[scaled=0.85]{berasans}
+\usepackage[scaled=0.84]{beramono}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage[T1,small,euler-digits]{eulervm}
+\usepackage{listings} % Codeblöcke
+\lstset{
+  basicstyle=\ttfamily,
+    breaklines=true
+}
+```
 
 # Zitate und Literaturverzeichnis
 
