@@ -3,7 +3,7 @@
 \widowpenalty10000
 \clubpenalty10000
 
-% ToC SETUP
+% INHALTSVERZEICHNIS SETUP
 \cftsetindents	{section}{0em}{4em}
 \cftsetindents	{subsection}{0em}{4em}
 \cftsetindents	{subsubsection}{0em}{4em}
@@ -22,7 +22,7 @@
 \renewcommand	{\listfigurename}{Abbildungsverzeichnis}
 \renewcommand	{\listtablename}{Tabellenverzeichnis}
 
-\addto{\captionsngerman}{%
+\addto{\captionsngerman}{
     \renewcommand*{\figurename}{Abb.}
     \renewcommand*{\tablename}{Tab.}
 }
@@ -59,7 +59,7 @@
 \renewcommand	{\footrulewidth}{0pt}
 \setlength		{\headheight}{15pt}
 
-% set Page numbering to Bottom Right if in Kusche Mode, otherwise Top Centered
+% Im Kusche-Mode ist die Seitenzahl unten rechts, ansonsten oben mittig
 \if\KUSCHE 0
     \fancyhead		[c]{\thepage}
     \fancyfoot		{}
@@ -75,7 +75,7 @@
 % FOOTNOTE
 \renewcommand{\footnotelayout}{\hspace{0.5em}}
 
-% Conditionals to hide ToF and ToT if they are empty
+% Conditionals um AbbildungsVZ und TabellenVZ nur zu rendern, wenn sie nicht leer sind
 \newtotcounter{figCount}
 \newtotcounter{tabCount}
 \let\oldTabTOC=\table
@@ -98,35 +98,35 @@
     \fi
 }
 
-% COUNTER (So we can keep counting in Roman after switching to Arabic)
+% COUNTER (Zweck: in römischen Zahlen weiterzählen, nachdem der Counter von arabisch zurückgeändert wird)
 \newcounter{savepage}
 
-% new section new page
+% Sections sollen mit Seitenumbruch beginnen
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
 
-% override \mathrm{} -> add standard spacing
+% Überschreiben von \mathrm{} -> einheitlichen Abstand einfügen
 \let\oldMathrm\mathrm
 \renewcommand{\mathrm}[1]{\,\oldMathrm{#1}}
 
-% input path is the root-folder
-% only after \input{setup.tex} so all new files in the root will be integrated
+% Template-Root-Verzeichnis ist das neue Arbeitsverzeichnis
+% muss nach \input{setup.tex} aufgerufen werden, damit alle Template-Root-Dateien integriert werden
 \makeatletter
 \def\input@path{{../}{path1/}}
 \makeatother
 
-% define the old CAUTHOR variable
+% die veraltete CAUTHOR Variable wird automatisch befüllt
 \def\CAUTHOR{\CAUTHORVOR\ \CAUTHORNACH}
 
 \newcounter{totalbibentries}
 \newcommand*{\listcounted}{}
 
 \makeatletter
-\AtDataInput{%
+\AtDataInput{
   \xifinlist{\abx@field@entrykey}\listcounted
     {}
-    {\stepcounter{totalbibentries}%
-     \listxadd\listcounted{\abx@field@entrykey}}%
+    {\stepcounter{totalbibentries}
+     \listxadd\listcounted{\abx@field@entrykey}}
 }
 \makeatother
 
@@ -138,7 +138,7 @@
 	link-only-first = false
 }
 
-% Abkürzungsverzeichnis redefine of \UseAcroTemplate, which is the base of \ac
+% Abkürzungsverzeichnis überschreibt \UseAcroTemplate für \ac
 % New Counter to count used acronyms:
 \newtotcounter{acro_num}
 \def\oldUseAcroTemplate{} \let\oldUseAcroTemplate=\UseAcroTemplate

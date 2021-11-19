@@ -1,20 +1,20 @@
 % ROOT & PACKAGE SETUP
 \documentclass	[a4paper, 12pt]{article}
 
-% preamble input
+% Prämbel laden
 \input{../preamble.tex}
 
-% management for all packages
+% verwendete Pakete laden und konfigurieren
 \input{components/package.config.tex}
 
-% setups and commands
+% Setup von Commands und Dokument
 \input{components/com.tex}
 \input{../config.tex}
-\input{components/setup.tex}  % -> default dir is set to "../" in this file
+\input{components/setup.tex}  % -> ab hier ist das Arbeitsverzeichnis "../"
 \input{abk.tex}
 
 
-% configuration of global definitions
+% Konfiguration globaler Definitionen
 
 % PDF Metadata
 \hypersetup{
@@ -25,29 +25,31 @@
 \addbibresource	{../literatur.bib}
 \graphicspath	{{../assets/img/}}
 
-% opening
+% Hier beginnt der Spaß
 \title{{\LARGE \textbf{\CTITLE}}}
 \author			{}
 \date			{}
 
+% lade Deckblatt ohne Nummerierung
 \begin{document}
 \pagenumbering	{gobble}
 
 \input			{build/components/deckblatt.tex}
 
-
+% Lade Sperrvermerk abhängig von der Einstellung in conf.tex
 \if\CSPERRVERMERK 1
 	\input			{build/components/sperrvermerk.tex}
 \fi
 
-
+% Lade Thesenblatt abhängig von der Einstellung in conf.tex
 \if\CARBEIT B
 	\input			{../bachelor.tex}
 \fi
 
+% Lade Abstract abhängig von der Einstellung in conf.tex
 \if\HASABSTRACT 1
     \input          {../abstract.tex}
-    \newpage % for some reason, the section newpage override doesn't work here, so just do it manually
+    \newpage % Sections haben hier noch keinen automatischen Seitenumbruch
 \fi
 
 % INHALTSVERZEICHNIS
@@ -64,7 +66,7 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-% will only be created if \ac or similar used at least once
+% wird nur dann generiert, wenn mindestens ein mal \ac oder ein verwandter Befehl aufgerufen wurde und damit nicht leer ist
 \ifnum\totvalue{acro_num}>0
 	\printacronyms
 	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
@@ -110,17 +112,18 @@
         \cleardoublepage
     \fi
 \else
-    % convenient else branch: disable counting with kapitel.lfd and return to normal counting for appendix
+    % zweckentfremdetes Else: die kapitel.lfd-Nummerierung wird im Kusche Mode ab hier wieder deaktiviert,
+    % da Anhänge mit Buchstaben nummeriert werden sollen
     \counterwithout{figure}{section}
     \counterwithout{table}{section}
 \fi
 
 %%%%%
-% NOTE: do not refactor the "else" above away from the "input" below or stuff will break. I just abused an existing \if\KUSCHE
-% Move the else above in its own if-statement if neccessary
+% ACHTUNG: den obigen Else-Zweig bitte nicht von dem \input unten wegrefactorn, da die Nummerierung sonst ggf. nicht korrekt ist.
+% Sollte das zum Problem werden, gehört obiger Else-Zweig in ein eigenes \if an diese Stelle
 %%%%%
 
-\renewFigTabCap % change the behavior from the env figure and table and the command \caption{}
+\renewFigTabCap % Verhalten von Figure und Table Environments sowie \caption wird verändert (TODO: wie genau? LG, ZPM)
 \input{anlagen.tex}
 \cleardoublepage
 
