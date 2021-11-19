@@ -3,9 +3,7 @@
                  outer  = 2cm,
                  top    = 2.5cm,
                  bottom = 2.5cm]{geometry}
-\usepackage		[utf8]{inputenc}
 \usepackage		{setspace}
-\usepackage		{titletoc}
 \usepackage		[hyperfootnotes = false,
                  hidelinks]{hyperref}
 \usepackage		{amssymb}
@@ -22,16 +20,24 @@
                  minbibnames  = 3,
                  minalphanames= 3]{biblatex}
 \usepackage		[ngerman]{babel}
-\usepackage		{csquotes,xpatch}
 \usepackage		{footmisc}
 \usepackage		{graphicx}
 \usepackage		{caption}
-\usepackage		{ifthen}
 \usepackage		{xparse}
 \usepackage		{float}
-\usepackage		{etoolbox}
 \usepackage		{tocloft}
-\usepackage     {icomma}
 \usepackage     {lmodern}
 \usepackage     {totcount}
 \usepackage     {chngcntr}
+
+
+% DEPRECATED PACKAGES
+% not needed anymore but kept here for backwards compatibility
+% enable if you have problems after an update
+
+%\usepackage		[utf8]{inputenc}
+%\usepackage		{titletoc}
+%\usepackage		{csquotes,xpatch}
+%\usepackage		{ifthen}
+%\usepackage		{etoolbox}
+%\usepackage     {icomma}

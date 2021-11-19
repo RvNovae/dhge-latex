@@ -81,6 +81,7 @@
 
 % LITERATURVERZEICHNIS
 % TODO Formatierung
+
 % Im Kusche-Mode wird arabische Nummerierung beibehalten
 \if\KUSCHE 0
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
@@ -108,7 +109,16 @@
         \addcontentsline{toc}{section}{Anlagen}
         \cleardoublepage
     \fi
+\else
+    % convenient else branch: disable counting with kapitel.lfd and return to normal counting for appendix
+    \counterwithout{figure}{section}
+    \counterwithout{table}{section}
 \fi
+
+%%%%%
+% NOTE: do not refactor the "else" above away from the "input" below or stuff will break. I just abused an existing \if\KUSCHE
+% Move the else above in its own if-statement if neccessary
+%%%%%
 
 \renewFigTabCap % change the behavior from the env figure and table and the command \caption{}
 \input{anlagen.tex}
