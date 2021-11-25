@@ -171,11 +171,11 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 ## ZPMs Fontvorschlag
 
 > Die Standardfonts sind zwar ganz in Ordnung, aber ich finde, das geht schöner :^)
-> Deshalb stelle ich eine alternative Font-Konfiguration vor, die mir sehr gefällt
 
 Die vorgestellte Font-Konfiguration basiert auf [diesem Stackoverflow Thread](https://tex.stackexchange.com/a/114166), wo auch eine Vorschau betrachtet werden kann.
+**Die Fonts sind standardmäßig im Template aktiv.**
 
-Folgende Anpassungen sind an der ``build/components/package.config.tex`` zu erledigen:
+Folgende Anpassungen sind in der ``build/components/package.config.tex`` zu finden:
 
 ```latex
 \usepackage[scaled=0.88]{beraserif}
@@ -190,6 +190,8 @@ Folgende Anpassungen sind an der ``build/components/package.config.tex`` zu erle
     breaklines=true
 }
 ```
+
+Wer diese Fonts **nicht** verwenden möchte, kann den Codeblock entfernen, um den LaTex-Standard wiederherzustellen.
 
 # Zitate und Literaturverzeichnis
 
