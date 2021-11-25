@@ -101,27 +101,25 @@
 
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
-% im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt (TBD)
-\if\KUSCHE 0
+% ereugt ein Anlagenkapitel und fügt es zum InhaltsVZ hinzu, insofern Anlagen existieren.
+% \listofanlagen generiert ein Anlagenverzeichnis
+% im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt (TODO)
     \ifnum\totvalue{anlagenentries}>0
         \section*{Anlagen}
-        \begin{spacing}{2}
-            \listofanlagen
-        \end{spacing}
+        \if\KUSCHE 0
+            \begin{spacing}{2}
+                \listofanlagen
+            \end{spacing}
+        \fi
         \addcontentsline{toc}{section}{Anlagen}
         \cleardoublepage
-    \fi
-\else
-    % zweckentfremdetes Else: die kapitel.lfd-Nummerierung wird im Kusche Mode ab hier wieder deaktiviert,
+
+\if\KUSCHE 1
+    % die kapitel.lfd-Nummerierung wird im Kusche Mode ab hier wieder deaktiviert,
     % da Anhänge mit Buchstaben nummeriert werden sollen
     \counterwithout{figure}{section}
     \counterwithout{table}{section}
 \fi
-
-%%%%%
-% ACHTUNG: den obigen Else-Zweig bitte nicht von dem \input unten wegrefactorn, da die Nummerierung sonst ggf. nicht korrekt ist.
-% Sollte das zum Problem werden, gehört obiger Else-Zweig in ein eigenes \if an diese Stelle
-%%%%%
 
 \renewFigTabCap % Verhalten von Figure und Table Environments sowie \caption wird verändert (TODO: wie genau? LG, ZPM)
 \input{anlagen.tex}

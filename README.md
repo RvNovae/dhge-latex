@@ -55,7 +55,7 @@ In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 - [x] LiteraturVZ alphabetisch nach Zitatsschlüssel
   - scheint schon der Fall zu sein
 - [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
-- [ ] wenn möglich: Pretty-Printer über Code-Listings bügeln
+- [ ] wenn möglich: Pretty-Printer über Code-Listings bügeln - dokumentieren, hier ist schon alles da
 
 # Installation
 
