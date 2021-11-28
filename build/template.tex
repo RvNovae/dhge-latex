@@ -1,7 +1,8 @@
 % ROOT & PACKAGE SETUP
 \documentclass	[a4paper, 12pt]{article}
 
-% Prämbel laden
+% Präambel laden
+
 \input{../preamble.tex}
 
 % verwendete Pakete laden und konfigurieren
@@ -36,17 +37,20 @@
 
 \input			{build/components/deckblatt.tex}
 
-% Lade Sperrvermerk abhängig von der Einstellung in conf.tex
+% Lade Sperrvermerk abhängig von der Einstellung in config.tex
+
 \if\CSPERRVERMERK 1
 	\input			{build/components/sperrvermerk.tex}
 \fi
 
-% Lade Thesenblatt abhängig von der Einstellung in conf.tex
+% Lade Thesenblatt abhängig von der Einstellung in config.tex
+
 \if\CARBEIT B
 	\input			{../bachelor.tex}
 \fi
 
-% Lade Abstract abhängig von der Einstellung in conf.tex
+% Lade Abstract abhängig von der Einstellung in config.tex
+
 \if\HASABSTRACT 1
     \input          {../abstract.tex}
     \newpage % Sections haben hier noch keinen automatischen Seitenumbruch
@@ -101,7 +105,8 @@
 
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
-% ereugt ein Anlagenkapitel und fügt es zum InhaltsVZ hinzu, insofern Anlagen existieren.
+% erzeugt ein Anlagenkapitel und fügt es zum InhaltsVZ hinzu, insofern Anlagen existieren.
+
 % \listofanlagen generiert ein Anlagenverzeichnis
 % im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt (TODO)
     \ifnum\totvalue{anlagenentries}>0
