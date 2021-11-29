@@ -1,36 +1,55 @@
-\usepackage		[a4paper, 
-    	         inner  = 3cm, 
-                 outer  = 2.5cm, 
-                 top    = 2.5cm, 
+\usepackage		[a4paper,
+    	         inner  = 3cm,
+                 outer  = 2cm,
+                 top    = 2.5cm,
                  bottom = 2.5cm]{geometry}
-\usepackage		[utf8]{inputenc}
 \usepackage		{setspace}
-\usepackage		{titletoc}
-\usepackage		[hyperfootnotes = false, 
+\usepackage		[hyperfootnotes = false,
                  hidelinks]{hyperref}
 \usepackage		{amssymb}
 \usepackage		{fancyhdr}
 \usepackage		[version = 3]{acro}
 \usepackage		{enumitem}
-\usepackage		[T1]{fontenc}
 \usepackage		[style=german]{csquotes}
-\usepackage		[backend=biber, 
+\usepackage		[backend=biber,
                  style        = alphabetic,
-                 citestyle    = components/alphabetic-ibid, 
-                 giveninits   = true, 
+                 citestyle    = components/alphabetic-ibid,
+                 giveninits   = true,
                  ibidtracker  = true,
                  minbibnames  = 3,
                  minalphanames= 3]{biblatex}
 \usepackage		[ngerman]{babel}
-\usepackage		{csquotes,xpatch}
 \usepackage		{footmisc}
 \usepackage		{graphicx}
 \usepackage		{caption}
-\usepackage		{ifthen}
 \usepackage		{xparse}
 \usepackage		{float}
-\usepackage		{etoolbox}
 \usepackage		{tocloft}
-\usepackage     {icomma}
 \usepackage     {lmodern}
 \usepackage     {totcount}
+\usepackage     {chngcntr}
+
+\if\CFANCYFONTS 1
+\usepackage     [scaled=0.88]{beraserif} % Bera Serifen Font
+\usepackage     [scaled=0.85]{berasans} % Bera Sans Font
+\usepackage     [scaled=0.84]{beramono} % Bera Mono Font
+\usepackage     [T1]{fontenc}
+\usepackage     {mathpazo} % Palatino Font
+\usepackage     [T1,small,euler-digits]{eulervm} % Euler Font
+\usepackage     {listings}
+\lstset{
+	basicstyle=\ttfamily,
+    breaklines=true
+}
+\fi
+
+% VERALTETE PAKETE
+% nicht mehr benötigt, aber für Rückwärtskompatibilität noch enthalten
+% einkommentieren, wenn nach einem Template-Update Probleme auftauchen
+
+%\usepackage		[utf8]{inputenc}
+%\usepackage		{titletoc}
+%\usepackage		{csquotes,xpatch}
+%\usepackage		{ifthen}
+%\usepackage		{etoolbox}
+%\usepackage     {icomma}
