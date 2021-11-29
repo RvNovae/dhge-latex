@@ -89,13 +89,13 @@
 % TODO Formatierung
 
 % Im Kusche-Mode wird arabische Nummerierung beibehalten
-\if\KUSCHE 0
+\if\CKUSCHE 0
 \pagenumbering	{Roman} \setcounter{page}{\thesavepage}
 \fi
 
 % wenn keine Literatur verwendet (zitiert) wird, erstelle kein Literaturverzeichnis
 % im Kusche-Mode wird das LiteraturVZ später generiert
-\if\KUSCHE 0
+\if\CKUSCHE 0
     \ifnum\thetotalbibentries>0
         \printbibliography[title=Literaturverzeichnis]
         \addcontentsline{toc}{section}{Literaturverzeichnis}
@@ -111,7 +111,7 @@
 % im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt (TODO)
     \ifnum\totvalue{anlagenentries}>0
         \section*{Anlagen}
-        \if\KUSCHE 0
+        \if\CKUSCHE 0
             \begin{spacing}{2}
                 \listofanlagen
             \end{spacing}
@@ -120,7 +120,7 @@
         \cleardoublepage
 \fi
 
-\if\KUSCHE 1
+\if\CKUSCHE 1
     % die kapitel.lfd-Nummerierung wird im Kusche Mode ab hier wieder deaktiviert,
     % da Anhänge mit Buchstaben nummeriert werden sollen
     \counterwithout{figure}{section}
@@ -133,7 +133,7 @@
 
 
 % Im Kusche-Mode kommt das LiteraturVZ zuletzt
-\if\KUSCHE 1
+\if\CKUSCHE 1
     \ifnum\thetotalbibentries>0
         \printbibliography[title=Literaturverzeichnis]
         \addcontentsline{toc}{section}{Literaturverzeichnis}
