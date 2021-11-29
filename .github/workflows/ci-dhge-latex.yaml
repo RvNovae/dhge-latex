@@ -70,8 +70,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: example
+          name: kusche
           path: example
+      - name: Download Kusche artifact
+        uses: actions/download-artifact@v2
+        with:
+          name:
 
       - name: Delete latest Release
         uses: dev-drprasad/delete-tag-and-release@v0.2.0
@@ -89,5 +93,7 @@ jobs:
           name: dhge-latex-example
           body: Automatic example release
           gzip: false
-          files: example/example.pdf
+          files:
+            - example/example.pdf
+            - example/kusche.pdf
           allow_override: true
