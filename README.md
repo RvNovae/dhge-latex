@@ -180,7 +180,7 @@ Folgende Anpassungen sind in der ``build/components/package.config.tex`` zu find
 }
 ```
 
-Wer diese Fonts **nicht** verwenden möchte, kann den Codeblock entfernen, um den LaTex-Standard wiederherzustellen.
+Wer diese Fonts **nicht** verwenden möchte, kann in ``config.tex`` ``CFANCYFONTS`` auf ``0`` setzen, um den LaTex-Standard wiederherzustellen.
 
 # Zitate und Literaturverzeichnis
 
