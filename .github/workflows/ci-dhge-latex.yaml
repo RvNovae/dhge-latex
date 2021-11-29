@@ -38,8 +38,8 @@ jobs:
 
       - name: Set Kusche-Mode and Abstract
         run: |
-          sed -i 's/\\def\\CKUSCHE         \{0\}/\\def\\CKUSCHE         \{1\}/g' config.tex
-          sed -i 's/\\def\\CHASABSTRACT    \{0\}/\\def\\CHASABSTRACT    \{1\}/g' config.tex
+          sed -i 's/\\def\\CKUSCHE( )+\{0\}/\\def\\CKUSCHE         \{1\}/g' config.tex
+          sed -i 's/\\def\\CHASABSTRACT( )+\{0\}/\\def\\CHASABSTRACT    \{1\}/g' config.tex
 
       - name: Compile *.tex in Kusche mode
         uses: xu-cheng/latex-action@v2
