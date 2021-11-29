@@ -34,28 +34,17 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Spezielle Abschnitte](#spezielle-abschnitte)
   - [SubSubSubSection](#subsubsubsection)
 - [Unicode Alphabete](#unicode-alphabete)
+- [Kusche Mode](#kusche-mode)
 
 **ACHTUNG: Sie befinden sich auf einer ungetesteten Feature-Branch!**
 
 # Anpassungsfortschritt
 
-In diesem Kapitel sind die Anpassungen an Prof. Dr. Kusches Richtlinien gelistet, sowie deren Umsetzungsstatus im Template
+In diesem Kapitel sind die noch nicht umgesetzte Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 
 - [ ] Anlagen werden mit Buchstaben nummeriert
-- [x] Abstract und InhaltsVZ werden nicht im InhaltsVZ geführt
-- [x] Abstract vor dem InhaltsVZ
-- [x] Abstract hat keine Kapitelnummer
-- [x] Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert
-- [x] Seitenzahlen erscheinen rechts außen, am Besten unten
-- [x] Kapitel steht links im Footer / Header, analog zur Seitenzahl
-- [x] Seitenzahlen: alles vor Hauptteil römisch, danach arabisch
-- [x] Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
-  - die bestehenden Einstellungen sollten es tun, ansonsten mag ich persönlich [diesen Thread](https://tex.stackexchange.com/questions/9533/what-best-combination-of-fonts-for-serif-sans-and-mono-do-you-recommend#9588)
-- [x] LiteraturVZ erscheint zuletzt
-- [x] LiteraturVZ alphabetisch nach Zitatsschlüssel
-  - scheint schon der Fall zu sein
 - [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
-- [ ] wenn möglich: Pretty-Printer über Code-Listings bügeln - dokumentieren, hier ist schon alles da
+- [ ] Anlagen werden im InhaltsVZ gelistet
 
 # Installation
 
@@ -516,3 +505,21 @@ Beispiel:
 Falls chinesische, japanische o.ä. Alphabete verwendet werden müssen (bspw. bedingt durch Autoren), ist die einfachste Methode, das `CJKutf8` Package zu laden.
 
 Eine Anleitung finden Sie in [diesem Artikel](https://www.overleaf.com/learn/latex/chinese).
+
+# Kusche Mode
+
+Prof. Dr. Kusche stellt an Praxisarbeiten, die er betreut, andere Anforderungen als Prof. Dr. Dorendorf.
+Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf ``1`` zu setzen überschreibt einige Standardverhalten vom Template:
+
+- es gibt ein Abstract
+- Abstract und Inhaltsverzeichnis werden nicht im Inhaltsverzeichnis geführt
+- das Abstract erscheint vor dem Inhaltsverzeichnis
+- das Abstract hat keine Kapitelnummer
+- Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert, mit Ausnahme von Anlagen, welche laufend nummeriert werden
+- Seitenzahlen erscheinen rechts außen, am Besten unten
+- Kapitel steht links im Footer / Header, analog zur Seitenzahl
+- Seitenzahlen vor dem Hauptteil sind römisch, ansonsten arabisch
+- Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
+- Literaturverzeichnis erscheint zuletzt
+
+Das genannte Abstract kann unabhängig vom Kusche-Mode über den Schalter ``CHASABSTRACT`` in der ``config.tex`` aktiviert werden.
