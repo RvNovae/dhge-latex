@@ -93,5 +93,5 @@ jobs:
           name: dhge-latex-example
           body: Automatic example release
           gzip: false
-          files:example/example.pdf example/kusche.pdf
+          files: example/example.pdf example/kusche.pdf
           allow_override: true
