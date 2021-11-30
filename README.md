@@ -4,7 +4,6 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 
 # Inhaltsverzeichnis <!-- omit in toc -->
 
-- [Anpassungsfortschritt](#anpassungsfortschritt)
 - [Installation](#installation)
   - [LaTeX Installation](#latex-installation)
     - [Perl](#perl)
@@ -36,14 +35,6 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Unicode Alphabete](#unicode-alphabete)
 - [Kusche Mode](#kusche-mode)
   - [Probleme im Kusche Mode](#probleme-im-kusche-mode)
-
-**ACHTUNG: Sie befinden sich auf einer ungetesteten Feature-Branch!**
-
-# Anpassungsfortschritt
-
-In diesem Kapitel sind die noch nicht umgesetzte Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
-
-- [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
 
 # Installation
 
