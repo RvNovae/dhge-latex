@@ -35,6 +35,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - [SubSubSubSection](#subsubsubsection)
 - [Unicode Alphabete](#unicode-alphabete)
 - [Kusche Mode](#kusche-mode)
+  - [Probleme im Kusche Mode](#probleme-im-kusche-mode)
 
 **ACHTUNG: Sie befinden sich auf einer ungetesteten Feature-Branch!**
 
@@ -42,9 +43,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 
 In diesem Kapitel sind die noch nicht umgesetzte Anpassungen an Prof. Dr. Kusches Richtlinien gelistet
 
-- [ ] Anlagen werden mit Buchstaben nummeriert
 - [ ] LiteraturVZ mit Hanging Indent (d.h. Indent nach Zeilenumbruch)
-- [ ] Anlagen werden im InhaltsVZ gelistet
 
 # Installation
 
@@ -521,5 +520,14 @@ Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf
 - Seitenzahlen vor dem Hauptteil sind römisch, ansonsten arabisch
 - Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
 - Literaturverzeichnis erscheint zuletzt
+- es gibt kein Anlagenverzeichnis, dafür werden Anlagen im Inhaltsverzeichnis gelistet
 
 Das genannte Abstract kann unabhängig vom Kusche-Mode über den Schalter ``CHASABSTRACT`` in der ``config.tex`` aktiviert werden.
+
+## Probleme im Kusche Mode
+
+Leider gibt es Anforderungen von Prof. Dr. Kusche, die bislang nicht umgesetzt werden konnten.
+Wir freuen uns natürlich sehr über Ideen, Fixes und Anregungen aus der Community.
+
+- aktuell ist es noch nicht möglich, Anlagen mit Buchstaben zu nummerieren
+  - das ist glücklicherweise keine zwingende Anforderung

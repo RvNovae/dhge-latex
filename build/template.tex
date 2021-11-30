@@ -61,6 +61,10 @@
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
 \tableofcontents{\fancyfoot{}}
+\if\CKUSCHE 1 % im Kusche Mode erscheinen die Anlagen im InhaltsVZ
+    \phantomsection
+    \listofanlagen
+\fi
 \cleardoublepage
 
 % ABBILDUNGSVERZEICHNIS
@@ -132,7 +136,6 @@
 \renewFigTabCap % Verhalten von Figure und Table Environments sowie \caption wird verändert (TODO: wie genau? LG, ZPM)
 \input{anlagen.tex}
 \cleardoublepage
-
 
 % Im Kusche-Mode kommt das LiteraturVZ zuletzt
 \if\CKUSCHE 1
