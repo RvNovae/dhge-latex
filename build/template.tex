@@ -115,7 +115,7 @@
 % erzeugt ein Anlagenkapitel und fügt es zum InhaltsVZ hinzu, insofern Anlagen existieren.
 
 % \listofanlagen generiert ein Anlagenverzeichnis
-% im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt (TODO)
+% im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt
     \ifnum\totvalue{anlagenentries}>0
         \section*{Anlagen}
         \if\CKUSCHE 0
@@ -129,7 +129,7 @@
 
 \if\CKUSCHE 1
     % die kapitel.lfd-Nummerierung wird im Kusche Mode ab hier wieder deaktiviert,
-    % da Anhänge mit Buchstaben nummeriert werden sollen
+    % da Anhänge mit Buchstaben nummeriert werden sollen (TODO: das funktioniert noch nicht, help wanted)
     \counterwithout{figure}{section}
     \counterwithout{table}{section}
 \fi
