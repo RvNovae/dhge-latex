@@ -21,6 +21,7 @@ jobs:
           cp -v build/tests/main.tex    main.tex
           cp -v build/tests/config.tex  config.tex
           cp -v build/tests/anlagen.tex anlagen.tex
+          cp -v build/tests/abstract.tex abstract.tex
           cp -v build/tests/img.png     assets/img/img.png
 
       - name: Rename template.tex
@@ -32,12 +33,33 @@ jobs:
           working_directory: build/
           root_file: example.tex
 
+      - name: Rename example.tex
+        run: mv -v build/example.tex    build/kusche.tex
+
+      - name: Set Kusche-Mode and Abstract
+        run: |
+          sed -i 's/\def\\CKUSCHE *{0}/\def\\CKUSCHE {1}/g' config.tex
+          sed -i 's/\def\\CHASABSTRACT *{0}/\def\\CHASABSTRACT {1}/g' config.tex
+
+      - name: Compile *.tex in Kusche mode
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: build/
+          root_file: kusche.tex
+
       - name: Upload artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v2
         with:
           name: example
           path: ./build/example.pdf
+
+      - name: Upload Kusche mode artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v2
+        with:
+          name: kusche
+          path: ./build/kusche.pdf
 
   release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -48,8 +70,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: example
+          name: kusche
           path: example
+      - name: Download Kusche artifact
+        uses: actions/download-artifact@v2
+        with:
+          name:
 
       - name: Delete latest Release
         uses: dev-drprasad/delete-tag-and-release@v0.2.0
@@ -67,5 +93,5 @@ jobs:
           name: dhge-latex-example
           body: Automatic example release
           gzip: false
-          files: example/example.pdf
+          files: example/example.pdf example/kusche.pdf
           allow_override: true
