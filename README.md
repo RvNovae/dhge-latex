@@ -35,6 +35,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Unicode Alphabete](#unicode-alphabete)
 - [Kusche Mode](#kusche-mode)
   - [Probleme im Kusche Mode](#probleme-im-kusche-mode)
+- [Abstract](#abstract)
 
 # Installation
 
@@ -497,8 +498,6 @@ Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf
 - Literaturverzeichnis erscheint zuletzt
 - es gibt kein Anlagenverzeichnis, dafür werden Anlagen im Inhaltsverzeichnis gelistet
 
-Das genannte Abstract kann unabhängig vom Kusche-Mode über den Schalter ``CHASABSTRACT`` in der ``config.tex`` aktiviert werden.
-
 ## Probleme im Kusche Mode
 
 Leider gibt es Anforderungen von Prof. Dr. Kusche, die bislang nicht umgesetzt werden konnten.
@@ -506,3 +505,9 @@ Wir freuen uns natürlich sehr über Ideen, Fixes und Anregungen aus der Communi
 
 - aktuell ist es noch nicht möglich, Anlagen mit Buchstaben zu nummerieren
   - das ist glücklicherweise keine zwingende Anforderung
+
+# Abstract
+
+Das Template kann optional ein Abstract vor dem Inhaltsverzeichnis generieren.
+
+Um das zu aktivieren, muss in der ``config.tex`` der ``CHASABSTRACT``-Schalter auf ``1`` gesetzt werden.
