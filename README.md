@@ -15,7 +15,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - ["Variablen"](#variablen)
   - [Environment (Umgebung)](#environment-umgebung)
     - [Common Environments](#common-environments)
-  - [ZPMs Fontvorschlag](#zpms-fontvorschlag)
+  - [Fonts](#fonts)
 - [Zitate und Literaturverzeichnis](#zitate-und-literaturverzeichnis)
   - [Zitat als Fußnote einfügen](#zitat-als-fußnote-einfügen)
   - [Hochgestelltes Zitat einfügen](#hochgestelltes-zitat-einfügen)
@@ -147,28 +147,12 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 - [table/tabular](https://en.wikibooks.org/wiki/LaTeX/Tables)
 - [figure](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
 
-## ZPMs Fontvorschlag
+## Fonts
 
 > Die Standardfonts sind zwar ganz in Ordnung, aber ich finde, das geht schöner :^)
 
 Die vorgestellte Font-Konfiguration basiert auf [diesem Stackoverflow Thread](https://tex.stackexchange.com/a/114166), wo auch eine Vorschau betrachtet werden kann.
 **Die Fonts sind standardmäßig im Template aktiv.**
-
-Folgende Anpassungen sind in der ``build/components/package.config.tex`` zu finden:
-
-```latex
-\usepackage[scaled=0.88]{beraserif}
-\usepackage[scaled=0.85]{berasans}
-\usepackage[scaled=0.84]{beramono}
-\usepackage[T1]{fontenc}
-\usepackage{mathpazo}
-\usepackage[T1,small,euler-digits]{eulervm}
-\usepackage{listings} % Codeblöcke
-\lstset{
-  basicstyle=\ttfamily,
-    breaklines=true
-}
-```
 
 Wer diese Fonts **nicht** verwenden möchte, kann in ``config.tex`` ``CFANCYFONTS`` auf ``0`` setzen, um den LaTex-Standard wiederherzustellen.
 
