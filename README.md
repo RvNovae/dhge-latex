@@ -487,7 +487,7 @@ Prof. Dr. Kusche stellt an Praxisarbeiten, die er betreut, andere Anforderungen 
 Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf ``1`` zu setzen überschreibt einige Standardverhalten vom Template:
 
 - es gibt ein Abstract
-- Abstract und Inhaltsverzeichnis werden nicht im Inhaltsverzeichnis geführt
+- das Abstract wird nicht im Inhaltsverzeichnis geführt
 - das Abstract erscheint vor dem Inhaltsverzeichnis
 - das Abstract hat keine Kapitelnummer
 - Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert, mit Ausnahme von Anlagen, welche laufend nummeriert werden
