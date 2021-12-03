@@ -118,13 +118,13 @@
 % im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt
 \ifnum\totvalue{anlagenentries}>0
     \section*{Anlagen}
+    \addcontentsline{toc}{section}{Anlagen}
     \if\CKUSCHE 0
         \begin{spacing}{2}
             \listofanlagen
         \end{spacing}
+        \cleardoublepage
     \fi
-    \addcontentsline{toc}{section}{Anlagen}
-    \cleardoublepage
 \fi
 
 \if\CKUSCHE 1
