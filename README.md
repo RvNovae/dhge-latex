@@ -15,6 +15,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - ["Variablen"](#variablen)
   - [Environment (Umgebung)](#environment-umgebung)
     - [Common Environments](#common-environments)
+  - [Fonts](#fonts)
 - [Zitate und Literaturverzeichnis](#zitate-und-literaturverzeichnis)
   - [Zitat als Fußnote einfügen](#zitat-als-fußnote-einfügen)
   - [Hochgestelltes Zitat einfügen](#hochgestelltes-zitat-einfügen)
@@ -32,6 +33,9 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Spezielle Abschnitte](#spezielle-abschnitte)
   - [SubSubSubSection](#subsubsubsection)
 - [Unicode Alphabete](#unicode-alphabete)
+- [Kusche Mode](#kusche-mode)
+  - [Probleme im Kusche Mode](#probleme-im-kusche-mode)
+- [Abstract](#abstract)
 
 # Installation
 
@@ -63,13 +67,13 @@ Für Windows Nutzer empfiehlt sich Strawberry Perl, was [hier](https://strawberr
 
 ## Setup
 
-* Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
-* Mit der Update-Datei (OS abhängig .bat/.sh) kann ein bestehendes Template aktualisiert werden
+- Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
+- Mit der Update-Datei (OS abhängig .bat/.sh) kann ein bestehendes Template aktualisiert werden
 
-* ### **ACHTUNG** die Update-Datei (entsprechend OS)
-  * **überschreibt** die Dateien im build Ordner
-    * eigene Anpassungen sollten über die Dateien im Wurzelverzeichnis des Projektes geschehen
-  * **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
+- ### **ACHTUNG** die Update-Datei (entsprechend OS)
+  - **überschreibt** die Dateien im build Ordner
+    - eigene Anpassungen sollten über die Dateien im Wurzelverzeichnis des Projektes geschehen
+  - **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
 
 Das Projekt sollte sich nun bauen lassen.
 
@@ -140,9 +144,18 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 
 ### Common Environments
 
-* [itemize/enumerate](https://en.wikibooks.org/wiki/LaTeX/List_Structures)
-* [table/tabular](https://en.wikibooks.org/wiki/LaTeX/Tables)
-* [figure](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
+- [itemize/enumerate](https://en.wikibooks.org/wiki/LaTeX/List_Structures)
+- [table/tabular](https://en.wikibooks.org/wiki/LaTeX/Tables)
+- [figure](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
+
+## Fonts
+
+> Die Standardfonts sind zwar ganz in Ordnung, aber ich finde, das geht schöner :^)
+
+Die vorgestellte Font-Konfiguration basiert auf [diesem Stackoverflow Thread](https://tex.stackexchange.com/a/114166), wo auch eine Vorschau betrachtet werden kann.
+**Die Fonts sind standardmäßig im Template aktiv.**
+
+Wer diese Fonts **nicht** verwenden möchte, kann in ``config.tex`` ``CFANCYFONTS`` auf ``0`` setzen, um den LaTex-Standard wiederherzustellen.
 
 # Zitate und Literaturverzeichnis
 
@@ -256,12 +269,12 @@ Beispiel:
 kann mit bis zu sechs Argumenten aufgerufen werden:
 
 1. **Optional** Float Position, standardmäßig `h`
-1. Relativer Bild-Pfad mit oder ohne Dateiendung (relativ zum `./assets/img` Ordner, kann in `template.tex` angepasst werden)
-1. `\includegraphics` Optionen (leer lassen für Standard)
-1. Bildunterschrift
-1. Label für die Figure/Grafik
-1. **Optional:** ID
-1. **Optional:** "Postnote", beispielsweise um Seitenzahlen anzugeben
+2. Relativer Bild-Pfad mit oder ohne Dateiendung (relativ zum `./assets/img` Ordner, kann in `template.tex` angepasst werden)
+3. `\includegraphics` Optionen (leer lassen für Standard)
+4. Bildunterschrift
+5. Label für die Figure/Grafik
+6. **Optional:** ID
+7. **Optional:** "Postnote", beispielsweise um Seitenzahlen anzugeben
 
 Beispiel:
 
@@ -407,13 +420,13 @@ Für mehr Informationen kann die [Acro Package Documentation](https://mirror.phy
 
 ## Verwendung
 
-* Anlagen werden in der anlagen.tex hinterlegt.
-  * hierbei ist zu beachten:
-    * die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
-    * die Anlage benötigt eine Beschriftung `\caption{}`
-  * ein Label ist für eine automatische Verknüpfung im Anlagenverzeichnis nicht nötig
-  * der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
-  * siehe Beispiel `build/tests/anlagen.tex`
+- Anlagen werden in der anlagen.tex hinterlegt.
+  - hierbei ist zu beachten:
+    - die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
+    - die Anlage benötigt eine Beschriftung `\caption{}`
+  - ein Label ist für eine automatische Verknüpfung im Anlagenverzeichnis nicht nötig
+  - der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
+  - siehe Beispiel `build/tests/anlagen.tex`
 
 Beispiel:
 
@@ -467,3 +480,34 @@ Beispiel:
 Falls chinesische, japanische o.ä. Alphabete verwendet werden müssen (bspw. bedingt durch Autoren), ist die einfachste Methode, das `CJKutf8` Package zu laden.
 
 Eine Anleitung finden Sie in [diesem Artikel](https://www.overleaf.com/learn/latex/chinese).
+
+# Kusche Mode
+
+Prof. Dr. Kusche stellt an Praxisarbeiten, die er betreut, andere Anforderungen als Prof. Dr. Dorendorf.
+Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf ``1`` zu setzen überschreibt einige Standardverhalten vom Template:
+
+- es gibt ein Abstract
+- das Abstract wird nicht im Inhaltsverzeichnis geführt
+- das Abstract erscheint vor dem Inhaltsverzeichnis
+- das Abstract hat keine Kapitelnummer
+- Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert, mit Ausnahme von Anlagen, welche laufend nummeriert werden
+- Seitenzahlen erscheinen rechts außen, am Besten unten
+- Kapitel steht links im Footer / Header, analog zur Seitenzahl
+- Seitenzahlen vor dem Hauptteil sind römisch, ansonsten arabisch
+- Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
+- Literaturverzeichnis erscheint zuletzt
+- es gibt kein Anlagenverzeichnis, dafür werden Anlagen im Inhaltsverzeichnis gelistet
+
+## Probleme im Kusche Mode
+
+Leider gibt es Anforderungen von Prof. Dr. Kusche, die bislang nicht umgesetzt werden konnten.
+Wir freuen uns natürlich sehr über Ideen, Fixes und Anregungen aus der Community.
+
+- aktuell ist es noch nicht möglich, Anlagen mit Buchstaben zu nummerieren
+  - das ist glücklicherweise keine zwingende Anforderung
+
+# Abstract
+
+Das Template kann optional ein Abstract vor dem Inhaltsverzeichnis generieren.
+
+Um das zu aktivieren, muss in der ``config.tex`` der ``CHASABSTRACT``-Schalter auf ``1`` gesetzt werden.

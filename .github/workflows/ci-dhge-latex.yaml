@@ -21,23 +21,40 @@ jobs:
           cp -v build/tests/main.tex    main.tex
           cp -v build/tests/config.tex  config.tex
           cp -v build/tests/anlagen.tex anlagen.tex
+          cp -v build/tests/abstract.tex abstract.tex
           cp -v build/tests/img.png     assets/img/img.png
 
       - name: Rename template.tex
-        run: mv -v build/template.tex   build/example.tex
+        run: mv -v build/template.tex   build/default_example.tex
 
       - name: Compile *.tex
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: build/
-          root_file: example.tex
+          root_file: default_example.tex
 
-      - name: Upload artifact
+      - name: Rename default_example.tex
+        run: mv -v build/default_example.tex    build/kusche_example.tex
+
+      - name: Set Kusche-Mode and Abstract # matches \def\CKUSCHE <any whitespaces> {0} and replaces it with ...{1}, as well as CHASABSTRACT...
+        run: |
+          sed -i 's/\def\\CKUSCHE *{0}/\def\\CKUSCHE {1}/g' config.tex
+          sed -i 's/\def\\CHASABSTRACT *{0}/\def\\CHASABSTRACT {1}/g' config.tex
+
+      - name: Compile *.tex in Kusche mode
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: build/
+          root_file: kusche_example.tex
+
+      - name: Upload artifacts
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v2
         with:
           name: example
-          path: ./build/example.pdf
+          path: |
+            ./build/default_example.pdf
+            ./build/kusche_example.pdf
 
   release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -45,7 +62,7 @@ jobs:
     needs: build_artifact
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
+      - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
           name: example
@@ -67,5 +84,5 @@ jobs:
           name: dhge-latex-example
           body: Automatic example release
           gzip: false
-          files: example/example.pdf
+          files: example/default_example.pdf example/kusche_example.pdf
           allow_override: true

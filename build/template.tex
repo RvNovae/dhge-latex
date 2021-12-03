@@ -1,19 +1,23 @@
 % ROOT & PACKAGE SETUP
 \documentclass	[a4paper, 12pt]{article}
 
-% preamble input
+% Präambel laden
+
 \input{../preamble.tex}
 
-% management for all packages
-\input{components/package.config.tex}
-
-% setups and commands
-\input{components/com.tex}
-\input{components/setup.tex}  % -> default dir set to "../"
-\input{abk.tex}
+% Nutzerkonfiguration laden
 \input{../config.tex}
 
-% configuration of global definitions
+% verwendete Pakete laden und konfigurieren
+\input{components/package.config.tex}
+
+% Setup von Commands und Dokument
+\input{components/com.tex}
+\input{components/setup.tex}  % -> ab hier ist das Arbeitsverzeichnis "../"
+\input{abk.tex}
+
+
+% Konfiguration globaler Definitionen
 
 % PDF Metadata
 \hypersetup{
@@ -24,30 +28,44 @@
 \addbibresource	{../literatur.bib}
 \graphicspath	{{../assets/img/}}
 
-% opening
+% Hier beginnt der Spaß
 \title{{\LARGE \textbf{\CTITLE}}}
 \author			{}
 \date			{}
 
+% lade Deckblatt ohne Nummerierung
 \begin{document}
 \pagenumbering	{gobble}
 
 \input			{build/components/deckblatt.tex}
 
+% Lade Sperrvermerk abhängig von der Einstellung in config.tex
 
 \if\CSPERRVERMERK 1
 	\input			{build/components/sperrvermerk.tex}
 \fi
 
+% Lade Thesenblatt abhängig von der Einstellung in config.tex
 
 \if\CARBEIT B
 	\input			{../bachelor.tex}
 \fi
 
+% Lade Abstract abhängig von der Einstellung in config.tex
+
+\if\CHASABSTRACT 1
+    \section*{Abstract}
+    \input          {../abstract.tex}
+    \newpage % Sections haben hier noch keinen automatischen Seitenumbruch
+\fi
 
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
 \tableofcontents{\fancyfoot{}}
+\if\CKUSCHE 1 % im Kusche Mode erscheinen die Anlagen im InhaltsVZ
+    \phantomsection
+    \listofanlagen
+\fi
 \cleardoublepage
 
 % ABBILDUNGSVERZEICHNIS
@@ -59,12 +77,12 @@
 \conditionalLoT
 
 % ABKÜRZUNGSVERZEICHNIS
-% only if \ac or similar used
+% wird nur dann generiert, wenn mindestens ein mal \ac oder ein verwandter Befehl aufgerufen wurde und damit nicht leer ist
 \ifnum\totvalue{acro_num}>0
 	\printacronyms
 	\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 	\cleardoublepage
-\fi	
+\fi
 
 
 \setcounter{savepage}{\arabic{page}}
@@ -76,28 +94,58 @@
 
 % LITERATURVERZEICHNIS
 % TODO Formatierung
-\pagenumbering	{Roman} \setcounter{page}{\thesavepage}
 
-% wenn keine literatur verwendet (zitiert) wird, erstelle kein literaturverzeichnis 
-\ifnum\thetotalbibentries>0
-    \printbibliography[title=Literaturverzeichnis]
-    \addcontentsline{toc}{section}{Literaturverzeichnis}
-    \cleardoublepage
+% Im Kusche-Mode wird arabische Nummerierung beibehalten
+\if\CKUSCHE 0
+\pagenumbering	{Roman} \setcounter{page}{\thesavepage}
+\fi
+
+% wenn keine Literatur verwendet (zitiert) wird, erstelle kein Literaturverzeichnis
+% im Kusche-Mode wird das LiteraturVZ später generiert
+\if\CKUSCHE 0
+    \ifnum\thetotalbibentries>0
+        \printbibliography[title=Literaturverzeichnis]
+        \addcontentsline{toc}{section}{Literaturverzeichnis}
+        \cleardoublepage
+    \fi
 \fi
 
 
 % TODO %ANLAGENVERZEICHNIS UND ANLAGEN
+% erzeugt ein Anlagenkapitel und fügt es zum InhaltsVZ hinzu, insofern Anlagen existieren.
+
+% \listofanlagen generiert ein Anlagenverzeichnis
+% im Kusche-Modus wird kein Anlagenverzeichnis erzeugt, aber Anlagen im Inhaltsverzeichnis geführt
 \ifnum\totvalue{anlagenentries}>0
     \section*{Anlagen}
-    \begin{spacing}{2}
-        \listofanlagen	
-    \end{spacing}
     \addcontentsline{toc}{section}{Anlagen}
-    \cleardoublepage
+    \if\CKUSCHE 0
+        \begin{spacing}{2}
+            \listofanlagen
+        \end{spacing}
+        \cleardoublepage
+    \fi
 \fi
-\renewFigTabCap % change the behavior from the env figure and table and the command \caption{}
+
+\if\CKUSCHE 1
+    % die kapitel.lfd-Nummerierung wird im Kusche Mode ab hier wieder deaktiviert,
+    % da Anhänge mit Buchstaben nummeriert werden sollen (TODO: das funktioniert noch nicht, help wanted)
+    \counterwithout{figure}{section}
+    \counterwithout{table}{section}
+\fi
+
+\renewFigTabCap % Verhalten von Figure und Table Environments sowie \caption wird verändert (TODO: wie genau? LG, ZPM)
 \input{anlagen.tex}
 \cleardoublepage
+
+% Im Kusche-Mode kommt das LiteraturVZ zuletzt
+\if\CKUSCHE 1
+    \ifnum\thetotalbibentries>0
+        \printbibliography[title=Literaturverzeichnis]
+        \addcontentsline{toc}{section}{Literaturverzeichnis}
+        \cleardoublepage
+    \fi
+\fi
 
 % EHRENWÖRTLICHE ERKLÄRUNG
 \pagestyle{empty}
