@@ -67,13 +67,7 @@ Für Windows Nutzer empfiehlt sich Strawberry Perl, was [hier](https://strawberr
 
 ## Setup
 
-- Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
-- Mit der Update-Datei (OS abhängig .bat/.sh) kann ein bestehendes Template aktualisiert werden
-
-- ### **ACHTUNG** die Update-Datei (entsprechend OS)
-  - **überschreibt** die Dateien im build Ordner
-    - eigene Anpassungen sollten über die Dateien im Wurzelverzeichnis des Projektes geschehen
-  - **löscht** die mit git in Zusammenhang stehenden Ordner und Dateien (.git, .gitignore, .gitkeep)
+Das Repository downloaden, clonen, oder die Template Funktion nutzen, um ein eigenes Repository zu erstellen.
 
 Das Projekt sollte sich nun bauen lassen.
 
