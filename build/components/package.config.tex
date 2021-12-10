@@ -32,10 +32,10 @@
 
 % schönere Fonts, aber optional. Zum deaktivieren CFANCYFONTS in config.tex auf 0 setzen
 \if\CFANCYFONTS 1
+\usepackage     [T1]{fontenc}
 \usepackage     [scaled=0.88]{beraserif} % Bera Serifen Font
 \usepackage     [scaled=0.85]{berasans} % Bera Sans Font
 \usepackage     [scaled=0.84]{beramono} % Bera Mono Font
-\usepackage     [T1]{fontenc}
 \usepackage     {mathpazo} % Palatino Font
 \usepackage     [T1,small,euler-digits]{eulervm} % Euler Font
 \DeclareMathAlphabet{\mathrm}{OT1}{cmr}{m}{n} % mathrm soll weiter Computer Modern als Font nutzen, siehe #103
