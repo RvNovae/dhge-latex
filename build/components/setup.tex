@@ -134,12 +134,13 @@
 \RenewAcroTemplate[list]{description}{%
     \acronymsmapT{%
         \AcroAddRow{%
-        \acrowrite{short}%
+        \textbf{\acrowrite{short}}%
         &
         \acrowrite{long}%
         \acropages
             {\acrotranslate{page}\nobreakspace}%
             {\acrotranslate{pages}\nobreakspace}%
+        \vspace{10pt}
         \tabularnewline
         }%
     }%
