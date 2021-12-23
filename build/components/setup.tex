@@ -130,10 +130,33 @@
 }
 \makeatother
 
+% Standard Abkürzungsverzeichnis überschreiben -> einheitliche Einrückung
+\RenewAcroTemplate[list]{description}{%
+    \acronymsmapT{%
+        \AcroAddRow{%
+        \textbf{\acrowrite{short}}%
+        &
+        \acrowrite{long}%
+        \acropages
+            {\acrotranslate{page}\nobreakspace}%
+            {\acrotranslate{pages}\nobreakspace}%
+        \vspace{10pt}
+        \tabularnewline
+        }%
+    }%
+    \acroheading
+    \acropreamble
+    \noindent
+    \begin{tabular}{@{}ll}
+        \AcronymTable
+    \end{tabular}
+}
+
 % Abkürzungsverzeichnis SETUP
 \acsetup{
 	list/heading = section*,
 	list/name = {Abkürzungsverzeichnis},
+    list/template = description,
 	make-links = true,
 	link-only-first = false
 }
