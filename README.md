@@ -278,21 +278,7 @@ Beispiel:
 
 ***
 
-Wir empfehlen, den Befehl als Snippet im Text-Editor zu hinterlegen.
-In Visual Studio Code kann ein Snippet folgendermaßen konfiguriert werden:
-
-1. _CTRL+Shift+P_
-2. `Preferences: Configure User Snippets`
-3. bereits existierenden LaTeX Snippet File auswählen **oder** `New Global Snippets File...`
-4. Snippet einfügen:
-
-```json
-"DHGE Figure": {
-  "prefix": "dhgefigure",
-  "body": "\\dhgefigure[H]{${1:filename}}{scale=${6:1.0}}{${2:Caption}}{fig:${3:label}}[${4:biblatex_id}][${5:Postnote}]",
-  "description": "Insert \\dhgefigure"
-}
-```
+Der `dhgefigure` Befehl wird nun auch als Snippet für Visual-Studio-Code mitgeliefert.
 
 # Abkürzungen
 
@@ -405,6 +391,8 @@ Aufruf:
 Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu vier Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
 
 ***
+
+Für das Erstellen von Abkürzungen wird nun auch ein Snippet für Visual-Studio-Code mitgeliefert: `abk` / `dhgeabk`.
 
 Für mehr Informationen kann die [Acro Package Documentation](https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/acro/acro-manual.pdf) gelesen werden.
 
