@@ -132,6 +132,9 @@
     % da Anhänge mit Buchstaben nummeriert werden sollen (TODO: das funktioniert noch nicht, help wanted)
     \counterwithout{figure}{section}
     \counterwithout{table}{section}
+
+        % deaktiviere Kapitel in Fußzeile im Kusche Mode ab hier
+        \fancyfoot      [L]{}
 \fi
 
 \renewFigTabCap % Verhalten von Figure und Table Environments sowie \caption wird verändert (TODO: wie genau? LG, ZPM)

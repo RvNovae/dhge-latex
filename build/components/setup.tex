@@ -59,14 +59,9 @@
 \renewcommand	{\footrulewidth}{0pt}
 \setlength		{\headheight}{15pt}
 
-% Im Kusche-Mode ist die Seitenzahl unten rechts, ansonsten oben mittig
-\if\CKUSCHE 0
-    \fancyhead		[c]{\thepage}
-    \fancyfoot		{}
-\else
-    \fancyhead      {}
-    \fancyfoot      [R]{\thepage}
-    \fancyfoot      [L]{\leftmark}
+\fancyfoot      [R]{\thepage} % nach den neuen Anforderungen sind Seitenzahlen unten rechts, geht d'accord mit dem Kusche-Mode
+\if\CKUSCHE 1
+    \fancyfoot      [L]{\leftmark} % im Kusche-Mode erscheint linksbündig das Kapitel in der Fußzeile
 \fi
 
 % PARAGRAPH SETUP

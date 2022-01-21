@@ -473,7 +473,6 @@ Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf
 - das Abstract erscheint vor dem Inhaltsverzeichnis
 - das Abstract hat keine Kapitelnummer
 - Abbildungen, Tabellen, usw. werden zweistufig ``hauptkapitel.lfd`` nummeriert, mit Ausnahme von Anlagen, welche laufend nummeriert werden
-- Seitenzahlen erscheinen rechts außen, am Besten unten
 - Kapitel steht links im Footer / Header, analog zur Seitenzahl
 - Seitenzahlen vor dem Hauptteil sind römisch, ansonsten arabisch
 - Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
