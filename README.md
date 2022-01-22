@@ -255,7 +255,7 @@ Beispiel:
 - `fig:anlagentest` - `fig:` oder `tab:` ist ein typischer Anfang von Referenzen für entsprechend `figure` oder `table` Umgebung
 
 Einsteigern wird [dieses Tutorial von Overleaf](https://www.overleaf.com/learn/latex/Inserting_Images) empfohlen,
-welche einen Überblick über Bilder und ihre Optionen wie z.B. Positionierung in LaTex bietet.
+welches einen Überblick über Bilder und ihre Optionen wie z.B. Positionierung in LaTeX bietet.
 
 ## dhge-latex Abbildungen
 
