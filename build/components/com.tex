@@ -1,10 +1,9 @@
 % dhgefigure -> ...
-\DeclareDocumentCommand{\dhgefigure}{O{h} m m m m O{} O{}}
+\DeclareDocumentCommand{\dhgefigure}{O{tbp} m m m m O{} O{}}
 {
 	\begin{figure}[#1]
-		\begin{center}
-			\includegraphics[#3]{#2}
-		\end{center}
+		\centering
+		\includegraphics[#3]{#2}
 		\caption{#4}
 		\label{#5}
 

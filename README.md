@@ -242,7 +242,7 @@ Beispiel:
 Beispiel:
 
 ```latex
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \caption{testImgName}
   \includegraphics[scale=0.75]{imgName}
@@ -250,7 +250,7 @@ Beispiel:
 \end{figure}
 ```
 
-- `[H]` - entspricht dem Fixieren an der Stelle im Text
+- `[h]` - entspricht dem Fixieren an der Stelle im Text
 - `[scale=0.75]` - skaliert das Bild auf 75% der Originalgröße
 - `fig:anlagentest` - `fig:` oder `tab:` ist ein typischer Anfang von Referenzen für entsprechend `figure` oder `table` Umgebung
 
@@ -262,7 +262,7 @@ Beispiel:
 
 kann mit bis zu sechs Argumenten aufgerufen werden:
 
-1. **Optional** Float Position, standardmäßig `h`
+1. **Optional** Float Position, standardmäßig `tbp`
 2. Relativer Bild-Pfad mit oder ohne Dateiendung (relativ zum `./assets/img` Ordner, kann in `template.tex` angepasst werden)
 3. `\includegraphics` Optionen (leer lassen für Standard)
 4. Bildunterschrift
