@@ -2,7 +2,7 @@
     "DHGE Figure": {
         "prefix": ["dhgefigure"], // auf welchem namen der snippet auffindbar ist
         "scope": "latex,tex", // welche files der snippet betreffen soll
-        "body": "\\dhgefigure[${7:H}]{${1:filename}}{scale=${6:1.0}}{${2:Caption}}{fig:${3:label}}[${4:biblatex_id}][${5:Postnote}]", // der snippet
+        "body": "\\dhgefigure[${7:tbp}]{${1:filename}}{scale=${6:1.0}}{${2:Caption}}{fig:${3:label}}[${4:biblatex_id}][${5:Postnote}]", // der snippet
 
         "description": "Insert \\dhgefigure" // beschreibung
     },
