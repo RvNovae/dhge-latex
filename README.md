@@ -36,6 +36,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Kusche Mode](#kusche-mode)
   - [Probleme im Kusche Mode](#probleme-im-kusche-mode)
 - [Abstract](#abstract)
+- [Absatztrenner](#absatztrenner)
 
 # Installation
 
@@ -495,3 +496,11 @@ Wir freuen uns natürlich sehr über Ideen, Fixes und Anregungen aus der Communi
 Das Template kann optional ein Abstract vor dem Inhaltsverzeichnis generieren.
 
 Um das zu aktivieren, muss in der ``config.tex`` der ``CHASABSTRACT``-Schalter auf ``1`` gesetzt werden.
+
+# Absatztrenner
+
+Absätze können mit Einrückungen oder vertikalen Abständen getrennt werden.
+Der LaTeX Standard sind Einrückungen, Abstände sind aus beliebten WYSIWYG-Editoren wie LibreOffice bekannt.
+An der Studienrichtung Technik der DHGE werden Abstände in Arbeiten bevorzugt, weshalb das die Voreinstellung des Templates ist.
+
+Wenn Einrückungen bevorzugt werden, kann das in der ``config.tex`` geändert werden, indem der ``CEINR``-Schalter auf ``1`` gesetzt wird.
