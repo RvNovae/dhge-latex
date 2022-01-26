@@ -161,3 +161,9 @@
 \newtotcounter{acro_num}
 \def\oldUseAcroTemplate{} \let\oldUseAcroTemplate=\UseAcroTemplate
 \def\UseAcroTemplate{\stepcounter{acro_num}\oldUseAcroTemplate}
+
+% Abstände und Einrückungen abhängig von config.tex ein-/ausschalten
+\if\CEINR 0
+    \setlength{\parskip}{6pt}
+    \setlength{\parindent}{0cm}
+\fi
