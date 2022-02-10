@@ -1,19 +1,35 @@
-﻿*.aux
-*.log
-*.out
-*.gz
-*.toc
-*.pdf
-*.bcf
-*.blg
-*.bbl
-*.run.xml
-*.fls
-*.fdb_latexmk
-*.synctex.gz
-*.synctex(busy)
-*.lof
-*.xdv
-*.alt
-*.lot
-*.acr
+﻿# ignore all
+**
+
+!.gitignore
+!.editorconfig
+
+!*.md
+!*.tex
+!*.latex
+!*.bib
+
+!.github/
+!.github/workflows
+!.github/workflows/**
+
+!.vscode/
+!.vscode/**
+
+!assets/
+!assets/img/
+!assets/img/.gitkeep
+# uncomment this to check-in pictures
+# !assets/img/*.png
+# !assets/img/*.jpg
+!assets/readme/
+!assets/readme/**
+
+!build/
+!build/template.tex
+!build/components/
+!build/components/*.tex
+!build/components/*.cbx
+
+!build/tests/
+!build/tests/**

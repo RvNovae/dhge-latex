@@ -16,6 +16,13 @@
         ], // einzufügender snippet
         "description": "Insert \\DeclareAcronym" // beschreibung
     },
+    "Abkürzung - singleline": {
+        "prefix": ["singleabk", "singledhgeabk"], // auf welchem namen der snippet auffindbar ist
+        "scope": "latex,tex", // welche files der snippet betreffen soll
+        "body": ["\\DeclareAcronym{${1:ac-used-name}}{short = {${2:abk}}, long = {${3:non_abk}}}"
+        ], // einzufügender snippet
+        "description": "Insert singleline \\DeclareAcronym" // beschreibung
+    },
     // Im 'body' könne parameter verwendet werden, um bestimmte Ziele zu erreichen. (z.B. tabbing)
     // Nummern entsprechen Reihenfolge
     // einfachste Anwendung => $1

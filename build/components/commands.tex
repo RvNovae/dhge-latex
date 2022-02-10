@@ -1,0 +1,45 @@
+% dhgefigure -> ...
+\DeclareDocumentCommand{\dhgefigure}{O{tbp} m m m m O{} O{}}
+{
+    \begin{figure}[#1]
+        \begin{center}
+            \includegraphics[#3]{#2}
+        \end{center}
+        \caption{#4}
+        \label{#5}
+
+        \ifx #6\empty \else
+            \ifx #7\empty \else
+                {\small \protect \textbf{Quelle:} \cite[#7]{#6}}
+            \fi
+        \fi
+
+    \end{figure}
+}
+
+% SubSubSubSection
+\newcommand{\dhgeparagraph}[1]{\paragraph{#1}\mbox{}\\\vspace{-1.5em}}
+
+% Doppelte Unterstreichung
+\newcommand{\doubleunderline}[1]{
+    \underline{\underline{#1}}
+}
+
+% Formatierung der Bachelorarbeit: Autorreferat und Thesenblatt
+\newcommand{\baFormat}[2]{
+    \begin{center}
+        {\LARGE\bf #1}
+
+        \vspace{0.7cm}
+        {\large\bf\enquote{\CTITLE}}
+
+        \vspace{0.5cm}
+        von \CAUTHOR
+    \end{center}
+
+    \vspace{1.5cm}
+
+    {#2}
+
+    \cleardoublepage
+}

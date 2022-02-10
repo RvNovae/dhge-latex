@@ -1,56 +1,46 @@
-\usepackage		[a4paper,
-    	            inner  = 3cm,
-                    outer  = 2cm,
-                    top    = 2.5cm,
-                    bottom = 2.5cm]{geometry}
-\usepackage		{setspace}
-\usepackage		[hyperfootnotes = false,
-                    hidelinks]{hyperref}
-\usepackage		{amssymb}
-\usepackage		{fancyhdr}
-\usepackage		[version = 3]{acro}
-\usepackage		{enumitem}
-\usepackage		[style=german]{csquotes}
-\usepackage		[backend=biber,
-                    style        = alphabetic,
-                    citestyle    = components/alphabetic-ibid,
-                    giveninits   = true,
-                    ibidtracker  = true,
-                    minbibnames  = 3,
-                    minalphanames= 3]{biblatex}
-\usepackage		[ngerman]{babel}
-\usepackage		{footmisc}
-\usepackage		{graphicx}
-\usepackage		{caption}
-\usepackage		{xparse}
-\usepackage		{float}
-\usepackage		{tocloft}
-\usepackage     {lmodern}
-\usepackage     {totcount}
-\usepackage     {chngcntr}
-\usepackage     {icomma} % korrekte Darstellung von Kommas in Formeln
-\usepackage     [T1]{fontenc}
+\usepackage[a4paper,inner  = 3cm,outer  = 2cm,top    = 2.5cm,bottom = 2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[hyperfootnotes = false, hidelinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[version = 3]{acro}
+\usepackage{enumitem}
+\usepackage[style=german]{csquotes}
+\usepackage[backend=biber,
+            style        = alphabetic,
+            citestyle    = components/alphabetic-ibid,
+            giveninits   = true,
+            ibidtracker  = true,
+            minbibnames  = 3,
+            minalphanames= 3]{biblatex}
+\usepackage[ngerman]{babel}
+\usepackage{footmisc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{xparse}
+\usepackage{float}
+\usepackage{tocloft}
+\usepackage{lmodern}
+\usepackage{totcount}
+\usepackage{chngcntr}
+\usepackage{icomma} % korrekte Darstellung von Kommas in Formeln
+\usepackage[T1]{fontenc}
 
 % schönere Fonts, aber optional. Zum deaktivieren CFANCYFONTS in config.tex auf 0 setzen
 \if\CFANCYFONTS 1
-    \usepackage     [scaled=0.88]{beraserif} % Bera Serifen Font
-    \usepackage     [scaled=0.85]{berasans} % Bera Sans Font
-    \usepackage     [scaled=0.84]{beramono} % Bera Mono Font
-    \usepackage     {mathpazo} % Palatino Font
-    \usepackage     [T1,small,euler-digits]{eulervm} % Euler Font
-    \DeclareMathAlphabet{\mathrm}{OT1}{cmr}{m}{n} % mathrm soll weiter Computer Modern als Font nutzen, siehe #103
-    \DeclareMathAlphabet{\mathit}{OT1}{cmr}{m}{it}
-    \usepackage     {listings}
-    \lstset{
-	    basicstyle=\ttfamily,
-        breaklines=true
-    }
+    \usepackage[scaled=0.88]{beraserif} % Bera Serifen Font
+    \usepackage[scaled=0.85]{berasans} % Bera Sans Font
+    \usepackage[scaled=0.84]{beramono} % Bera Mono Font
+    \usepackage{mathpazo} % Palatino Font
+    \usepackage[T1,small,euler-digits]{eulervm} % Euler Font
+    \usepackage{listings}
+
 \else
     \usepackage{lmodern}
 \fi
 
 % VERALTETE PAKETE
-% nicht mehr benötigt, aber für Rückwärtskompatibilität noch enthalten
+% nicht mehr benötigt, aber für Rückwärts-Kompatibilität noch enthalten
 % einkommentieren, wenn nach einem Template-Update Probleme auftauchen
 
 %\usepackage		[utf8]{inputenc}

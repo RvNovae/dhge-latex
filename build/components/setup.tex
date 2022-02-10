@@ -1,26 +1,45 @@
-% DOCUMENT SETUP
-\onehalfspacing
-\widowpenalty10000
-\clubpenalty10000
-
-% INHALTSVERZEICHNIS SETUP
-\cftsetindents	{section}{0em}{4em}
-\cftsetindents	{subsection}{0em}{4em}
-\cftsetindents	{subsubsection}{0em}{4em}
-\renewcommand	{\contentsname}{Inhaltsverzeichnis}
-\setcounter		{tocdepth}{3}
-\setcounter		{secnumdepth}{5}
-
-% ABBILDUNGEN UND TABELLEN SETUP
-
-% im Kusche-Mode sollen Abbildungen nach kapitel.lfd nummeriert werden
-\if\CKUSCHE 1
-    \counterwithin{figure}{section}
-    \counterwithin{table}{section}
+% FONT SETUP
+% schönere Fonts, aber optional. Zum deaktivieren CFANCYFONTS in config.tex auf 0 setzen
+\if\CFANCYFONTS 1
+    \DeclareMathAlphabet{\mathrm}{OT1}{cmr}{m}{n} % mathrm soll weiter Computer Modern als Font nutzen, siehe #103
+    \DeclareMathAlphabet{\mathit}{OT1}{cmr}{m}{it}
+    \lstset{
+        basicstyle=\ttfamily,
+        breaklines=true
+    }
 \fi
 
-\renewcommand	{\listfigurename}{Abbildungsverzeichnis}
-\renewcommand	{\listtablename}{Tabellenverzeichnis}
+
+% VARIABLE SETUP
+% die veraltete CAUTHOR Variable wird automatisch befüllt
+\def\CAUTHOR{\CAUTHORVOR\ \CAUTHORNACH}
+
+\if\CARBEIT B
+    \def\BETREUER{Gutachter}
+\else
+    \def\BETREUER{Betreuer}
+\fi
+
+
+% DOCUMENT SETUP
+\onehalfspacing % 1.5 line spacing
+% TODO: sollte theoretisch keine Verwendung mehr haben
+% \widowpenalty10000
+% \clubpenalty10000
+
+
+% INHALTSVERZEICHNIS SETUP
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\cftsetindents{section}{0em}{4em}
+\cftsetindents{subsection}{0em}{4em}
+\cftsetindents{subsubsection}{0em}{4em}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+
+
+% ABBILDUNGEN UND TABELLEN SETUP
+\renewcommand{\listfigurename}{Abbildungsverzeichnis}
+\renewcommand{\listtablename}{Tabellenverzeichnis}
 
 \addto{\captionsngerman}{
     \renewcommand*{\figurename}{Abb.}
@@ -41,16 +60,27 @@
 \setlength{\cfttabindent}{0cm}
 \makeatother
 
+% MODUS KUSCHE: ABBILDUNGEN UND TABELLEN SETUP
+% im Kusche-Mode sollen Abbildungen nach Kapitel.lfd nummeriert werden
+\if\CKUSCHE 1
+    \counterwithin{figure}{section}
+    \counterwithin{table}{section}
+\fi
+
+
 % CAPTION SETUP
 \captionsetup{
-    font=small,
-    labelfont=bf,
-    singlelinecheck=false,
-    skip=10pt,
-    belowskip=0pt
+    font = small,
+    labelfont = bf,
+    singlelinecheck = false,
+    skip = 10pt,
+    belowskip = 0pt
 }
 
+
+% CITATION SETUP
 \renewcommand*{\labelalphaothers}{\textsuperscript{}}
+
 
 % HEADERS & FOOTERS
 \pagestyle		{fancyplain}
@@ -59,18 +89,43 @@
 \renewcommand	{\footrulewidth}{0pt}
 \setlength		{\headheight}{15pt}
 
+% MODUS KUSCHE: HEADERS & FOOTERS
 \fancyfoot      [R]{\thepage} % nach den neuen Anforderungen sind Seitenzahlen unten rechts, geht d'accord mit dem Kusche-Mode
 \if\CKUSCHE 1
     \fancyfoot      [L]{\leftmark} % im Kusche-Mode erscheint linksbündig das Kapitel in der Fußzeile
 \fi
 
-% PARAGRAPH SETUP
-\newcommand{\dhgeparagraph}[1]{\paragraph{#1}\mbox{}\\\vspace{-1.5em}}
 
-% FOOTNOTE
+% FOOTNOTE SETUP
 \renewcommand{\footnotelayout}{\hspace{0.5em}}
 
-% Conditionals um AbbildungsVZ und TabellenVZ nur zu rendern, wenn sie nicht leer sind
+% COUNTER
+% Zweck: in römischen Zahlen weiter zählen, nachdem der Counter von arabisch zurück geändert wird
+\newcounter{savepage}
+
+
+% SECTION SETUP
+% section sollen mit Seitenumbruch beginnen
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+
+% MATHRM ADJUSTMENTS
+% Überschreiben von \mathrm{} -> einheitlichen Abstand einfügen
+\let\oldMathrm\mathrm
+\renewcommand{\mathrm}[1]{\,\oldMathrm{#1}}
+
+% PATH SETUP
+% root ist ist das neue Arbeitsverzeichnis
+\makeatletter
+\def\input@path{{../}{path1/}}
+\makeatother
+
+\graphicspath	{{../assets/img/}}
+
+
+% AUTO REMOVE/INSERT ABBILDUNGSVERZEICHNIS & TABELLENVERZEICHNIS
+% Conditionals um AbbildungVZ und TabellenVZ nur zu rendern, wenn sie nicht leer sind
 \newtotcounter{figCount}
 \newtotcounter{tabCount}
 \let\oldTabTOC=\table
@@ -93,50 +148,92 @@
     \fi
 }
 
-% COUNTER (Zweck: in römischen Zahlen weiterzählen, nachdem der Counter von arabisch zurückgeändert wird)
-\newcounter{savepage}
 
-% Sections sollen mit Seitenumbruch beginnen
-\let\stdsection\section
-\renewcommand\section{\newpage\stdsection}
+% ANLAGENVERZEICHNIS SETUP
+% definiert eine neue Liste für das Anlagenverzeichnis
+\newcommand{\listanlageverzeichnis}{\vspace*{-20pt}}
+\newlistof{anlagen}{alt}{\listanlageverzeichnis}
 
-% Überschreiben von \mathrm{} -> einheitlichen Abstand einfügen
-\let\oldMathrm\mathrm
-\renewcommand{\mathrm}[1]{\,\oldMathrm{#1}}
+% Befehl welcher ein Item dem Anlagenverzeichnis hinzufügt
+\newcommand{\addItemToAnlageverzeichnis}[1]{%
+    \def\fig{fig}
+    \def\tab{tab}
 
-% Template-Root-Verzeichnis ist das neue Arbeitsverzeichnis
-% muss nach \input{setup.tex} aufgerufen werden, damit alle Template-Root-Dateien integriert werden
-\makeatletter
-\def\input@path{{../}{path1/}}
-\makeatother
+    \ifx\fig\typeOfCap
+        \def\type{\thefigure}
+        \def\name{Abb.\hspace{8pt}}
+    \else \ifx\tab\typeOfCap
+            \def\type{\thetable}
+            \def\name{Tab.\hspace{10pt}}
+        \fi
+    \fi
+    \setcounter{anlagen}{\type}
 
-% die veraltete CAUTHOR Variable wird automatisch befüllt
-\def\CAUTHOR{\CAUTHORVOR\ \CAUTHORNACH}
+    % only here because the \type-counter is one lower (later it will count up like normal)
+    % -> reason... it's called too early but can't called later because of dependencies other types
+    % works only in the last section of the paper so it should be fine :)
+    \refstepcounter{anlagen}
 
+    \addcontentsline{alt}{anlagen}
+    {\name\protect\numberline{\theanlagen}\quad#1}\par
+}
+
+\newenvironment{longfigure}{\captionsetup{type=figure}}{}
+
+% AUTO REMOVE/INSERT Anlagenverzeichnis
+\newtotcounter{anlagenentries}  % stepCounter within table and figure to check if used
+\newcommand{\renewFigTabCap} {
+    % \caption ruft zusätzlich \addItemToAnlageverzeichnis auf
+    \let\oldCap=\caption
+    \renewcommand{\caption}[1]{\addItemToAnlageverzeichnis{##1}\oldCap{##1}}
+
+    % redefine table and figure -> table and figure set a global variable on the specific value
+    \let\oldTab=\table
+    \renewcommand{\table}{\def\typeOfCap{tab}\stepcounter{anlagenentries}\oldTab}
+
+    \let\oldFig=\figure
+    \renewcommand{\figure}{\def\typeOfCap{fig}\stepcounter{anlagenentries}\oldFig}
+
+    \let\oldLongFig=\longfigure
+    \renewcommand{\longfigure}{\def\typeOfCap{fig}\stepcounter{anlagenentries}\oldLongFig}
+}
+
+
+% AUTO REMOVE/INSERT Literaturverzeichnis
 \newcounter{totalbibentries}
 \newcommand*{\listcounted}{}
 
 \makeatletter
 \AtDataInput{
-  \xifinlist{\abx@field@entrykey}\listcounted
+    \xifinlist{\abx@field@entrykey}\listcounted
     {}
     {\stepcounter{totalbibentries}
-     \listxadd\listcounted{\abx@field@entrykey}}
+        \listxadd\listcounted{\abx@field@entrykey}}
 }
 \makeatother
+
+
+% ACRO SETUP
+\acsetup{
+    list/heading = section*,
+    list/name = {Abkürzungsverzeichnis},
+    list/template = description,
+    make-links = true,
+    link-only-first = false
+}
 
 % Standard Abkürzungsverzeichnis überschreiben -> einheitliche Einrückung
 \RenewAcroTemplate[list]{description}{%
     \acronymsmapT{%
         \AcroAddRow{%
-        \textbf{\acrowrite{short}}%
-        &
-        \acrowrite{long}%
-        \acropages
+            \textbf{\acrowrite{short}}%
+            &
+            \acrowrite{long}%
+            \acropages
             {\acrotranslate{page}\nobreakspace}%
             {\acrotranslate{pages}\nobreakspace}%
-        \vspace{10pt}
-        \tabularnewline
+            \vspace{10pt}
+            \tabularnewline
         }%
     }%
     \acroheading
@@ -147,21 +244,15 @@
     \end{tabular}
 }
 
-% Abkürzungsverzeichnis SETUP
-\acsetup{
-	list/heading = section*,
-	list/name = {Abkürzungsverzeichnis},
-    list/template = description,
-	make-links = true,
-	link-only-first = false
-}
-
+% AUTO REMOVE/INSERT Abkürzungsverzeichnis
 % Abkürzungsverzeichnis überschreibt \UseAcroTemplate für \ac
 % New Counter to count used acronyms:
 \newtotcounter{acro_num}
 \def\oldUseAcroTemplate{} \let\oldUseAcroTemplate=\UseAcroTemplate
 \def\UseAcroTemplate{\stepcounter{acro_num}\oldUseAcroTemplate}
 
+
+% INDENTION SETUP
 % Abstände und Einrückungen abhängig von config.tex ein-/ausschalten
 \if\CEINR 0
     \setlength{\parskip}{6pt}
