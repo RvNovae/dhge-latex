@@ -71,6 +71,8 @@
 	{\name\protect\numberline{\theanlagen}\quad#1}\par
 }
 
+\newenvironment{longfigure}{\captionsetup{type=figure}}{}
+
 \newtotcounter{anlagenentries}
 \newcommand{\renewFigTabCap} {
 	% caption ruft jetzt \ATA{} auf, welches das jeweilige Objekt zum "Anlageverzeichnis" hinzufügt
@@ -83,6 +85,9 @@
 
 	\let\oldFig=\figure
 	\renewcommand{\figure}{\def\typeOfCap{fig}\stepcounter{anlagenentries}\oldFig}
+
+	\let\oldLongFig=\longfigure
+	\renewcommand{\longfigure}{\def\typeOfCap{fig}\stepcounter{anlagenentries}\oldLongFig}
 }
 
 % Formatierung der Bachelorarbeit: Autorreferat und Thesenblatt

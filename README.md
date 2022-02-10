@@ -408,7 +408,7 @@ Für mehr Informationen kann die [Acro Package Documentation](https://mirror.phy
 
 - Anlagen werden in der anlagen.tex hinterlegt.
   - hierbei ist zu beachten:
-    - die Anlage muss sich in einer Umgebung vom Typ `figure` oder `table` befinden
+    - die Anlage muss sich in einer Umgebung vom Typ `figure`, `table` oder `longfigure` befinden
     - die Anlage benötigt eine Beschriftung `\caption{}`
   - ein Label ist für eine automatische Verknüpfung im Anlagenverzeichnis nicht nötig
   - der vorgefertigte Befehl `\dhgefigure`, kann verwendet werden, da dieser beide Anforderungen erfüllt
@@ -424,6 +424,12 @@ Beispiel:
     \end{tabular}
 \end{table}
 ```
+
+### Longfigure
+
+Damit auch nicht-Floats in den Anlagen möglich sind, gibt es die `longfigure`-Environment.
+Diese verhält sich im Grunde wie `figure`. Der Inhalt darf jedoch über Seitengrenzen hinweg gehen.
+Das ist besonders für Code-Beispiele für den Anhang praktisch.
 
 # Code mit Minted einfügen
 
