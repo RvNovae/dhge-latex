@@ -17,13 +17,8 @@
 !.vscode/**
 
 !assets/
-!assets/img/
-!assets/img/.gitkeep
-!assets/img/*.png
-!assets/img/*.jpg
+!assets/**
 
-!assets/readme/
-!assets/readme/**
 
 !build/
 !build/template.tex
