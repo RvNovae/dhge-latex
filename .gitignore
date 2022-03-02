@@ -19,7 +19,6 @@
 !assets/
 !assets/**
 
-
 !build/
 !build/template.tex
 !build/components/
