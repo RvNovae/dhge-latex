@@ -2,9 +2,7 @@
 charset = utf8
 end_of_line = crlf
 insert_final_newline = true
-
-[*.bib]
-indent_style = tab
+trim_trailing_whitespace = true
 
 [*.tex]
 indent_style = space

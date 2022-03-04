@@ -1,73 +1,69 @@
+% DEFINITION SECTION
+
+% legt den hSpace fest um die Einträge mittig zu platzieren
+% 0.4375 berechnet sich aus:
+% ((textwidth / 2) - (margin_left - margin_right)) / textwidth
+% mit textwidth = pagewidth - margin_left - margin_right
+% Dann muss nur noch parindent abgezogen werden
+\def\defaultHSpace{\hspace{-\parindent}\hspace{0.4375\textwidth}}
+
+\newcommand{\markBox}[2]
+{
+    \ifnum#1 = 1
+        \def\checkboxes{#2 {$\boxtimes$} #2 {$\square$} #2 {$\square$} #2 {$\square$}}
+    \else\ifnum#1 = 2
+        \def\checkboxes{#2 {$\square$} #2 {$\boxtimes$} #2 {$\square$} #2 {$\square$}}
+    \else\ifnum#1 = 3
+        \def\checkboxes{#2 {$\square$} #2 {$\square$} #2 {$\boxtimes$} #2 {$\square$}}
+    \else\ifnum#1 = 4
+        \def\checkboxes{#2 {$\square$} #2 {$\square$} #2 {$\square$} #2 {$\boxtimes$}}
+    \else
+        \def\checkboxes{#2 {$\square$} #2 {$\square$} #2 {$\square$} #2 {$\square$}}
+    \fi\fi\fi\fi
+
+    \hspace*{-.5cm}\checkboxes
+}
+
+% Definition der Deckblatt-Einträge
+
+\newcommand{\deckblattEntry}[2] {
+    \begin{tabular}{rl}
+        \defaultHSpace{} & \\ #1: & #2
+    \end{tabular}
+    % folgende newline ist notwendig damit die Formatierung angewendet wird
+
+}
+
+
+% DECKBLATT STRUKTUR SECTION
 \vspace{\fill}
 \maketitle
 
 \if\CARBEIT B
+    \begin{center}
+        {\LARGE\bf Bachelorarbeit}
 
-	\begin{center}
-		{\LARGE\bf Bachelorarbeit}
-		
-		\vspace{0.5cm}vorgelegt am \CDATUM
-	\end{center}
+        \vspace{0.5cm}vorgelegt am \CDATUM
+    \end{center}
 
-	\vspace{1cm}
-
-	\def\BETREUER{Gutachter}
-
+    \vspace{1cm}
 \else
+    \begin{tabular}{rcccc}
+        \defaultHSpace{} & I & II & III & IV \\
+        {Projektarbeit Nr.}  \markBox{\CARBEIT}{&}
+    \end{tabular}
 
-	\begin{tabular}{rcccc}
-		\hspace{0.45\textwidth} &       I       &     II      &     III     &     IV      \\
-	{Projektarbeit Nr.}  \markBox{\CARBEIT}{&}
-	\end{tabular}
-
-	\begin{tabular}{rl}
-		\hspace{0.45\textwidth} &       \\
-		vorgelegt am: & \CDATUM
-	\end{tabular}
-
-	\def\BETREUER{Betreuer}
-
+    \deckblattEntry{vorgelegt am}{\CDATUM}
 \fi
 
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &              \\
-			von: & \CAUTHOR
-\end{tabular}
-
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &         \\
-	Matrikelnummer: & \CMATRIKEL
-\end{tabular}
-
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &      \\
-	DHGE Campus: & \CCAMPUS
-\end{tabular}
-
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &         \\
-	Studienbereich: & \CBEREICH
-\end{tabular}
-
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &                       \\
-	Studiengang: & \CSTUDIENGANG
-\end{tabular}
-
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &       \\
-			Kurs: & \CKURS
-\end{tabular}
-
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &          \\
-	Ausbildungsstätte: & \CBETRIEB
-\end{tabular}
-
-\begin{tabular}{rl}
-	\hspace{0.45\textwidth} &          \\
-	\BETREUER: & \CBETREUER
-\end{tabular}
+\deckblattEntry{von}{\CAUTHOR}
+\deckblattEntry{Matrikelnummer}{\CMATRIKEL}
+\deckblattEntry{DHGE Campus}{\CCAMPUS}
+\deckblattEntry{Studienbereich}{\CBEREICH}
+\deckblattEntry{Studiengang}{\CSTUDIENGANG}
+\deckblattEntry{Kurs}{\CKURS}
+\deckblattEntry{Ausbildungsstätte}{\CBETRIEB}
+\deckblattEntry{\BETREUER}{\CBETREUER}
 
 \vspace*{\fill}
 
