@@ -29,6 +29,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Abkürzungen](#abkürzungen)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
   - [Verwendung](#verwendung)
+    - [Longfigure](#longfigure)
 - [Code mit Minted einfügen](#code-mit-minted-einfügen)
 - [Spezielle Abschnitte](#spezielle-abschnitte)
   - [SubSubSubSection](#subsubsubsection)
@@ -146,6 +147,8 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 ## Fonts
 
 > Die Standardfonts sind zwar ganz in Ordnung, aber ich finde, das geht schöner :^)
+
+Für Fließtext wird Palladio Roman L (auch bekannt als Palatino) verwendet. Für das ``mathrm``-Environment wird jedoch weiter Computer Modern verwendet.
 
 Die vorgestellte Font-Konfiguration basiert auf [diesem Stackoverflow Thread](https://tex.stackexchange.com/a/114166), wo auch eine Vorschau betrachtet werden kann.
 **Die Fonts sind standardmäßig im Template aktiv.**
