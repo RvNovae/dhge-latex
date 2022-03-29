@@ -148,7 +148,7 @@ Ein Codeblock, welcher bestimmte Abläufe vor und nach dem eigenen Code laufen l
 
 > Die Standardfonts sind zwar ganz in Ordnung, aber ich finde, das geht schöner :^)
 
-Für Fließtext wird Palladio Roman L (auch bekannt als Palatino) verwendet. Für das ``mathrm``-Environment wird jedoch weiter Computer Modern verwendet.
+Für Fließtext wird Palatino, ein für LaTeX optimierter Klon von Palladio Roman L verwendet.
 
 Die vorgestellte Font-Konfiguration basiert auf [diesem Stackoverflow Thread](https://tex.stackexchange.com/a/114166), wo auch eine Vorschau betrachtet werden kann.
 **Die Fonts sind standardmäßig im Template aktiv.**
