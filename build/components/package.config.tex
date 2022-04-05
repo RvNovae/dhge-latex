@@ -21,22 +21,16 @@
 \usepackage{xparse}
 \usepackage{float}
 \usepackage{tocloft}
-\usepackage{lmodern}
 \usepackage{totcount}
 \usepackage{chngcntr}
 \usepackage{icomma} % korrekte Darstellung von Kommas in Formeln
-\usepackage[T1]{fontenc}
 
 % schönere Fonts, aber optional. Zum deaktivieren CFANCYFONTS in config.tex auf 0 setzen
 \if\CFANCYFONTS 1
-    \usepackage[scaled=0.88]{beraserif} % Bera Serifen Font
-    \usepackage[scaled=0.85]{berasans} % Bera Sans Font
-    \usepackage[scaled=0.84]{beramono} % Bera Mono Font
-    \usepackage{mathpazo} % Palatino Font
-    \usepackage[T1,small,euler-digits]{eulervm} % Euler Font
+    \usepackage{newpxtext,newpxmath}
     \usepackage{listings}
-
 \else
+    \usepackage[T1]{fontenc}
     \usepackage{lmodern}
 \fi
 
