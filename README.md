@@ -26,7 +26,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Abbildungen](#abbildungen)
   - [LaTeX Abbildungen](#latex-abbildungen)
   - [dhge-latex Abbildungen](#dhge-latex-abbildungen)
-- [Abkürzungen](#abkürzungen)
+- [Abkürzungen und Glossareinträge](#abkürzungen-und-glossareinträge)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
   - [Verwendung](#verwendung)
     - [Longfigure](#longfigure)
@@ -287,32 +287,26 @@ Beispiel:
 
 Der `dhgefigure` Befehl wird nun auch als Snippet für Visual-Studio-Code mitgeliefert.
 
-# Abkürzungen
+# Abkürzungen und Glossareinträge
 
 ```latex
-\DeclareAcronym{1}{
-  short = {2},
-  long = {3}
-  }
+\newacronym{key}{short}{long}
 ```
 
-1. ID der Abkürzung, damit wird im Fließtext später referenziert.
-2. Die Abkürzung selbst
-3. Der ausgeschriebene Begriff
+1. ``key``: ID der Abkürzung, damit wird im Fließtext später referenziert.
+2. ``short``: Die Abkürzung selbst
+3. ``long``: Der ausgeschriebene Begriff
 
 Beispielweise:
 
 ```latex
-\DeclareAcronym{dhge}{
-  short = {DHGE},
-  long = {Duale Hochschule Gera-Eisenach}
-}
+\newacronym[]{ac:dhge}{DHGE}{Duale Hochschule Gera-Eisenach}
 ```
 
 Im Fließtext wird dann mit
 
 ```latex
-\ac{dhge}
+\gls{ac:dhge}
 ```
 
 die Abkürzung aufgerufen.
@@ -401,7 +395,7 @@ Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten
 
 Für das Erstellen von Abkürzungen wird nun auch ein Snippet für Visual-Studio-Code mitgeliefert: `abk` / `dhgeabk`.
 
-Für mehr Informationen kann die [Acro Package Documentation](https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/acro/acro-manual.pdf) gelesen werden.
+Für mehr Informationen kann die [Glossaries Package Documentation](https://ctan.org/pkg/glossaries?lang=de) gelesen werden.
 
 # Anlagenverzeichnis
 

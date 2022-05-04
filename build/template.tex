@@ -79,13 +79,12 @@
     \phantomsection
     \conditionalLoT
 
-    % ABKÜRZUNGSVERZEICHNIS
-    % wird nur dann generiert, wenn mindestens ein mal \ac oder ein verwandter Befehl aufgerufen wurde und damit nicht leer ist
-    \ifnum\totvalue{acro_num}>0
-        \printacronyms
-        \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-        \cleardoublepage
+    % das Glossaries-Package rendert sich nur, wenn mindestens ein Eintrag hinterlegt ist
+    \if\CALLGLO 1 % alle Glossar-Einträge unbedingt erzeugen
+        \glsaddall
     \fi
+    \printglossaries
+    \cleardoublepage
 
     \setcounter{savepage}{\arabic{page}}
 

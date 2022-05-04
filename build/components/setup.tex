@@ -213,44 +213,8 @@
 \makeatother
 
 
-% ACRO SETUP
-\acsetup{
-    list/heading = section*,
-    list/name = {Abkürzungsverzeichnis},
-    list/template = description,
-    make-links = true,
-    link-only-first = false
-}
-
-% Standard Abkürzungsverzeichnis überschreiben -> einheitliche Einrückung
-\RenewAcroTemplate[list]{description}{%
-    \acronymsmapT{%
-        \AcroAddRow{%
-            \textbf{\acrowrite{short}}%
-            &
-            \acrowrite{long}%
-            \acropages
-            {\acrotranslate{page}\nobreakspace}%
-            {\acrotranslate{pages}\nobreakspace}%
-            \vspace{10pt}
-            \tabularnewline
-        }%
-    }%
-    \acroheading
-    \acropreamble
-    \noindent
-    \begin{tabular}{@{}ll}
-        \AcronymTable
-    \end{tabular}
-}
-
-% AUTO REMOVE/INSERT Abkürzungsverzeichnis
-% Abkürzungsverzeichnis überschreibt \UseAcroTemplate für \ac
-% New Counter to count used acronyms:
-\newtotcounter{acro_num}
-\def\oldUseAcroTemplate{} \let\oldUseAcroTemplate=\UseAcroTemplate
-\def\UseAcroTemplate{\stepcounter{acro_num}\oldUseAcroTemplate}
-
+% Glossar Setup
+\makeglossaries
 
 % INDENTION SETUP
 % Abstände und Einrückungen abhängig von config.tex ein-/ausschalten
