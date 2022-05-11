@@ -20,6 +20,7 @@
 
 % Abkürzungen müssen früher eingefügt werden, da sie
 % nicht als Text, sondern als Variablen definiert werden
+\glsenableentrycount % Glossaries zählt Verwendung von Einträgen für bedingte Ausgabe des Glossars
 \input{abk.tex}
 
 
@@ -79,12 +80,13 @@
     \phantomsection
     \conditionalLoT
 
-    % das Glossaries-Package rendert sich nur, wenn mindestens ein Eintrag hinterlegt ist
     \if\CALLGLO 1 % alle Glossar-Einträge unbedingt erzeugen
         \glsaddall
     \fi
-    \printglossaries
-    \cleardoublepage
+    \if\CHASGLO 1 % füge das Glossar nur hinzu, wenn die Option in config.tex gesetzt ist
+        \printnoidxglossaries
+        \cleardoublepage
+    \fi
 
     \setcounter{savepage}{\arabic{page}}
 

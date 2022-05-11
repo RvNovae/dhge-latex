@@ -155,7 +155,7 @@
 \newlistof{anlagen}{alt}{\listanlageverzeichnis}
 
 % Befehl welcher ein Item dem Anlagenverzeichnis hinzufügt
-\newcommand{\addItemToAnlageverzeichnis}[1]{%
+\newcommand{\addItemToAnlageverzeichnis}[1]{
     \def\fig{fig}
     \def\tab{tab}
 
@@ -212,9 +212,8 @@
 }
 \makeatother
 
-
 % Glossar Setup
-\makeglossaries
+\makenoidxglossaries
 
 % INDENTION SETUP
 % Abstände und Einrückungen abhängig von config.tex ein-/ausschalten
