@@ -21,10 +21,6 @@
 
 % DOCUMENT SETUP
 \onehalfspacing % 1.5 line spacing
-% TODO: sollte theoretisch keine Verwendung mehr haben
-% \widowpenalty10000
-% \clubpenalty10000
-
 
 % INHALTSVERZEICHNIS SETUP
 \renewcommand{\contentsname}{Inhaltsverzeichnis}
@@ -137,14 +133,12 @@
     \ifnum\totvalue{figCount}>0
         \addcontentsline{toc}{section}{\listfigurename}
         \listoffigures
-        \cleardoublepage
     \fi
 }
 \newcommand{\conditionalLoT}{
     \ifnum\totvalue{tabCount}>0
         \addcontentsline{toc}{section}{\listtablename}
         \listoftables
-        \cleardoublepage
     \fi
 }
 
