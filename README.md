@@ -27,6 +27,8 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - [LaTeX Abbildungen](#latex-abbildungen)
   - [dhge-latex Abbildungen](#dhge-latex-abbildungen)
 - [Abkürzungen und Glossareinträge](#abkürzungen-und-glossareinträge)
+  - [Abkürzungen](#abkürzungen)
+  - [Glossareinträge](#glossareinträge)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
   - [Verwendung](#verwendung)
     - [Longfigure](#longfigure)
@@ -291,6 +293,8 @@ Der `dhgefigure` Befehl wird nun auch als Snippet für Visual-Studio-Code mitgel
 
 # Abkürzungen und Glossareinträge
 
+## Abkürzungen
+
 ```latex
 \newacronym{key}{short}{long}
 ```
@@ -302,7 +306,7 @@ Der `dhgefigure` Befehl wird nun auch als Snippet für Visual-Studio-Code mitgel
 Beispielweise:
 
 ```latex
-\newacronym[]{ac:dhge}{DHGE}{Duale Hochschule Gera-Eisenach}
+\newacronym{ac:dhge}{DHGE}{Duale Hochschule Gera-Eisenach}
 ```
 
 Im Fließtext wird dann mit
@@ -315,89 +319,91 @@ die Abkürzung aufgerufen.
 Dies sind die Pflicht-Argumente. Es gibt weitere Einstellungsmöglichkeiten bei dem Deklarieren von Abkürzungen, die in der unten stehenden Dokumentation nachgelesen werden können. Eine sinnvolle Auswahl davon:
 
 ```latex
-\DeclareAcronym{1}{
-  short = {2},
-  long = {3},
-  short-plural = {4},
-  long-plural = {5},
-  alt = {8}
-  }
+\newacronym [
+  longplural={1},
+  shortplural={2}
+] {3}{4}{5}
 ```
 
-ODER
+1. Die ausgeschriebene Pluralform
+2. Die Pluralform der Abkürzung
+3. ID der Abkürzung, damit wird im Fließtext später referenziert
+4. Die Abkürzung selbst
+5. Der ausgeschriebene Begriff
+
+Die Optionen 1 und 2 sind optional.
+Beachten Sie jedoch, dass die Optionen mit einem Komma getrennt sind.
+
+An einem Beispiel:
 
 ```latex
-\DeclareAcronym{1}{
-  short = {2},
-  long = {3},
-  short-plural-form = {6},
-  long-plural-form = {7},
-  alt = {8}
-  }
+\newacronym [
+  longplural={Jacobi-Matrizen},
+  shortplural={JMs}
+] {ac:jm}{JM}{Jacobi-Matrix}
 ```
-
-1. ID der Abkürzung, damit wird im Fließtext später referenziert.
-2. Die Abkürzung selbst
-3. Der ausgeschriebene Begriff
-4. Buchstabe oder Silbe, die der Abkürzung im Plural angehangen wird
-5. Buchstabe oder Silbe, die dem ausgeschriebenen Wort im Plural angehangen wird
-6. Plural-Form der Abkürzung, ersetzt die Abkürzung komplett
-7. Plural-Form des Wortes, ersetzt das Wort komplett
-8. Alternative zum ausgeschriebenen Wort
-
-Die Angaben 4 bis 8 sind optional.
 
 Die Pluralform lässt sich mit
 
 ```latex
-\acp{1}
+\glspl{3}
 ```
 
-aufrufen, die Alternativform mit
+aufrufen.
+Ebenso kann der erste Buchstabe einer Abkürzung groß geschrieben werden (wenn er in der Abkürzung selbst klein geschrieben ist): ``\Gls{key}``.
+Das ist kombinierbar mit ``\glspl{key}``, also:
 
 ```latex
-\aca{1}
+\Glspl{3}
 ```
 
-Beispiel:
-
-```latex
-\DeclareAcronym{jpg}{
-  short = {JPEG},
-  long = {Joint Photographic Experts Group},
-  short-plural-form = {JPEGs},
-  long-plural-form = {Joint Photographic Experts Groups},
-  alt = {JPG}
-  }
-```
-
-ODER
-
-```latex
-\DeclareAcronym{jpg}{
-  short = {JPEG},
-  long = {Joint Photographic Experts Group},
-  short-plural = {s},
-  long-plural = {s},
-  alt = {JPG}
-  }
-```
-
-Aufruf:
-
-```latex
-\ac{jpg} % Normale Form
-\acp{jpg} % Plural-Form
-\aca{jpg} % Alternativ-Form
-```
-
-Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu vier Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
+Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu zwei Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
 
 ***
 
-Für das Erstellen von Abkürzungen wird nun auch ein Snippet für Visual-Studio-Code mitgeliefert: `abk` / `dhgeabk`.
+Für das Erstellen von Abkürzungen wird ein Snippet für Visual-Studio-Code mitgeliefert: `abk` / `dhgeabk`.
 
 Für mehr Informationen kann die [Glossaries Package Documentation](https://ctan.org/pkg/glossaries?lang=de) gelesen werden.
+
+## Glossareinträge
+
+Glossar-Einträge verhalten sich ähnlich zu den eben vorgestellten Abkürzungen und werden ebenso mit ``\gls{key}`` oder möglichen Alternativ-Formen aufgerufen.
+
+Glossar-Einträge werden im einfachsten Falle wie folgt angelegt:
+
+```latex
+\newglossaryentry{1}{
+  name={2},
+  description={3}
+}
+```
+
+1. ID des Eintrages, damit wird im Fließtext später referenziert
+2. Der Begriff, der im Glossar erklärt werden soll
+3. Die Erklärung des Begriffes
+
+Im Fließtext wird dann mit ``\gls{key}`` der Eintrag verknüpft, wobei der Begriff im Text erscheint.
+
+Sollte die Beschreibung des Begriffs allerdings **länger** als die verbleibende **Seitenbreite** sein, muss der Eintrag mit ``\longnewglossaryentry`` angelegt werden.
+Von den Optionen ändert sich dabei nichts.
+
+An einem Beispiel:
+
+```latex
+\newglossaryentry{gls:ereignisanzeige}{
+    name={Ereignisanzeige},
+    description={Zentrale Schnittstelle für Logs auf Microsoft Windows Systemen}
+}
+```
+
+Im Fließtext wird dann referenziert:
+
+```latex
+[...]
+Eine entsprechende Fehlermeldung war \gls{gls:ereignisanzeige} zu sehen.
+[...]
+```
+<!--ja ich weiß doch auch nicht, denk dir was besseres aus, LG ZPM :-)-->
 
 # Anlagenverzeichnis
 
