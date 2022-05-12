@@ -26,9 +26,10 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Abbildungen](#abbildungen)
   - [LaTeX Abbildungen](#latex-abbildungen)
   - [dhge-latex Abbildungen](#dhge-latex-abbildungen)
-- [Abkürzungen und Glossareinträge](#abkürzungen-und-glossareinträge)
+- [Abkürzungen und Glossar-Einträge](#abkürzungen-und-glossar-einträge)
   - [Abkürzungen](#abkürzungen)
-  - [Glossareinträge](#glossareinträge)
+  - [Glossar-Einträge](#glossar-einträge)
+  - [Weiterführende Dokumentation](#weiterführende-dokumentation)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
   - [Verwendung](#verwendung)
     - [Longfigure](#longfigure)
@@ -234,7 +235,7 @@ Beispiel:
 - Abbildungen werden durch das Template in `assets/img` gefunden.
   - `\includegraphics{<imgName>}` entspricht `\includegraphics{assets/img/<imgName>}`
   - anpassbar durch `\graphicspath {{<newImagePath>}}`
-    - **`<newImagePath>`** ist aus der sicht von `build/` zu sehen
+    - **`<newImagePath>`** ist aus der Sicht von `build/` zu sehen
     - `\graphicspath {{../assets/img/}}}`
 
 ## LaTeX Abbildungen
@@ -291,7 +292,7 @@ Beispiel:
 
 Der `dhgefigure` Befehl wird nun auch als Snippet für Visual-Studio-Code mitgeliefert.
 
-# Abkürzungen und Glossareinträge
+# Abkürzungen und Glossar-Einträge
 
 ## Abkürzungen
 
@@ -365,7 +366,7 @@ Für das Erstellen von Abkürzungen wird ein Snippet für Visual-Studio-Code mit
 
 Für mehr Informationen kann die [Glossaries Package Documentation](https://ctan.org/pkg/glossaries?lang=de) gelesen werden.
 
-## Glossareinträge
+## Glossar-Einträge
 
 Glossar-Einträge verhalten sich ähnlich zu den eben vorgestellten Abkürzungen und werden ebenso mit ``\gls{key}`` oder möglichen Alternativ-Formen aufgerufen.
 
@@ -404,6 +405,12 @@ Eine entsprechende Fehlermeldung war \gls{gls:ereignisanzeige} zu sehen.
 [...]
 ```
 <!--ja ich weiß doch auch nicht, denk dir was besseres aus, LG ZPM :-)-->
+
+## Weiterführende Dokumentation
+
+[Anfängerfreundliche Glossaries-Doku](https://ctan.mirror.norbert-ruehl.de/macros/latex/contrib/glossaries/glossariesbegin.pdf)
+
+[Glossaries CTAN-Seite](https://www.ctan.org/pkg/glossaries)
 
 # Anlagenverzeichnis
 
@@ -451,7 +458,7 @@ Das ist besonders für Code-Beispiele für den Anhang praktisch.
 
 ***
 
-Bei Proxy-Problemen mit pip, kann auch das `Pygments.whl` file runtergeladen und dann mit pip installiert werden.
+Bei Proxy-Problemen mit pip, kann auch die `Pygments.whl` Datei heruntergeladen und dann mit pip installiert werden.
 [Pygments Download](https://pypi.org/project/Pygments/#files)
 
 # Spezielle Abschnitte
