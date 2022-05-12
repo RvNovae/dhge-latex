@@ -133,12 +133,14 @@
     \ifnum\totvalue{figCount}>0
         \addcontentsline{toc}{section}{\listfigurename}
         \listoffigures
+        \cleardoublepage
     \fi
 }
 \newcommand{\conditionalLoT}{
     \ifnum\totvalue{tabCount}>0
         \addcontentsline{toc}{section}{\listtablename}
         \listoftables
+        \cleardoublepage
     \fi
 }
 

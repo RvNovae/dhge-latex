@@ -74,7 +74,6 @@
     % ABBILDUNGSVERZEICHNIS
     \phantomsection
     \conditionalLoF
-    \cleardoublepage
 
     % TABELLENVERZEICHNIS
     \phantomsection
@@ -87,11 +86,8 @@
         \glsaddall
     \fi
 
-    \if\CHASGLO 1 % füge das Glossar nur hinzu, wenn die Option in config.tex gesetzt ist
-        \printnoidxglossaries
-        \cleardoublepage
-    \else \cleardoublepage % Glossaries fügt von selbst einen page break ein - nur notwendig, wenn KEIN Glossar
-    \fi
+    \begingroup\let\newpage\relax\printnoidxglossaries\endgroup % Glossaries die leere Seite vor dem Glossar austreiben, wegen LoF, LoT
+    \cleardoublepage
 
     \setcounter{savepage}{\arabic{page}}
 

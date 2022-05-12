@@ -38,6 +38,8 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - [Probleme im Kusche Mode](#probleme-im-kusche-mode)
 - [Abstract](#abstract)
 - [Absatztrenner](#absatztrenner)
+- [Troubleshooting](#troubleshooting)
+  - [Glossaries](#glossaries)
 
 # Installation
 
@@ -507,3 +509,12 @@ Der LaTeX Standard sind Einrückungen, Abstände sind aus beliebten WYSIWYG-Edit
 An der Studienrichtung Technik der DHGE werden Abstände in Arbeiten bevorzugt, weshalb das die Voreinstellung des Templates ist.
 
 Wenn Einrückungen bevorzugt werden, kann das in der ``config.tex`` geändert werden, indem der ``CEINR``-Schalter auf ``1`` gesetzt wird.
+
+# Troubleshooting
+
+## Glossaries
+
+- Symptom: das Glossar ist leer
+  - Prüfen Sie, ob Sie mit ``\gls`` auf mindestens ein Glossar-Eintrag verweisen oder ``CALLGLO`` in ``config.tex`` auf ``1`` gesetzt haben
+  - Wenn Sie kein ``latexmk`` verwenden, müssen Sie ggf. zwei mal kompilieren
+  - entfernen Sie den Projekt-Cache (``template.aux``, ``template.bbl``, ``template.bcf``, ``template.blg``, ...) und kompilieren Sie erneut (ggf. zwei mal)
