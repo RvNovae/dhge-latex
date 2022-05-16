@@ -264,14 +264,14 @@ welches einen Überblick über Bilder und ihre Optionen wie z.B. Positionierung 
 ## dhge-latex Abbildungen
 
 ```latex
-\dhgefigure[1]{2}{3}{4}{5}[6][7]
+\dhgefigure[1]{2}[3]{4}{5}[6][7]
 ```
 
 kann mit bis zu sechs Argumenten aufgerufen werden:
 
 1. **Optional** Float Position, standardmäßig `tbp`
 2. Relativer Bild-Pfad mit oder ohne Dateiendung (relativ zum `./assets/img` Ordner, kann in `template.tex` angepasst werden)
-3. `\includegraphics` Optionen (leer lassen für Standard)
+3. `\includegraphics` Optionen (weglassen für Standard (Breite = Textbreite))
 4. Bildunterschrift
 5. Label für die Figure/Grafik
 6. **Optional:** ID
@@ -280,7 +280,10 @@ kann mit bis zu sechs Argumenten aufgerufen werden:
 Beispiel:
 
 ```latex
-\dhgefigure[h]{mapi_outgoing_illustration}{scale=0.75}{Absenden einer MAPI Nachricht}{fig:mapi}[mapi][S. 17ff]
+% allen Optionen (optionale Optionen können sowohl `[]` als auch `{}` sein (hier `[]`), required müssen `{}` sein)
+\dhgefigure[h]{mapi_outgoing_illustration}[scale=0.75]{Absenden einer MAPI Nachricht}{fig:mapi}[mapi][S. 17ff]
+% nur notwendige Optionen
+\dhgefigure{mapi_outgoing_illustration}{Absenden einer MAPI Nachricht}{fig:mapi}
 ```
 
 ***
