@@ -528,6 +528,6 @@ Wenn Einrückungen bevorzugt werden, kann das in der ``config.tex`` geändert we
 ## Glossaries
 
 - Symptom: das Glossar ist leer
-  - Prüfen Sie, ob Sie mit ``\gls`` auf mindestens ein Glossar-Eintrag verweisen oder ``CALLGLO`` in ``config.tex`` auf ``1`` gesetzt haben
+  - Prüfen Sie, ob Sie mit ``\gls`` auf mindestens ein Glossar-Eintrag verweisen
   - Wenn Sie kein ``latexmk`` verwenden, müssen Sie ggf. zwei mal kompilieren
   - entfernen Sie den Projekt-Cache (``template.aux``, ``template.bbl``, ``template.bcf``, ``template.blg``, ...) und kompilieren Sie erneut (ggf. zwei mal)
