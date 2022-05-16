@@ -9,15 +9,6 @@
     "Abkürzung": {
         "prefix": ["abk", "dhgeabk"], // auf welchem namen der snippet auffindbar ist
         "scope": "latex,tex", // welche files der snippet betreffen soll
-        "body": ["\\newacronym{${1:abk-id}}",
-                "    {${2:abk}}",
-                "    {${3:non_abk}}"
-        ], // einzufügender snippet
-        "description": "Insert \\newacronym" // beschreibung
-    },
-    "Abkürzung - singleline": {
-        "prefix": ["singleabk", "singledhgeabk"], // auf welchem namen der snippet auffindbar ist
-        "scope": "latex,tex", // welche files der snippet betreffen soll
         "body": ["\\newacronym{${1:abk-id}}{{${2:abk}}{${3:non_abk}}}"
         ], // einzufügender snippet
         "description": "Insert singleline \\DeclareAcronym" // beschreibung
@@ -25,7 +16,7 @@
         "Glossar": {
         "prefix": ["gls", "dhgegls"], // auf welchem namen der snippet auffindbar ist
         "scope": "latex,tex", // welche files der snippet betreffen soll
-        "body": ["\\newglossaryentry{${1:gls-id}}{name=${2:name}}{description=${3:desc}}"
+        "body": ["\\newglossaryentry{${1:gls-id}}{name={${2:name}}}{description={${3:desc}}}"
         ], // einzufügender snippet
         "description": "Insert \\newglossaryentry" // beschreibung
     },

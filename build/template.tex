@@ -39,7 +39,6 @@
 \author{}
 \date{}
 
-
 \begin{document}
 \pagenumbering{gobble}
     % lade Deckblatt ohne Nummerierung
@@ -79,15 +78,10 @@
     \phantomsection
     \conditionalLoT
 
-    % Hinweis: wenn sowohl Tabellenverzeichnis als auch Abbildungsverzeichnis leer sind, ist eine leere Seite vor dem Glossar
-    % in dem Falle bitte eine \cleardoublepage oben löschen
-
-    \if\CALLGLO 1 % alle Glossar-Einträge unbedingt erzeugen
-        \glsaddall
+    \if\CKUSCHE 0
+        \printnoidxglossary[title={Abkürzungsverzeichnis}]
+        \cleardoublepage
     \fi
-
-    \begingroup\let\newpage\relax\printnoidxglossaries\endgroup % Glossaries die leere Seite vor dem Glossar austreiben, wegen LoF, LoT
-    \cleardoublepage
 
     \setcounter{savepage}{\arabic{page}}
 
@@ -145,15 +139,19 @@
     \input{anlagen.tex}
     \cleardoublepage
 
-    % Im Kusche-Mode kommt das LiteraturVZ zuletzt
     \if\CKUSCHE 1
+        % Im Kusche Mode kommt das Glossar erst hier unten
+        \printnoidxglossary
+        \cleardoublepage
+
+        % Im Kusche-Mode kommt das LiteraturVZ zuletzt
         \ifnum\thetotalbibentries>0
             \printbibliography[title=Literaturverzeichnis]
             \addcontentsline{toc}{section}{Literaturverzeichnis}
             \cleardoublepage
         \fi
     \fi
-    
+
     % Einrückung und Abstand unabhängig von config.tex setzen: Ehrenwort und Freigabe korrekt formatiert
     \setlength{\parskip}{6pt}
     \setlength{\parindent}{0cm}
