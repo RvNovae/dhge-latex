@@ -347,7 +347,7 @@ An einem Beispiel:
 Die Pluralform lässt sich mit
 
 ```latex
-\glspl{3}
+\glspl{key}
 ```
 
 aufrufen.
@@ -355,7 +355,7 @@ Ebenso kann der erste Buchstabe einer Abkürzung groß geschrieben werden (wenn 
 Das ist kombinierbar mit ``\glspl{key}``, also:
 
 ```latex
-\Glspl{3}
+\Glspl{key}
 ```
 
 Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu zwei Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.

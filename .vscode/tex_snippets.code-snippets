@@ -25,9 +25,7 @@
         "Glossar": {
         "prefix": ["gls", "dhgegls"], // auf welchem namen der snippet auffindbar ist
         "scope": "latex,tex", // welche files der snippet betreffen soll
-        "body": ["\\newglossaryentry{${1:gls-id}}",
-                "    {${2:name}}",
-                "    {${3:desc}}"
+        "body": ["\\newglossaryentry{${1:gls-id}}{name=${2:name}}{description=${3:desc}}"
         ], // einzufügender snippet
         "description": "Insert \\newglossaryentry" // beschreibung
     },
