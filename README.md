@@ -29,6 +29,7 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Abkürzungen und Glossar-Einträge](#abkürzungen-und-glossar-einträge)
   - [Abkürzungen](#abkürzungen)
   - [Glossar-Einträge](#glossar-einträge)
+    - [Ganzes Glossar forcieren](#ganzes-glossar-forcieren)
   - [Weiterführende Dokumentation](#weiterführende-dokumentation)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
   - [Verwendung](#verwendung)
@@ -294,6 +295,11 @@ Der `dhgefigure` Befehl wird nun auch als Snippet für Visual-Studio-Code mitgel
 
 # Abkürzungen und Glossar-Einträge
 
+Das Template verwendet das Paket ``glossaries``.
+Entsprechend der Empfehlungen der DHGE im Bereich Technik/Gera wird ein Abschnitt namens "Abkürzungsverzeichnis" generiert, was allerdings auch wie ein volles Glossar verwendet werden kann.
+
+Für Arbeiten, die von Prof. Dr. Kusche betreut werden, heißt der Abschnitt "Glossar", siehe [Kusche Mode](#kusche-mode)
+
 ## Abkürzungen
 
 ```latex
@@ -404,13 +410,20 @@ Im Fließtext wird dann referenziert:
 Eine entsprechende Fehlermeldung war \gls{gls:ereignisanzeige} zu sehen.
 [...]
 ```
-<!--ja ich weiß doch auch nicht, denk dir was besseres aus, LG ZPM :-)-->
+
+### Ganzes Glossar forcieren
+
+Es ist möglich, alle Glossar-Einträge eintragen zu lassen, unabhängig davon, ob sie referenziert wurden oder nicht.
+Nach einer ausführlichen Diskussion [hier](https://github.com/RvNovae/dhge-latex/pull/134) wurde sich dafür entschieden, diese Option nicht in das Template aufzunehmen und stattdessen lediglich zu dokumentieren.
+Unter anderem deswegen, weil es den Empfehlungen der DHGE im Bereich Technik/Gera widerspricht.
+
+Um das oben beschriebene Verhalten dennoch zu verwenden, ist es notwendig, den Befehl ``\glsaddall`` oberhalb von ``\begin{document}``, aber unterhalb von ``\input{abk.tex}`` im Template zu platzieren.
+Andernfalls erhält das Glossar einen ungewollten Seitenumbruch.
 
 ## Weiterführende Dokumentation
 
-[Anfängerfreundliche Glossaries-Doku](https://ctan.mirror.norbert-ruehl.de/macros/latex/contrib/glossaries/glossariesbegin.pdf)
-
-[Glossaries CTAN-Seite](https://www.ctan.org/pkg/glossaries)
+- [Anfängerfreundliche Glossaries-Doku](https://ctan.mirror.norbert-ruehl.de/macros/latex/contrib/glossaries/glossariesbegin.pdf)
+- [Glossaries CTAN-Seite](https://www.ctan.org/pkg/glossaries)
 
 # Anlagenverzeichnis
 
@@ -500,6 +513,10 @@ Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf
 - Serifen-Font 12pt (Times New Roman geht, ist aber "langweilig")
 - Literaturverzeichnis erscheint zuletzt
 - es gibt kein Anlagenverzeichnis, dafür werden Anlagen im Inhaltsverzeichnis gelistet
+
+Weiterhin wird das Erstellen eines Glossars nahegelegt, in dem Fachbegriffe erklärt werden.
+Da das unabhängig vom Kusche-Mode bereits möglich ist, wird lediglich das "Abkürzungsverzeichnis" in "Glossar" umbenannt.
+Der wesentliche Unterschied ist natürlich, dass wie im Kapitel [Glossar](#abkürzungen-und-glossar-einträge) nicht nur Abkürzungen, sondern auch Glossar-Einträge erstellt werden sollten.
 
 ## Probleme im Kusche Mode
 
