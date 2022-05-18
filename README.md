@@ -168,7 +168,7 @@ Wer diese Fonts **nicht** verwenden möchte, kann in ``config.tex`` ``CFANCYFONT
 Dafür wird der `footcite` Befehl genutzt. Dieser besitzt folgende Syntax:
 
 ```latex
-\footcite[Postnote]{literatur_id}
+\footcite[Postnote]{<literatur_id>}
 ```
 
 Beispiel:
@@ -182,7 +182,7 @@ Beispiel:
 Alternativ kann nun auch der `supercite` Befehl verwendet werden:
 
 ```latex
-\supercite[Postnote]{literatur_id}
+\supercite[Postnote]{<literatur_id>}
 ```
 
 Beispiel:
@@ -222,7 +222,7 @@ Mehrere Autoren können mit `and` verknüpft werden. Beispielsweise: `author={Fe
 Wird `\footcite` oder `\supercite` mit beiden optionalen Parametern aufgerufen, so ist die Syntax wie folgt:
 
 ```latex
-\footcite[Prenote][Postnote]{id}
+\footcite[Prenote][Postnote]{<id>}
 ```
 
 Beispiel:
@@ -303,12 +303,12 @@ Für Arbeiten, die von Prof. Dr. Kusche betreut werden, heißt der Abschnitt "Gl
 ## Abkürzungen
 
 ```latex
-\newacronym{key}{short}{long}
+\newacronym{<key>}{<short>}{<long>}
 ```
 
-1. ``key``: ID der Abkürzung, damit wird im Fließtext später referenziert.
-2. ``short``: Die Abkürzung selbst
-3. ``long``: Der ausgeschriebene Begriff
+1. ``<key>``: ID der Abkürzung, damit wird im Fließtext später referenziert.
+2. ``<short>``: Die Abkürzung selbst
+3. ``<long>``: Der ausgeschriebene Begriff
 
 Beispielweise:
 
@@ -353,15 +353,15 @@ An einem Beispiel:
 Die Pluralform lässt sich mit
 
 ```latex
-\glspl{key}
+\glspl{<key>}
 ```
 
 aufrufen.
-Ebenso kann der erste Buchstabe einer Abkürzung groß geschrieben werden (wenn er in der Abkürzung selbst klein geschrieben ist): ``\Gls{key}``.
-Das ist kombinierbar mit ``\glspl{key}``, also:
+Ebenso kann der erste Buchstabe einer Abkürzung groß geschrieben werden (wenn er in der Abkürzung selbst klein geschrieben ist): ``\Gls{<key>}``.
+Das ist kombinierbar mit ``\glspl{<key>}``, also:
 
 ```latex
-\Glspl{key}
+\Glspl{<key>}
 ```
 
 Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu zwei Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
@@ -374,7 +374,7 @@ Für mehr Informationen kann die [Glossaries Package Documentation](https://ctan
 
 ## Glossar-Einträge
 
-Glossar-Einträge verhalten sich ähnlich zu den eben vorgestellten Abkürzungen und werden ebenso mit ``\gls{key}`` oder möglichen Alternativ-Formen aufgerufen.
+Glossar-Einträge verhalten sich ähnlich zu den eben vorgestellten Abkürzungen und werden ebenso mit ``\gls{<key>}`` oder möglichen Alternativ-Formen aufgerufen.
 
 Glossar-Einträge werden im einfachsten Falle wie folgt angelegt:
 
@@ -389,7 +389,7 @@ Glossar-Einträge werden im einfachsten Falle wie folgt angelegt:
 2. Der Begriff, der im Glossar erklärt werden soll
 3. Die Erklärung des Begriffes
 
-Im Fließtext wird dann mit ``\gls{key}`` der Eintrag verknüpft, wobei der Begriff im Text erscheint.
+Im Fließtext wird dann mit ``\gls{<key>}`` der Eintrag verknüpft, wobei der Begriff im Text erscheint.
 
 Sollte die Beschreibung des Begriffs allerdings **länger** als die verbleibende **Seitenbreite** sein, muss der Eintrag mit ``\longnewglossaryentry`` angelegt werden.
 Von den Optionen ändert sich dabei nichts.
