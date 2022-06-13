@@ -26,7 +26,11 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
 - [Abbildungen](#abbildungen)
   - [LaTeX Abbildungen](#latex-abbildungen)
   - [dhge-latex Abbildungen](#dhge-latex-abbildungen)
-- [Abkürzungen](#abkürzungen)
+- [Abkürzungen und Glossar-Einträge](#abkürzungen-und-glossar-einträge)
+  - [Abkürzungen](#abkürzungen)
+  - [Glossar-Einträge](#glossar-einträge)
+    - [Ganzes Glossar forcieren](#ganzes-glossar-forcieren)
+  - [Weiterführende Dokumentation](#weiterführende-dokumentation)
 - [Anlagenverzeichnis](#anlagenverzeichnis)
   - [Verwendung](#verwendung)
     - [Longfigure](#longfigure)
@@ -38,6 +42,8 @@ Inoffizielles LaTeX-Template für Projektarbeiten für Technik-Studiengänge an 
   - [Probleme im Kusche Mode](#probleme-im-kusche-mode)
 - [Abstract](#abstract)
 - [Absatztrenner](#absatztrenner)
+- [Troubleshooting](#troubleshooting)
+  - [Glossaries](#glossaries)
 
 # Installation
 
@@ -162,7 +168,7 @@ Wer diese Fonts **nicht** verwenden möchte, kann in ``config.tex`` ``CFANCYFONT
 Dafür wird der `footcite` Befehl genutzt. Dieser besitzt folgende Syntax:
 
 ```latex
-\footcite[Postnote]{literatur_id}
+\footcite[Postnote]{<literatur_id>}
 ```
 
 Beispiel:
@@ -176,7 +182,7 @@ Beispiel:
 Alternativ kann nun auch der `supercite` Befehl verwendet werden:
 
 ```latex
-\supercite[Postnote]{literatur_id}
+\supercite[Postnote]{<literatur_id>}
 ```
 
 Beispiel:
@@ -216,7 +222,7 @@ Mehrere Autoren können mit `and` verknüpft werden. Beispielsweise: `author={Fe
 Wird `\footcite` oder `\supercite` mit beiden optionalen Parametern aufgerufen, so ist die Syntax wie folgt:
 
 ```latex
-\footcite[Prenote][Postnote]{id}
+\footcite[Prenote][Postnote]{<id>}
 ```
 
 Beispiel:
@@ -230,7 +236,7 @@ Beispiel:
 - Abbildungen werden durch das Template in `assets/img` gefunden.
   - `\includegraphics{<imgName>}` entspricht `\includegraphics{assets/img/<imgName>}`
   - anpassbar durch `\graphicspath {{<newImagePath>}}`
-    - **`<newImagePath>`** ist aus der sicht von `build/` zu sehen
+    - **`<newImagePath>`** ist aus der Sicht von `build/` zu sehen
     - `\graphicspath {{../assets/img/}}}`
 
 ## LaTeX Abbildungen
@@ -290,121 +296,137 @@ Beispiel:
 
 Der `dhgefigure` Befehl wird nun auch als Snippet für Visual-Studio-Code mitgeliefert.
 
-# Abkürzungen
+# Abkürzungen und Glossar-Einträge
+
+Das Template verwendet das Paket ``glossaries``.
+Entsprechend der Empfehlungen der DHGE im Bereich Technik/Gera wird ein Abschnitt namens "Abkürzungsverzeichnis" generiert, was allerdings auch wie ein volles Glossar verwendet werden kann.
+
+Für Arbeiten, die von Prof. Dr. Kusche betreut werden, heißt der Abschnitt "Glossar", siehe [Kusche Mode](#kusche-mode)
+
+## Abkürzungen
 
 ```latex
-\DeclareAcronym{1}{
-  short = {2},
-  long = {3}
-  }
+\newacronym{<key>}{<short>}{<long>}
 ```
 
-1. ID der Abkürzung, damit wird im Fließtext später referenziert.
-2. Die Abkürzung selbst
-3. Der ausgeschriebene Begriff
+1. ``<key>``: ID der Abkürzung, damit wird im Fließtext später referenziert.
+2. ``<short>``: Die Abkürzung selbst
+3. ``<long>``: Der ausgeschriebene Begriff
 
 Beispielweise:
 
 ```latex
-\DeclareAcronym{dhge}{
-  short = {DHGE},
-  long = {Duale Hochschule Gera-Eisenach}
-}
+\newacronym{ac:dhge}{DHGE}{Duale Hochschule Gera-Eisenach}
 ```
 
 Im Fließtext wird dann mit
 
 ```latex
-\ac{dhge}
+\gls{ac:dhge}
 ```
 
 die Abkürzung aufgerufen.
 Dies sind die Pflicht-Argumente. Es gibt weitere Einstellungsmöglichkeiten bei dem Deklarieren von Abkürzungen, die in der unten stehenden Dokumentation nachgelesen werden können. Eine sinnvolle Auswahl davon:
 
 ```latex
-\DeclareAcronym{1}{
-  short = {2},
-  long = {3},
-  short-plural = {4},
-  long-plural = {5},
-  alt = {8}
-  }
+\newacronym [
+  longplural={1},
+  shortplural={2}
+] {3}{4}{5}
 ```
 
-ODER
+1. Die ausgeschriebene Pluralform
+2. Die Pluralform der Abkürzung
+3. ID der Abkürzung, damit wird im Fließtext später referenziert
+4. Die Abkürzung selbst
+5. Der ausgeschriebene Begriff
+
+Die Optionen 1 und 2 sind optional.
+Beachten Sie jedoch, dass die Optionen mit einem Komma getrennt sind.
+
+An einem Beispiel:
 
 ```latex
-\DeclareAcronym{1}{
-  short = {2},
-  long = {3},
-  short-plural-form = {6},
-  long-plural-form = {7},
-  alt = {8}
-  }
+\newacronym [
+  longplural={Jacobi-Matrizen},
+  shortplural={JMs}
+] {ac:jm}{JM}{Jacobi-Matrix}
 ```
-
-1. ID der Abkürzung, damit wird im Fließtext später referenziert.
-2. Die Abkürzung selbst
-3. Der ausgeschriebene Begriff
-4. Buchstabe oder Silbe, die der Abkürzung im Plural angehangen wird
-5. Buchstabe oder Silbe, die dem ausgeschriebenen Wort im Plural angehangen wird
-6. Plural-Form der Abkürzung, ersetzt die Abkürzung komplett
-7. Plural-Form des Wortes, ersetzt das Wort komplett
-8. Alternative zum ausgeschriebenen Wort
-
-Die Angaben 4 bis 8 sind optional.
 
 Die Pluralform lässt sich mit
 
 ```latex
-\acp{1}
+\glspl{<key>}
 ```
 
-aufrufen, die Alternativform mit
+aufrufen.
+Ebenso kann der erste Buchstabe einer Abkürzung groß geschrieben werden (wenn er in der Abkürzung selbst klein geschrieben ist): ``\Gls{<key>}``.
+Das ist kombinierbar mit ``\glspl{<key>}``, also:
 
 ```latex
-\aca{1}
+\Glspl{<key>}
 ```
 
-Beispiel:
-
-```latex
-\DeclareAcronym{jpg}{
-  short = {JPEG},
-  long = {Joint Photographic Experts Group},
-  short-plural-form = {JPEGs},
-  long-plural-form = {Joint Photographic Experts Groups},
-  alt = {JPG}
-  }
-```
-
-ODER
-
-```latex
-\DeclareAcronym{jpg}{
-  short = {JPEG},
-  long = {Joint Photographic Experts Group},
-  short-plural = {s},
-  long-plural = {s},
-  alt = {JPG}
-  }
-```
-
-Aufruf:
-
-```latex
-\ac{jpg} % Normale Form
-\acp{jpg} % Plural-Form
-\aca{jpg} % Alternativ-Form
-```
-
-Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu vier Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
+Das Abkürzungsverzeichnis wird dann automatisch erstellt. Dabei ist zu beachten, dass unter Umständen bis zu zwei Kompilierungen notwendig sind, wenn eine Abkürzung hinzugefügt oder entfernt wurde, damit das Verzeichnis korrekt erstellt wird.
 
 ***
 
-Für das Erstellen von Abkürzungen wird nun auch ein Snippet für Visual-Studio-Code mitgeliefert: `abk` / `dhgeabk`.
+Für das Erstellen von Abkürzungen wird ein Snippet für Visual-Studio-Code mitgeliefert: `abk` / `dhgeabk`.
 
-Für mehr Informationen kann die [Acro Package Documentation](https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/acro/acro-manual.pdf) gelesen werden.
+Für mehr Informationen kann die [Glossaries Package Documentation](https://ctan.org/pkg/glossaries?lang=de) gelesen werden.
+
+## Glossar-Einträge
+
+Glossar-Einträge verhalten sich ähnlich zu den eben vorgestellten Abkürzungen und werden ebenso mit ``\gls{<key>}`` oder möglichen Alternativ-Formen aufgerufen.
+
+Glossar-Einträge werden im einfachsten Falle wie folgt angelegt:
+
+```latex
+\newglossaryentry{1}{
+  name={2},
+  description={3}
+}
+```
+
+1. ID des Eintrages, damit wird im Fließtext später referenziert
+2. Der Begriff, der im Glossar erklärt werden soll
+3. Die Erklärung des Begriffes
+
+Im Fließtext wird dann mit ``\gls{<key>}`` der Eintrag verknüpft, wobei der Begriff im Text erscheint.
+
+Sollte die Beschreibung des Begriffs allerdings **länger** als die verbleibende **Seitenbreite** sein, muss der Eintrag mit ``\longnewglossaryentry`` angelegt werden.
+Von den Optionen ändert sich dabei nichts.
+
+An einem Beispiel:
+
+```latex
+\newglossaryentry{gls:ereignisanzeige}{
+    name={Ereignisanzeige},
+    description={Zentrale Schnittstelle für Logs auf Microsoft Windows Systemen}
+}
+```
+
+Im Fließtext wird dann referenziert:
+
+```latex
+[...]
+Eine entsprechende Fehlermeldung war in der \gls{gls:ereignisanzeige} zu sehen.
+[...]
+```
+
+### Ganzes Glossar forcieren
+
+Es ist möglich, alle Glossar-Einträge eintragen zu lassen, unabhängig davon, ob sie referenziert wurden oder nicht.
+Nach einer ausführlichen Diskussion [hier](https://github.com/RvNovae/dhge-latex/pull/134) wurde sich dafür entschieden, diese Option nicht in das Template aufzunehmen und stattdessen lediglich zu dokumentieren.
+Unter anderem deswegen, weil es den Empfehlungen der DHGE im Bereich Technik/Gera widerspricht.
+
+Um das oben beschriebene Verhalten dennoch zu verwenden, ist es notwendig, den Befehl ``\glsaddall`` oberhalb von ``\begin{document}``, aber unterhalb von ``\input{abk.tex}`` im Template zu platzieren.
+Andernfalls erhält das Glossar einen ungewollten Seitenumbruch.
+
+## Weiterführende Dokumentation
+
+- [Anfängerfreundliche Glossaries-Doku](https://ctan.mirror.norbert-ruehl.de/macros/latex/contrib/glossaries/glossariesbegin.pdf)
+- [Glossaries CTAN-Seite](https://www.ctan.org/pkg/glossaries)
 
 # Anlagenverzeichnis
 
@@ -452,7 +474,7 @@ Das ist besonders für Code-Beispiele für den Anhang praktisch.
 
 ***
 
-Bei Proxy-Problemen mit pip, kann auch das `Pygments.whl` file runtergeladen und dann mit pip installiert werden.
+Bei Proxy-Problemen mit pip, kann auch die `Pygments.whl` Datei heruntergeladen und dann mit pip installiert werden.
 [Pygments Download](https://pypi.org/project/Pygments/#files)
 
 # Spezielle Abschnitte
@@ -495,6 +517,10 @@ Deshalb wurde der ``CKUSCHE``-Schalter in ``config.tex`` eingeführt: diesen auf
 - Literaturverzeichnis erscheint zuletzt
 - es gibt kein Anlagenverzeichnis, dafür werden Anlagen im Inhaltsverzeichnis gelistet
 
+Weiterhin wird das Erstellen eines Glossars nahegelegt, in dem Fachbegriffe erklärt werden.
+Da das unabhängig vom Kusche-Mode bereits möglich ist, wird lediglich das "Abkürzungsverzeichnis" in "Glossar" umbenannt.
+Der wesentliche Unterschied ist natürlich, dass wie im Kapitel [Glossar](#abkürzungen-und-glossar-einträge) nicht nur Abkürzungen, sondern auch Glossar-Einträge erstellt werden sollten.
+
 ## Probleme im Kusche Mode
 
 Leider gibt es Anforderungen von Prof. Dr. Kusche, die bislang nicht umgesetzt werden konnten.
@@ -516,3 +542,12 @@ Der LaTeX Standard sind Einrückungen, Abstände sind aus beliebten WYSIWYG-Edit
 An der Studienrichtung Technik der DHGE werden Abstände in Arbeiten bevorzugt, weshalb das die Voreinstellung des Templates ist.
 
 Wenn Einrückungen bevorzugt werden, kann das in der ``config.tex`` geändert werden, indem der ``CEINR``-Schalter auf ``1`` gesetzt wird.
+
+# Troubleshooting
+
+## Glossaries
+
+- Symptom: das Glossar ist leer
+  - Prüfen Sie, ob Sie mit ``\gls`` auf mindestens ein Glossar-Eintrag verweisen
+  - Wenn Sie kein ``latexmk`` verwenden, müssen Sie ggf. zwei mal kompilieren
+  - entfernen Sie den Projekt-Cache (``template.aux``, ``template.bbl``, ``template.bcf``, ``template.blg``, ...) und kompilieren Sie erneut (ggf. zwei mal)

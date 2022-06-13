@@ -1,9 +1,13 @@
-% Definieren Sie hier Ihre Abkürzungen anhand des DHGE Beispiels.
-% Wenn Sie DHGE dann im Text verwenden, rufen sie einfach \ac{dhge} auf.
+% Definieren Sie hier Ihre Abkürzungen und Glossar-Einträge anhand der Beispiele.
+% Wenn Sie diese dann im Text verwenden, rufen Sie einfach \gls{key} auf, z.B. \gls{ac:dhge}.
 % LaTeX kümmert sich um den Rest.
-% Für alles Weitere schauen Sie sich bitte die Dokumentation des Acro Packages an.
+% Alle Abkürzungen auch ohne Verweis darauf generieren ist in der README.md dokumentiert.
 
-\DeclareAcronym{dhge}{
-    short = {DHGE},
-    long = {Duale Hochschule Gera-Eisenach},
+% Eine ausführliche, anfängerfreundliche Dokumentation ist unter https://www.overleaf.com/learn/latex/Glossaries abrufbar.
+
+\newglossaryentry{gls:gloss}{
+    name={Glossar},
+    description={Ein Glossar ist eine Liste von Wörtern mit beigefügten Bedeutungserklärungen oder Übersetzungen. (Wikipedia)}
 }
+
+\newacronym[]{ac:dhge}{DHGE}{Duale Hochschule Gera-Eisenach}

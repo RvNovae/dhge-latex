@@ -21,10 +21,6 @@
 
 % DOCUMENT SETUP
 \onehalfspacing % 1.5 line spacing
-% TODO: sollte theoretisch keine Verwendung mehr haben
-% \widowpenalty10000
-% \clubpenalty10000
-
 
 % INHALTSVERZEICHNIS SETUP
 \renewcommand{\contentsname}{Inhaltsverzeichnis}
@@ -155,7 +151,7 @@
 \newlistof{anlagen}{alt}{\listanlageverzeichnis}
 
 % Befehl welcher ein Item dem Anlagenverzeichnis hinzufügt
-\newcommand{\addItemToAnlageverzeichnis}[1]{%
+\newcommand{\addItemToAnlageverzeichnis}[1]{
     \def\fig{fig}
     \def\tab{tab}
 
@@ -212,45 +208,10 @@
 }
 \makeatother
 
-
-% ACRO SETUP
-\acsetup{
-    list/heading = section*,
-    list/name = {Abkürzungsverzeichnis},
-    list/template = description,
-    make-links = true,
-    link-only-first = false
-}
-
-% Standard Abkürzungsverzeichnis überschreiben -> einheitliche Einrückung
-\RenewAcroTemplate[list]{description}{%
-    \acronymsmapT{%
-        \AcroAddRow{%
-            \textbf{\acrowrite{short}}%
-            &
-            \acrowrite{long}%
-            \acropages
-            {\acrotranslate{page}\nobreakspace}%
-            {\acrotranslate{pages}\nobreakspace}%
-            \vspace{10pt}
-            \tabularnewline
-        }%
-    }%
-    \acroheading
-    \acropreamble
-    \noindent
-    \begin{tabular}{@{}ll}
-        \AcronymTable
-    \end{tabular}
-}
-
-% AUTO REMOVE/INSERT Abkürzungsverzeichnis
-% Abkürzungsverzeichnis überschreibt \UseAcroTemplate für \ac
-% New Counter to count used acronyms:
-\newtotcounter{acro_num}
-\def\oldUseAcroTemplate{} \let\oldUseAcroTemplate=\UseAcroTemplate
-\def\UseAcroTemplate{\stepcounter{acro_num}\oldUseAcroTemplate}
-
+% Glossar Setup
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+\setlength{\glsdescwidth}{0.65\textwidth}
+\makenoidxglossaries
 
 % INDENTION SETUP
 % Abstände und Einrückungen abhängig von config.tex ein-/ausschalten
