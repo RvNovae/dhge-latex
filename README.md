@@ -410,7 +410,7 @@ Im Fließtext wird dann referenziert:
 
 ```latex
 [...]
-Eine entsprechende Fehlermeldung war \gls{gls:ereignisanzeige} zu sehen.
+Eine entsprechende Fehlermeldung war in der \gls{gls:ereignisanzeige} zu sehen.
 [...]
 ```
 
